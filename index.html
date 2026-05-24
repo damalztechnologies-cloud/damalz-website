@@ -1,16 +1,17 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <title>DAMALZ Tech | Managed IT & Infrastructure Solutions</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 
@@ -26,10 +27,10 @@ scroll-behavior:smooth;
 
 body{
 font-family:'Inter',sans-serif;
-background:#0b1120;
+background:#08111f;
 color:white;
-line-height:1.7;
 overflow-x:hidden;
+line-height:1.7;
 }
 
 /* BACKGROUND */
@@ -37,40 +38,42 @@ overflow-x:hidden;
 body::before{
 content:'';
 position:fixed;
-width:600px;
-height:600px;
-background:radial-gradient(circle, rgba(59,130,246,.12), transparent 70%);
-top:-200px;
-right:-200px;
+width:700px;
+height:700px;
+background:radial-gradient(circle,rgba(59,130,246,.18),transparent 70%);
+top:-300px;
+right:-250px;
 z-index:-1;
+filter:blur(50px);
 }
 
 body::after{
 content:'';
 position:fixed;
-width:500px;
-height:500px;
-background:radial-gradient(circle, rgba(6,182,212,.08), transparent 70%);
-bottom:-200px;
-left:-200px;
+width:600px;
+height:600px;
+background:radial-gradient(circle,rgba(6,182,212,.14),transparent 70%);
+bottom:-250px;
+left:-250px;
 z-index:-1;
+filter:blur(50px);
 }
 
 .container{
 width:90%;
-max-width:1250px;
+max-width:1280px;
 margin:auto;
 }
 
-/* NAVBAR */
+/* HEADER */
 
 header{
 position:fixed;
 top:0;
 width:100%;
 z-index:1000;
-background:rgba(11,17,32,.88);
-backdrop-filter:blur(12px);
+background:rgba(8,17,31,.82);
+backdrop-filter:blur(16px);
 border-bottom:1px solid rgba(255,255,255,.06);
 }
 
@@ -81,8 +84,13 @@ align-items:center;
 padding:18px 0;
 }
 
+/* LOGO */
+
 .logo{
-font-size:1.7rem;
+display:flex;
+align-items:center;
+gap:12px;
+font-size:1.5rem;
 font-weight:800;
 color:#38bdf8;
 }
@@ -91,21 +99,34 @@ color:#38bdf8;
 color:white;
 }
 
+.logo svg{
+filter:drop-shadow(0 0 14px rgba(56,189,248,.45));
+animation:pulse 3s infinite ease-in-out;
+}
+
+@keyframes pulse{
+0%,100%{transform:scale(1);}
+50%{transform:scale(1.05);}
+}
+
+/* NAV */
+
 .nav-links{
 display:flex;
-gap:28px;
 align-items:center;
+gap:24px;
 }
 
 .nav-links a,
 .dropdown-btn{
-color:#dbe4ee;
+color:#d8e3f0;
 text-decoration:none;
-font-weight:500;
-cursor:pointer;
 background:none;
 border:none;
 font-size:15px;
+font-weight:500;
+cursor:pointer;
+transition:.3s;
 }
 
 .nav-links a:hover,
@@ -120,22 +141,22 @@ position:relative;
 }
 
 .dropdown-content{
-display:none;
 position:absolute;
-top:45px;
+top:48px;
 left:0;
-background:#111827;
+background:#0f172a;
 min-width:260px;
-border-radius:16px;
 padding:14px;
-border:1px solid rgba(255,255,255,.06);
-box-shadow:0 20px 50px rgba(0,0,0,.35);
+border-radius:18px;
+border:1px solid rgba(255,255,255,.08);
+display:none;
+box-shadow:0 25px 50px rgba(0,0,0,.35);
 }
 
 .dropdown-content a{
 display:block;
 padding:12px;
-border-radius:10px;
+border-radius:12px;
 font-size:14px;
 }
 
@@ -150,41 +171,44 @@ display:block;
 /* HERO */
 
 .hero{
-padding-top:170px;
+padding-top:180px;
 padding-bottom:120px;
+position:relative;
 }
 
 .hero-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
 gap:50px;
 align-items:center;
 }
 
 .hero h1{
-font-size:clamp(3rem,6vw,5rem);
-line-height:1.05;
+font-size:clamp(3rem,6vw,5.5rem);
+line-height:1;
+font-weight:900;
 margin-bottom:24px;
-font-weight:800;
 }
 
 .hero h1 span{
-color:#38bdf8;
+background:linear-gradient(135deg,#38bdf8,#06b6d4);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
 .hero p{
-color:#b6c2d1;
-font-size:1.08rem;
-max-width:680px;
-margin-bottom:35px;
+font-size:1.1rem;
+color:#b5c3d4;
+max-width:700px;
+margin-bottom:34px;
 }
 
-/* BUTTON */
+/* BUTTONS */
 
 .btn{
 display:inline-block;
-padding:15px 28px;
-border-radius:14px;
+padding:16px 30px;
+border-radius:16px;
 text-decoration:none;
 font-weight:700;
 transition:.3s;
@@ -193,35 +217,41 @@ transition:.3s;
 .btn-primary{
 background:linear-gradient(135deg,#2563eb,#0891b2);
 color:white;
-box-shadow:0 10px 30px rgba(37,99,235,.25);
+box-shadow:
+0 10px 30px rgba(37,99,235,.35),
+0 0 20px rgba(56,189,248,.15);
 }
 
 .btn-primary:hover{
-transform:translateY(-3px);
+transform:translateY(-4px);
+box-shadow:
+0 18px 45px rgba(37,99,235,.45),
+0 0 30px rgba(56,189,248,.25);
 }
 
 /* GLASS */
 
 .glass{
 background:rgba(255,255,255,.04);
-border:1px solid rgba(255,255,255,.06);
-border-radius:24px;
-backdrop-filter:blur(10px);
+border:1px solid rgba(255,255,255,.07);
+border-radius:26px;
+backdrop-filter:blur(14px);
 }
 
 /* HERO CARD */
 
 .hero-card{
-padding:35px;
+padding:38px;
+box-shadow:0 20px 50px rgba(0,0,0,.35);
 }
 
 .hero-card h3{
-margin-bottom:20px;
-font-size:1.4rem;
+font-size:1.5rem;
+margin-bottom:25px;
 }
 
 .hero-item{
-padding:16px 0;
+padding:18px 0;
 border-bottom:1px solid rgba(255,255,255,.06);
 }
 
@@ -231,28 +261,28 @@ border-bottom:none;
 
 .hero-item strong{
 display:block;
-margin-bottom:6px;
+margin-bottom:8px;
 color:#38bdf8;
 }
 
-/* SECTIONS */
+/* SECTION */
 
 section{
-padding:100px 0;
+padding:110px 0;
 }
 
 .section-title{
 text-align:center;
-margin-bottom:60px;
+margin-bottom:65px;
 }
 
 .section-title h2{
-font-size:2.8rem;
+font-size:3rem;
 margin-bottom:14px;
 }
 
 .section-title p{
-max-width:720px;
+max-width:760px;
 margin:auto;
 color:#94a3b8;
 }
@@ -262,68 +292,95 @@ color:#94a3b8;
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:26px;
+gap:28px;
 }
 
 /* CARDS */
 
 .card{
-padding:34px;
-transition:.3s;
 position:relative;
 overflow:hidden;
+padding:36px;
+transition:.35s;
+cursor:pointer;
 }
 
 .card:hover{
-transform:translateY(-6px);
+transform:translateY(-10px);
 border-color:rgba(56,189,248,.25);
-box-shadow:0 15px 40px rgba(0,0,0,.28);
+box-shadow:
+0 20px 60px rgba(0,0,0,.35),
+0 0 25px rgba(56,189,248,.12);
 }
 
 .card::before{
 content:'';
 position:absolute;
 top:0;
-left:-100%;
+left:-120%;
 width:100%;
 height:100%;
 background:linear-gradient(
 90deg,
 transparent,
-rgba(255,255,255,.03),
+rgba(255,255,255,.08),
 transparent
 );
-transition:.7s;
+transition:.8s;
 }
 
 .card:hover::before{
-left:100%;
+left:120%;
 }
 
-.icon{
-font-size:2.2rem;
-margin-bottom:18px;
+.icon-wrap{
+width:70px;
+height:70px;
+border-radius:18px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:2rem;
+margin-bottom:22px;
+background:linear-gradient(135deg,
+rgba(37,99,235,.25),
+rgba(6,182,212,.15));
+border:1px solid rgba(255,255,255,.08);
+box-shadow:0 0 25px rgba(56,189,248,.12);
 }
 
 .card h3{
+font-size:1.35rem;
 margin-bottom:14px;
-font-size:1.3rem;
 }
 
 .card p{
-color:#b8c5d3;
+color:#b6c2d1;
+}
+
+/* SERVICE LIST */
+
+.service-list{
+margin-top:18px;
+padding-left:18px;
+color:#8ea4bd;
+font-size:.95rem;
+}
+
+.service-list li{
+margin-bottom:8px;
 }
 
 /* ABOUT */
 
 .about-box{
-padding:45px;
-max-width:950px;
+padding:50px;
+max-width:1000px;
 margin:auto;
 }
 
 .about-box p{
-margin-bottom:22px;
+margin-bottom:24px;
 color:#b8c5d3;
 }
 
@@ -331,16 +388,17 @@ color:#b8c5d3;
 
 .contact-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
 }
 
 .contact-card{
-padding:35px;
+padding:38px;
 }
 
 .contact-card h3{
 margin-bottom:16px;
+font-size:1.4rem;
 }
 
 .contact-card p{
@@ -348,13 +406,74 @@ color:#b8c5d3;
 margin-bottom:20px;
 }
 
+/* FORM */
+
+.contact-form{
+display:flex;
+flex-direction:column;
+gap:16px;
+margin-top:20px;
+}
+
+.contact-form input,
+.contact-form textarea{
+width:100%;
+padding:16px;
+border:none;
+border-radius:14px;
+background:rgba(255,255,255,.05);
+color:white;
+font-family:'Inter',sans-serif;
+border:1px solid rgba(255,255,255,.06);
+outline:none;
+}
+
+.contact-form textarea{
+min-height:140px;
+resize:vertical;
+}
+
+.contact-form button{
+border:none;
+cursor:pointer;
+}
+
 /* FOOTER */
 
 footer{
-padding:45px 0;
-text-align:center;
-color:#94a3b8;
+padding:60px 0;
 border-top:1px solid rgba(255,255,255,.06);
+background:#070d18;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:40px;
+margin-bottom:40px;
+}
+
+.footer-title{
+font-size:1.2rem;
+margin-bottom:18px;
+}
+
+.footer-links a{
+display:block;
+margin-bottom:12px;
+color:#9db0c5;
+text-decoration:none;
+}
+
+.footer-links a:hover{
+color:#38bdf8;
+}
+
+.footer-bottom{
+padding-top:30px;
+border-top:1px solid rgba(255,255,255,.06);
+text-align:center;
+color:#7d8da1;
 }
 
 /* MOBILE */
@@ -370,7 +489,7 @@ text-align:center;
 }
 
 .section-title h2{
-font-size:2.2rem;
+font-size:2.3rem;
 }
 
 }
@@ -384,10 +503,22 @@ font-size:2.2rem;
 
 <div class="container navbar">
 
+<!-- LOGO -->
 <div class="logo">
+
+<svg width="38" height="38" viewBox="0 0 24 24" fill="none">
+<path d="M12 2L3 6V12C3 16.5 6.2 20.7 12 22C17.8 20.7 21 16.5 21 12V6L12 2Z"
+stroke="#38bdf8"
+stroke-width="1.8"
+fill="rgba(56,189,248,.08)"/>
+<circle cx="12" cy="12" r="2.3" fill="#38bdf8"/>
+</svg>
+
 DAMALZ <span>Tech</span>
+
 </div>
 
+<!-- NAV -->
 <nav class="nav-links">
 
 <a href="#home">Home</a>
@@ -399,11 +530,13 @@ Services ▾
 </button>
 
 <div class="dropdown-content">
+
 <a href="#services">Managed IT Services</a>
-<a href="#services">Cloud Infrastructure</a>
-<a href="#services">Cybersecurity</a>
-<a href="#services">Network Engineering</a>
-<a href="#services">Monitoring Solutions</a>
+<a href="#infrastructure">Infrastructure Deployment</a>
+<a href="#security">Cybersecurity</a>
+<a href="#wifi">Wireless Engineering</a>
+<a href="#monitoring">Monitoring Solutions</a>
+
 </div>
 
 </div>
@@ -415,15 +548,17 @@ Solutions ▾
 </button>
 
 <div class="dropdown-content">
-<a href="#wifi">WiFi Engineering</a>
-<a href="#monitoring">Infrastructure Monitoring</a>
-<a href="#about">Enterprise Support</a>
+
+<a href="#datacenter">Datacenter Solutions</a>
+<a href="#cabling">Cable & Rack Installation</a>
+<a href="#camera">Security Camera Systems</a>
+<a href="#about">Business Support</a>
+
 </div>
 
 </div>
 
 <a href="#about">About Us</a>
-
 <a href="#contact">Contact</a>
 
 </nav>
@@ -447,17 +582,10 @@ Solutions
 </h1>
 
 <p>
-DAMALZ Technologies LLC provides managed IT services,
-enterprise infrastructure support,
-cloud operations,
-cybersecurity,
-wireless engineering,
-and monitoring solutions for modern businesses and growing organizations.
+DAMALZ Technologies LLC delivers managed IT services, cloud infrastructure, networking, datacenter deployments, wireless engineering, infrastructure monitoring, and cybersecurity solutions for modern businesses and enterprise environments.
 </p>
 
-<a
-href="mailto:info@damalztech.com?subject=Consultation Request"
-class="btn btn-primary">
+<a href="#contact" class="btn btn-primary">
 Request Consultation
 </a>
 
@@ -469,22 +597,22 @@ Request Consultation
 
 <div class="hero-item">
 <strong>Managed IT Services</strong>
-Operational support, monitoring, maintenance, and infrastructure management.
+Monitoring, maintenance, operational support, remote management, and infrastructure lifecycle management.
 </div>
 
 <div class="hero-item">
-<strong>Cloud & Infrastructure</strong>
-Hybrid cloud systems, virtualization, and scalable deployments.
+<strong>Infrastructure Design & Deployment</strong>
+Server installations, rack deployment, structured cabling, switching, firewalls, and wireless systems.
 </div>
 
 <div class="hero-item">
-<strong>Cybersecurity</strong>
-Network protection, access security, and infrastructure hardening.
+<strong>Cybersecurity & Monitoring</strong>
+Security hardening, endpoint protection, alerting systems, dashboards, and operational visibility.
 </div>
 
 <div class="hero-item">
-<strong>Wireless Engineering</strong>
-Ekahau WiFi surveys and enterprise wireless optimization.
+<strong>Enterprise Wireless Engineering</strong>
+Ekahau WiFi surveys, RF optimization, enterprise wireless planning, and coverage analysis.
 </div>
 
 </div>
@@ -501,13 +629,10 @@ Ekahau WiFi surveys and enterprise wireless optimization.
 
 <div class="section-title">
 
-<h2>Technology Services</h2>
+<h2>Managed Technology Services</h2>
 
 <p>
-Enterprise-focused IT services designed for reliability,
-security,
-performance,
-and operational visibility.
+Professional infrastructure and operational support services designed for modern businesses and growing environments.
 </p>
 
 </div>
@@ -515,51 +640,147 @@ and operational visibility.
 <div class="grid">
 
 <div class="glass card">
-<div class="icon">🖥️</div>
+
+<div class="icon-wrap">🖥️</div>
+
 <h3>Managed IT Services</h3>
+
 <p>
-Infrastructure support, monitoring, maintenance, remote management, and operational assistance.
+Operational IT support and infrastructure management for business continuity and stability.
 </p>
+
+<ul class="service-list">
+<li>24/7 infrastructure monitoring</li>
+<li>Remote support & troubleshooting</li>
+<li>System maintenance</li>
+<li>Endpoint administration</li>
+<li>Patch management</li>
+</ul>
+
 </div>
 
 <div class="glass card">
-<div class="icon">☁️</div>
+
+<div class="icon-wrap">☁️</div>
+
 <h3>Cloud Infrastructure</h3>
+
 <p>
-Cloud deployments, virtualization, hybrid environments, and scalable infrastructure solutions.
+Scalable cloud deployments and virtualization solutions for hybrid environments.
 </p>
+
+<ul class="service-list">
+<li>Microsoft 365 support</li>
+<li>Virtualization deployments</li>
+<li>Cloud migration planning</li>
+<li>Backup & recovery</li>
+<li>Hybrid cloud operations</li>
+</ul>
+
 </div>
 
-<div class="glass card">
-<div class="icon">🔐</div>
-<h3>Cybersecurity</h3>
+<div class="glass card" id="security">
+
+<div class="icon-wrap">🔐</div>
+
+<h3>Cybersecurity Solutions</h3>
+
 <p>
-Firewall configuration, endpoint protection, secure networking, and infrastructure hardening.
+Security-first infrastructure design and protection for modern enterprise environments.
 </p>
+
+<ul class="service-list">
+<li>Firewall deployments</li>
+<li>VPN configuration</li>
+<li>Endpoint protection</li>
+<li>Access security</li>
+<li>Security hardening</li>
+</ul>
+
 </div>
 
-<div class="glass card">
-<div class="icon">📡</div>
-<h3>Infrastructure Monitoring</h3>
-<p>
-Monitoring systems, operational visibility, alerting, uptime tracking, and analytics.
-</p>
 </div>
 
-<div class="glass card">
-<div class="icon">🌐</div>
-<h3>Network Engineering</h3>
-<p>
-Routing, switching, VLANs, VPNs, wireless networking, and enterprise connectivity.
-</p>
 </div>
 
-<div class="glass card">
-<div class="icon">⚙️</div>
-<h3>Automation & DevOps</h3>
+</section>
+
+<!-- INFRASTRUCTURE -->
+
+<section id="infrastructure">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>Infrastructure Design & Deployment</h2>
+
 <p>
-Infrastructure automation, deployment workflows, and operational optimization.
+Professional infrastructure installation and deployment services for businesses, offices, and datacenter environments.
 </p>
+
+</div>
+
+<div class="grid">
+
+<div class="glass card">
+
+<div class="icon-wrap">🗄️</div>
+
+<h3>Rack & Server Installation</h3>
+
+<p>
+Deployment and organization of enterprise hardware and datacenter equipment.
+</p>
+
+<ul class="service-list">
+<li>Rack installation</li>
+<li>Server mounting</li>
+<li>Cable management</li>
+<li>UPS deployment</li>
+<li>Switch installation</li>
+</ul>
+
+</div>
+
+<div class="glass card" id="cabling">
+
+<div class="icon-wrap">🔌</div>
+
+<h3>Structured Cabling</h3>
+
+<p>
+Professional network cabling and connectivity solutions for modern environments.
+</p>
+
+<ul class="service-list">
+<li>Cat6/Cat6A cabling</li>
+<li>Patch panel installation</li>
+<li>Fiber connectivity</li>
+<li>Network labeling</li>
+<li>Office wiring deployment</li>
+</ul>
+
+</div>
+
+<div class="glass card" id="datacenter">
+
+<div class="icon-wrap">🌐</div>
+
+<h3>Network Infrastructure</h3>
+
+<p>
+Enterprise-grade routing, switching, and wireless infrastructure deployments.
+</p>
+
+<ul class="service-list">
+<li>Switch configuration</li>
+<li>Firewall implementation</li>
+<li>VLAN deployments</li>
+<li>Wireless networks</li>
+<li>VPN connectivity</li>
+</ul>
+
 </div>
 
 </div>
@@ -576,12 +797,10 @@ Infrastructure automation, deployment workflows, and operational optimization.
 
 <div class="section-title">
 
-<h2>WiFi Engineering & Ekahau Services</h2>
+<h2>Wireless Engineering & WiFi Solutions</h2>
 
 <p>
-Wireless surveys, RF optimization,
-coverage analysis,
-and enterprise WiFi design solutions.
+Enterprise wireless design, optimization, and professional Ekahau survey services.
 </p>
 
 </div>
@@ -589,27 +808,39 @@ and enterprise WiFi design solutions.
 <div class="grid">
 
 <div class="glass card">
-<div class="icon">📶</div>
+
+<div class="icon-wrap">📶</div>
+
 <h3>Ekahau Site Surveys</h3>
+
 <p>
-Professional wireless heatmaps, RF analysis, and signal optimization.
+Wireless heatmaps, RF analysis, signal validation, and optimization services.
 </p>
+
 </div>
 
 <div class="glass card">
-<div class="icon">🏢</div>
-<h3>Enterprise Wireless Design</h3>
+
+<div class="icon-wrap">🏢</div>
+
+<h3>Enterprise WiFi Design</h3>
+
 <p>
-Office, warehouse, and enterprise-grade wireless architecture planning.
+Office, warehouse, hospitality, and enterprise wireless deployments.
 </p>
+
 </div>
 
-<div class="glass card">
-<div class="icon">🏠</div>
-<h3>Home Network Security</h3>
+<div class="glass card" id="camera">
+
+<div class="icon-wrap">📹</div>
+
+<h3>Security Camera Systems</h3>
+
 <p>
-Secure and modernize home networks using enterprise-focused best practices.
+Business surveillance systems, camera installation, and monitoring infrastructure.
 </p>
+
 </div>
 
 </div>
@@ -629,7 +860,7 @@ Secure and modernize home networks using enterprise-focused best practices.
 <h2>Infrastructure Monitoring</h2>
 
 <p>
-Operational visibility and monitoring solutions for modern environments.
+Operational visibility and proactive monitoring for critical business environments.
 </p>
 
 </div>
@@ -637,27 +868,39 @@ Operational visibility and monitoring solutions for modern environments.
 <div class="grid">
 
 <div class="glass card">
-<div class="icon">📊</div>
+
+<div class="icon-wrap">📊</div>
+
 <h3>Operational Dashboards</h3>
+
 <p>
-Centralized monitoring visibility for systems, infrastructure, and network operations.
+Centralized dashboards and infrastructure monitoring visibility platforms.
 </p>
+
 </div>
 
 <div class="glass card">
-<div class="icon">🚨</div>
+
+<div class="icon-wrap">🚨</div>
+
 <h3>Alerting Systems</h3>
+
 <p>
-Real-time notifications and monitoring alerts for infrastructure health.
+Real-time notifications and automated infrastructure health monitoring.
 </p>
+
 </div>
 
 <div class="glass card">
-<div class="icon">📈</div>
+
+<div class="icon-wrap">📈</div>
+
 <h3>Performance Analytics</h3>
+
 <p>
-Capacity planning, infrastructure analytics, and operational reporting.
+Infrastructure analytics, uptime tracking, and operational reporting.
 </p>
+
 </div>
 
 </div>
@@ -677,7 +920,7 @@ Capacity planning, infrastructure analytics, and operational reporting.
 <h2>About DAMALZ Tech</h2>
 
 <p>
-Modern MSP and infrastructure solutions for growing businesses.
+Modern MSP and infrastructure services for growing businesses and enterprise environments.
 </p>
 
 </div>
@@ -685,15 +928,15 @@ Modern MSP and infrastructure solutions for growing businesses.
 <div class="glass about-box">
 
 <p>
-DAMALZ Technologies LLC is focused on delivering reliable and scalable technology solutions for businesses seeking modern IT support and infrastructure services.
+DAMALZ Technologies LLC focuses on delivering professional managed IT services, infrastructure support, networking solutions, monitoring systems, and wireless engineering for businesses seeking reliable technology operations.
 </p>
 
 <p>
-Our services include managed IT support, infrastructure monitoring, cybersecurity, networking, cloud solutions, and wireless engineering using professional Ekahau survey tools.
+Our services include infrastructure deployment, cable and rack installation, enterprise networking, cloud systems, security solutions, wireless optimization, monitoring platforms, and datacenter support.
 </p>
 
 <p>
-As a growing technology company, DAMALZ Tech is committed to helping organizations improve operational visibility, strengthen network security, and modernize infrastructure environments.
+DAMALZ Tech is committed to helping businesses modernize infrastructure environments, improve operational visibility, strengthen cybersecurity posture, and maintain reliable business connectivity.
 </p>
 
 </div>
@@ -713,9 +956,7 @@ As a growing technology company, DAMALZ Tech is committed to helping organizatio
 <h2>Contact DAMALZ Tech</h2>
 
 <p>
-Connect with us for consultations,
-technology support,
-and infrastructure services.
+Connect with us for consultations, infrastructure projects, support services, and technology solutions.
 </p>
 
 </div>
@@ -727,14 +968,24 @@ and infrastructure services.
 <h3>Consultation Requests</h3>
 
 <p>
-Open your email application to contact DAMALZ Tech directly.
+Reach out to DAMALZ Tech regarding infrastructure projects, managed IT services, networking, security, or wireless deployments.
 </p>
 
-<a
-href="mailto:info@damalztech.com?subject=Consultation Request"
-class="btn btn-primary">
-info@damalztech.com
-</a>
+<form class="contact-form">
+
+<input type="text" placeholder="Full Name">
+
+<input type="email" placeholder="Business Email">
+
+<input type="text" placeholder="Company Name">
+
+<textarea placeholder="Tell us about your project or infrastructure requirements..."></textarea>
+
+<button class="btn btn-primary">
+Submit Request
+</button>
+
+</form>
 
 </div>
 
@@ -743,10 +994,13 @@ info@damalztech.com
 <h3>Core Focus Areas</h3>
 
 <p>• Managed IT Services</p>
-<p>• Infrastructure Monitoring</p>
+<p>• Infrastructure Deployment</p>
+<p>• Cable & Rack Installation</p>
+<p>• Datacenter Support</p>
 <p>• Cloud & Networking</p>
+<p>• Wireless Engineering</p>
 <p>• Cybersecurity</p>
-<p>• WiFi Engineering</p>
+<p>• Security Cameras</p>
 
 </div>
 
@@ -755,10 +1009,16 @@ info@damalztech.com
 <h3>Business Technology Solutions</h3>
 
 <p>
-Helping businesses build secure,
-reliable,
-and scalable infrastructure environments.
+Helping businesses build secure, scalable, and professionally managed technology environments.
 </p>
+
+<p>
+Infrastructure • Networking • Wireless • Security • Monitoring • Support
+</p>
+
+<a href="mailto:info@damalztech.com" class="btn btn-primary">
+info@damalztech.com
+</a>
 
 </div>
 
@@ -768,13 +1028,69 @@ and scalable infrastructure environments.
 
 </section>
 
+<!-- FOOTER -->
+
 <footer>
 
 <div class="container">
 
-<p>
-© 2026 DAMALZ Technologies LLC • DAMALZ Tech
+<div class="footer-grid">
+
+<div>
+
+<div class="logo" style="margin-bottom:18px;">
+
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+<path d="M12 2L3 6V12C3 16.5 6.2 20.7 12 22C17.8 20.7 21 16.5 21 12V6L12 2Z"
+stroke="#38bdf8"
+stroke-width="1.8"
+fill="rgba(56,189,248,.08)"/>
+<circle cx="12" cy="12" r="2.3" fill="#38bdf8"/>
+</svg>
+
+DAMALZ <span>Tech</span>
+
+</div>
+
+<p style="color:#9db0c5;">
+Managed IT, infrastructure, networking, wireless engineering, and business technology solutions.
 </p>
+
+</div>
+
+<div>
+
+<h3 class="footer-title">Services</h3>
+
+<div class="footer-links">
+<a href="#services">Managed IT</a>
+<a href="#infrastructure">Infrastructure Deployment</a>
+<a href="#wifi">Wireless Engineering</a>
+<a href="#monitoring">Monitoring</a>
+</div>
+
+</div>
+
+<div>
+
+<h3 class="footer-title">Solutions</h3>
+
+<div class="footer-links">
+<a href="#security">Cybersecurity</a>
+<a href="#camera">Security Cameras</a>
+<a href="#datacenter">Datacenter Support</a>
+<a href="#contact">Consultation</a>
+</div>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+© 2026 DAMALZ Technologies LLC • DAMALZ Tech
+
+</div>
 
 </div>
 
@@ -782,28 +1098,50 @@ and scalable infrastructure environments.
 
 <script>
 
+/* DROPDOWN FIX */
+
 const dropdowns = document.querySelectorAll('.dropdown');
 
 dropdowns.forEach(dropdown => {
 
 const button = dropdown.querySelector('.dropdown-btn');
 
-button.addEventListener('click', () => {
+button.addEventListener('click', function(e){
 
+e.stopPropagation();
+
+/* CLOSE OTHER DROPDOWNS */
+dropdowns.forEach(d=>{
+if(d !== dropdown){
+d.classList.remove('active');
+}
+});
+
+/* TOGGLE CURRENT */
 dropdown.classList.toggle('active');
 
 });
 
 });
 
-window.addEventListener('click', function(e){
+/* CLOSE WHEN CLICK OUTSIDE */
 
-dropdowns.forEach(dropdown => {
+window.addEventListener('click', function(){
 
-if(!dropdown.contains(e.target)){
+dropdowns.forEach(dropdown=>{
 dropdown.classList.remove('active');
-}
+});
 
+});
+
+/* CLOSE DROPDOWN AFTER LINK CLICK */
+
+document.querySelectorAll('.dropdown-content a').forEach(link=>{
+
+link.addEventListener('click', ()=>{
+dropdowns.forEach(dropdown=>{
+dropdown.classList.remove('active');
+});
 });
 
 });
