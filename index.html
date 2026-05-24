@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DAMALZ Tech | Enterprise MSP & Infrastructure Solutions</title>
+
+<meta name="description"
+content="DAMALZ Technologies LLC provides enterprise MSP services, data center monitoring, cloud infrastructure, cybersecurity, networking, automation, and IT engineering solutions.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:#050816;
+color:white;
+overflow-x:hidden;
+}
+
+/* ---------- NAVBAR ---------- */
+
+header{
+position:fixed;
+top:0;
+width:100%;
+z-index:1000;
+background:rgba(5,8,22,.85);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.container{
+width:90%;
+max-width:1280px;
+margin:auto;
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 0;
+}
+
+.logo{
+font-size:1.7rem;
+font-weight:800;
+color:#4cc9f0;
+letter-spacing:1px;
+}
+
+.logo span{
+color:white;
+font-weight:600;
+}
+
+.nav-links{
+display:flex;
+align-items:center;
+gap:28px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:#d1d5db;
+font-weight:500;
+transition:.3s;
+}
+
+.nav-links a:hover{
+color:#4cc9f0;
+}
+
+/* Dropdown */
+
+.dropdown{
+position:relative;
+}
+
+.dropdown-menu{
+position:absolute;
+top:40px;
+left:0;
+background:#0f172a;
+padding:18px;
+border-radius:14px;
+display:none;
+flex-direction:column;
+min-width:240px;
+border:1px solid rgba(255,255,255,.08);
+box-shadow:0 20px 40px rgba(0,0,0,.4);
+}
+
+.dropdown-menu a{
+padding:10px 0;
+}
+
+.dropdown:hover .dropdown-menu{
+display:flex;
+}
+
+.btn{
+display:inline-block;
+padding:14px 28px;
+border-radius:12px;
+font-weight:700;
+text-decoration:none;
+transition:.3s;
+}
+
+.btn-primary{
+background:linear-gradient(135deg,#4361ee,#4cc9f0);
+color:white;
+box-shadow:0 10px 30px rgba(76,201,240,.25);
+}
+
+.btn-primary:hover{
+transform:translateY(-2px);
+}
+
+/* ---------- HERO ---------- */
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+padding-top:120px;
+position:relative;
+overflow:hidden;
+}
+
+.hero::before{
+content:'';
+position:absolute;
+width:700px;
+height:700px;
+background:radial-gradient(circle,rgba(67,97,238,.35),transparent 70%);
+top:-200px;
+right:-150px;
+}
+
+.hero-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:60px;
+align-items:center;
+}
+
+.hero h1{
+font-size:clamp(3rem,6vw,5.5rem);
+line-height:1.05;
+margin-bottom:25px;
+font-weight:800;
+}
+
+.hero h1 span{
+background:linear-gradient(135deg,#4cc9f0,#4361ee);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+font-size:1.15rem;
+line-height:1.8;
+color:#cbd5e1;
+margin-bottom:35px;
+max-width:700px;
+}
+
+.hero-buttons{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.btn-secondary{
+border:1px solid rgba(255,255,255,.15);
+color:white;
+}
+
+.btn-secondary:hover{
+background:rgba(255,255,255,.06);
+}
+
+.hero-panel{
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.08);
+padding:35px;
+border-radius:24px;
+backdrop-filter:blur(10px);
+box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+
+.hero-panel h3{
+margin-bottom:25px;
+font-size:1.5rem;
+}
+
+.panel-item{
+padding:16px 0;
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.panel-item:last-child{
+border-bottom:none;
+}
+
+.panel-item strong{
+display:block;
+margin-bottom:8px;
+color:#4cc9f0;
+}
+
+/* ---------- SECTION ---------- */
+
+section{
+padding:110px 0;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:70px;
+}
+
+.section-title h2{
+font-size:3rem;
+margin-bottom:15px;
+}
+
+.section-title p{
+max-width:760px;
+margin:auto;
+color:#94a3b8;
+line-height:1.8;
+}
+
+/* ---------- SERVICES ---------- */
+
+.services-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:28px;
+}
+
+.service-card{
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.08);
+border-radius:24px;
+padding:35px;
+transition:.3s;
+}
+
+.service-card:hover{
+transform:translateY(-8px);
+border-color:#4cc9f0;
+}
+
+.service-icon{
+font-size:2.2rem;
+margin-bottom:20px;
+}
+
+.service-card h3{
+margin-bottom:16px;
+font-size:1.4rem;
+}
+
+.service-card p{
+color:#cbd5e1;
+line-height:1.8;
+}
+
+/* ---------- INFRA ---------- */
+
+.infrastructure{
+background:linear-gradient(180deg,#0b1025,#050816);
+}
+
+.infra-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:28px;
+}
+
+.infra-box{
+background:rgba(255,255,255,.04);
+padding:32px;
+border-radius:22px;
+border:1px solid rgba(255,255,255,.08);
+}
+
+.infra-box h3{
+margin-bottom:20px;
+}
+
+.infra-box ul{
+padding-left:18px;
+color:#cbd5e1;
+line-height:2;
+}
+
+/* ---------- ABOUT ---------- */
+
+.about-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:60px;
+align-items:center;
+}
+
+.about-box{
+background:rgba(255,255,255,.04);
+padding:40px;
+border-radius:24px;
+border:1px solid rgba(255,255,255,.08);
+}
+
+.about-box p{
+line-height:1.9;
+color:#cbd5e1;
+margin-bottom:20px;
+}
+
+/* ---------- CTA ---------- */
+
+.cta{
+background:linear-gradient(135deg,#111827,#1e293b);
+padding:80px 40px;
+border-radius:30px;
+text-align:center;
+border:1px solid rgba(255,255,255,.08);
+}
+
+.cta h2{
+font-size:3rem;
+margin-bottom:20px;
+}
+
+.cta p{
+max-width:720px;
+margin:auto;
+color:#cbd5e1;
+line-height:1.8;
+margin-bottom:35px;
+}
+
+/* ---------- FOOTER ---------- */
+
+footer{
+padding:45px 0;
+border-top:1px solid rgba(255,255,255,.08);
+text-align:center;
+color:#94a3b8;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:950px){
+
+.nav-links{
+display:none;
+}
+
+.hero{
+text-align:center;
+}
+
+.hero-buttons{
+justify-content:center;
+}
+
+.section-title h2{
+font-size:2.2rem;
+}
+
+.cta h2{
+font-size:2.2rem;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="container navbar">
+
+<div class="logo">
+DAMALZ <span>Tech</span>
+</div>
+
+<nav class="nav-links">
+
+<a href="#home">Home</a>
+
+<div class="dropdown">
+<a href="#">Services ▾</a>
+
+<div class="dropdown-menu">
+<a href="#">Managed IT Services</a>
+<a href="#">Cloud Infrastructure</a>
+<a href="#">Data Center Monitoring</a>
+<a href="#">Cybersecurity</a>
+<a href="#">Networking</a>
+<a href="#">Automation & DevOps</a>
+</div>
+</div>
+
+<div class="dropdown">
+<a href="#">Infrastructure ▾</a>
+
+<div class="dropdown-menu">
+<a href="#">Servers & Storage</a>
+<a href="#">Virtualization</a>
+<a href="#">Hybrid Cloud</a>
+<a href="#">Monitoring Systems</a>
+<a href="#">Lab Environments</a>
+</div>
+</div>
+
+<a href="#about">About</a>
+
+<a href="#contact">Contact</a>
+
+</nav>
+
+</div>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+<div class="container hero-grid">
+
+<div>
+
+<h1>
+Enterprise MSP &
+<span>Infrastructure</span>
+Solutions
+</h1>
+
+<p>
+DAMALZ Technologies LLC delivers enterprise-grade managed IT services,
+data center monitoring, cloud operations, cybersecurity,
+network engineering, infrastructure automation,
+and advanced technology solutions built for modern businesses.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#contact" class="btn btn-primary">
+Schedule Consultation
+</a>
+
+<a href="#services" class="btn btn-secondary">
+Explore Services
+</a>
+
+</div>
+
+</div>
+
+<div class="hero-panel">
+
+<h3>Technology Operations Center</h3>
+
+<div class="panel-item">
+<strong>24/7 Infrastructure Monitoring</strong>
+Real-time monitoring and operational visibility across systems and networks.
+</div>
+
+<div class="panel-item">
+<strong>Enterprise MSP Services</strong>
+Proactive maintenance, support, patching, and remote management.
+</div>
+
+<div class="panel-item">
+<strong>Cloud & Virtualization</strong>
+Hybrid cloud infrastructure, virtualization platforms, and scalable systems.
+</div>
+
+<div class="panel-item">
+<strong>Cybersecurity Operations</strong>
+Security-first architecture, protection, compliance, and access control.
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section id="services">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>Enterprise Technology Services</h2>
+
+<p>
+Comprehensive enterprise IT infrastructure and MSP solutions
+focused on reliability, scalability, automation, and operational excellence.
+</p>
+
+</div>
+
+<div class="services-grid">
+
+<div class="service-card">
+<div class="service-icon">🖥️</div>
+
+<h3>Managed IT Services</h3>
+
+<p>
+Full-service MSP operations including support, maintenance,
+patch management, monitoring, and enterprise IT administration.
+</p>
+</div>
+
+<div class="service-card">
+<div class="service-icon">📡</div>
+
+<h3>Data Center Monitoring</h3>
+
+<p>
+Advanced monitoring systems, alerting platforms,
+uptime visibility, analytics, and infrastructure observability.
+</p>
+</div>
+
+<div class="service-card">
+<div class="service-icon">☁️</div>
+
+<h3>Cloud Engineering</h3>
+
+<p>
+Cloud migration, hybrid infrastructure,
+virtualization, scalable deployment architectures, and optimization.
+</p>
+</div>
+
+<div class="service-card">
+<div class="service-icon">🔐</div>
+
+<h3>Cybersecurity</h3>
+
+<p>
+Security operations, firewall management,
+endpoint protection, compliance, and access security.
+</p>
+</div>
+
+<div class="service-card">
+<div class="service-icon">🌐</div>
+
+<h3>Network Infrastructure</h3>
+
+<p>
+Enterprise networking, routing, switching,
+wireless systems, VPNs, VLANs, and connectivity engineering.
+</p>
+</div>
+
+<div class="service-card">
+<div class="service-icon">🧪</div>
+
+<h3>Lab & Testing Environments</h3>
+
+<p>
+Virtual labs, testing environments,
+proof-of-concept systems, and enterprise validation infrastructure.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- INFRASTRUCTURE -->
+
+<section class="infrastructure">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>Infrastructure & Operations</h2>
+
+<p>
+Designed for enterprise reliability, uptime,
+security, operational visibility, and performance optimization.
+</p>
+
+</div>
+
+<div class="infra-grid">
+
+<div class="infra-box">
+
+<h3>Infrastructure Monitoring</h3>
+
+<ul>
+<li>Real-time dashboards</li>
+<li>Server health analytics</li>
+<li>Automated alerting systems</li>
+<li>Performance monitoring</li>
+<li>Operational visibility</li>
+<li>Capacity planning</li>
+</ul>
+
+</div>
+
+<div class="infra-box">
+
+<h3>Enterprise Infrastructure</h3>
+
+<ul>
+<li>Virtualization platforms</li>
+<li>Storage systems</li>
+<li>Hybrid cloud deployments</li>
+<li>Backup & disaster recovery</li>
+<li>High availability architecture</li>
+<li>Server engineering</li>
+</ul>
+
+</div>
+
+<div class="infra-box">
+
+<h3>Automation & DevOps</h3>
+
+<ul>
+<li>Infrastructure automation</li>
+<li>CI/CD deployment pipelines</li>
+<li>Configuration management</li>
+<li>Cloud orchestration</li>
+<li>Workflow automation</li>
+<li>Operational optimization</li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="container about-grid">
+
+<div>
+
+<div class="section-title" style="text-align:left;margin-bottom:30px;">
+
+<h2>About DAMALZ Tech</h2>
+
+<p style="margin:0;">
+DAMALZ Technologies LLC is focused on modern enterprise technology,
+managed services, infrastructure engineering,
+and operational excellence for growing businesses.
+</p>
+
+</div>
+
+</div>
+
+<div class="about-box">
+
+<p>
+We provide scalable MSP and enterprise IT solutions designed to improve
+uptime, security, visibility, and business continuity.
+</p>
+
+<p>
+From data center monitoring and infrastructure engineering
+to cloud operations, cybersecurity, networking,
+and advanced lab environments,
+DAMALZ Tech delivers modern technology solutions
+built for reliability and performance.
+</p>
+
+<p>
+Our mission is to help organizations modernize infrastructure,
+streamline operations, and build resilient enterprise systems.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CTA -->
+
+<section id="contact">
+
+<div class="container">
+
+<div class="cta">
+
+<h2>Ready to Modernize Your Infrastructure?</h2>
+
+<p>
+Partner with DAMALZ Tech for enterprise MSP services,
+cloud engineering, cybersecurity,
+monitoring systems, and infrastructure solutions.
+</p>
+
+<a href="mailto:info@damalz.com" class="btn btn-primary">
+Contact DAMALZ Tech
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="container">
+
+<p>
+© 2026 DAMALZ Technologies LLC • DAMALZ Tech
+</p>
+
+</div>
+
+</footer>
+
+</body>
+</html>
