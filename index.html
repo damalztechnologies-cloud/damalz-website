@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>DAMALZ Tech | Enterprise MSP & Infrastructure Solutions</title>
 
 <meta name="description"
-content="DAMALZ Technologies LLC provides enterprise MSP services, data center monitoring, cloud infrastructure, cybersecurity, networking, automation, and IT engineering solutions.">
+content="DAMALZ Technologies LLC provides enterprise MSP services, data center monitoring, cybersecurity, networking, cloud engineering, automation, and infrastructure solutions.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,6 +17,10 @@ content="DAMALZ Technologies LLC provides enterprise MSP services, data center m
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+
+/* =========================
+GLOBAL
+========================= */
 
 *{
 margin:0;
@@ -28,27 +34,61 @@ scroll-behavior:smooth;
 
 body{
 font-family:'Inter',sans-serif;
-background:#050816;
+background:#040816;
 color:white;
 overflow-x:hidden;
+line-height:1.7;
 }
 
-/* ---------- NAVBAR ---------- */
+a{
+text-decoration:none;
+color:inherit;
+}
+
+.container{
+width:90%;
+max-width:1300px;
+margin:auto;
+}
+
+/* =========================
+BACKGROUND EFFECTS
+========================= */
+
+body::before{
+content:'';
+position:fixed;
+width:700px;
+height:700px;
+background:radial-gradient(circle,rgba(76,201,240,.15),transparent 70%);
+top:-200px;
+right:-200px;
+z-index:-1;
+}
+
+body::after{
+content:'';
+position:fixed;
+width:600px;
+height:600px;
+background:radial-gradient(circle,rgba(67,97,238,.15),transparent 70%);
+bottom:-200px;
+left:-200px;
+z-index:-1;
+}
+
+/* =========================
+NAVBAR
+========================= */
 
 header{
 position:fixed;
 top:0;
 width:100%;
 z-index:1000;
-background:rgba(5,8,22,.85);
-backdrop-filter:blur(12px);
+background:rgba(4,8,22,.88);
+backdrop-filter:blur(14px);
 border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.container{
-width:90%;
-max-width:1280px;
-margin:auto;
 }
 
 .navbar{
@@ -59,7 +99,7 @@ padding:20px 0;
 }
 
 .logo{
-font-size:1.7rem;
+font-size:1.8rem;
 font-weight:800;
 color:#4cc9f0;
 letter-spacing:1px;
@@ -72,12 +112,11 @@ font-weight:600;
 
 .nav-links{
 display:flex;
+gap:30px;
 align-items:center;
-gap:28px;
 }
 
 .nav-links a{
-text-decoration:none;
 color:#d1d5db;
 font-weight:500;
 transition:.3s;
@@ -87,54 +126,31 @@ transition:.3s;
 color:#4cc9f0;
 }
 
-/* Dropdown */
-
-.dropdown{
-position:relative;
-}
-
-.dropdown-menu{
-position:absolute;
-top:40px;
-left:0;
-background:#0f172a;
-padding:18px;
-border-radius:14px;
-display:none;
-flex-direction:column;
-min-width:240px;
-border:1px solid rgba(255,255,255,.08);
-box-shadow:0 20px 40px rgba(0,0,0,.4);
-}
-
-.dropdown-menu a{
-padding:10px 0;
-}
-
-.dropdown:hover .dropdown-menu{
-display:flex;
-}
+/* =========================
+BUTTONS
+========================= */
 
 .btn{
 display:inline-block;
-padding:14px 28px;
-border-radius:12px;
+padding:15px 30px;
+border-radius:14px;
 font-weight:700;
-text-decoration:none;
 transition:.3s;
 }
 
 .btn-primary{
 background:linear-gradient(135deg,#4361ee,#4cc9f0);
 color:white;
-box-shadow:0 10px 30px rgba(76,201,240,.25);
+box-shadow:0 15px 35px rgba(76,201,240,.25);
 }
 
 .btn-primary:hover{
-transform:translateY(-2px);
+transform:translateY(-3px);
 }
 
-/* ---------- HERO ---------- */
+/* =========================
+HERO
+========================= */
 
 .hero{
 min-height:100vh;
@@ -145,19 +161,9 @@ position:relative;
 overflow:hidden;
 }
 
-.hero::before{
-content:'';
-position:absolute;
-width:700px;
-height:700px;
-background:radial-gradient(circle,rgba(67,97,238,.35),transparent 70%);
-top:-200px;
-right:-150px;
-}
-
 .hero-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
 gap:60px;
 align-items:center;
 }
@@ -177,7 +183,6 @@ background:linear-gradient(135deg,#4cc9f0,#4361ee);
 
 .hero p{
 font-size:1.15rem;
-line-height:1.8;
 color:#cbd5e1;
 margin-bottom:35px;
 max-width:700px;
@@ -189,22 +194,13 @@ gap:20px;
 flex-wrap:wrap;
 }
 
-.btn-secondary{
-border:1px solid rgba(255,255,255,.15);
-color:white;
-}
-
-.btn-secondary:hover{
-background:rgba(255,255,255,.06);
-}
-
 .hero-panel{
-background:rgba(255,255,255,.04);
+background:rgba(255,255,255,.05);
 border:1px solid rgba(255,255,255,.08);
 padding:35px;
-border-radius:24px;
-backdrop-filter:blur(10px);
-box-shadow:0 20px 60px rgba(0,0,0,.35);
+border-radius:28px;
+backdrop-filter:blur(12px);
+box-shadow:0 25px 60px rgba(0,0,0,.35);
 }
 
 .hero-panel h3{
@@ -227,7 +223,9 @@ margin-bottom:8px;
 color:#4cc9f0;
 }
 
-/* ---------- SECTION ---------- */
+/* =========================
+SECTIONS
+========================= */
 
 section{
 padding:110px 0;
@@ -247,120 +245,161 @@ margin-bottom:15px;
 max-width:760px;
 margin:auto;
 color:#94a3b8;
-line-height:1.8;
 }
 
-/* ---------- SERVICES ---------- */
+/* =========================
+CARDS
+========================= */
 
-.services-grid{
+.grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:28px;
 }
 
-.service-card{
-background:rgba(255,255,255,.04);
+.card{
+background:rgba(255,255,255,.05);
 border:1px solid rgba(255,255,255,.08);
-border-radius:24px;
 padding:35px;
+border-radius:24px;
 transition:.3s;
+backdrop-filter:blur(12px);
 }
 
-.service-card:hover{
+.card:hover{
 transform:translateY(-8px);
 border-color:#4cc9f0;
+box-shadow:0 25px 50px rgba(76,201,240,.15);
 }
 
-.service-icon{
-font-size:2.2rem;
-margin-bottom:20px;
-}
-
-.service-card h3{
-margin-bottom:16px;
+.card h3{
+margin-bottom:18px;
 font-size:1.4rem;
+color:white;
 }
 
-.service-card p{
+.card p{
 color:#cbd5e1;
-line-height:1.8;
 }
 
-/* ---------- INFRA ---------- */
+/* =========================
+ABOUT
+========================= */
 
-.infrastructure{
-background:linear-gradient(180deg,#0b1025,#050816);
+.about{
+background:linear-gradient(180deg,#081120,#040816);
 }
 
-.infra-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:28px;
+.about-content{
+max-width:1000px;
+margin:auto;
 }
 
-.infra-box{
-background:rgba(255,255,255,.04);
-padding:32px;
-border-radius:22px;
-border:1px solid rgba(255,255,255,.08);
-}
-
-.infra-box h3{
-margin-bottom:20px;
-}
-
-.infra-box ul{
-padding-left:18px;
+.about-content p{
+margin-bottom:25px;
+font-size:1.05rem;
 color:#cbd5e1;
-line-height:2;
 }
 
-/* ---------- ABOUT ---------- */
+/* =========================
+CONTACT
+========================= */
 
-.about-grid{
+.contact-wrapper{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:60px;
+grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+gap:40px;
 align-items:center;
 }
 
-.about-box{
-background:rgba(255,255,255,.04);
-padding:40px;
-border-radius:24px;
-border:1px solid rgba(255,255,255,.08);
-}
-
-.about-box p{
-line-height:1.9;
-color:#cbd5e1;
-margin-bottom:20px;
-}
-
-/* ---------- CTA ---------- */
-
-.cta{
-background:linear-gradient(135deg,#111827,#1e293b);
-padding:80px 40px;
-border-radius:30px;
-text-align:center;
-border:1px solid rgba(255,255,255,.08);
-}
-
-.cta h2{
+.contact-left h2{
 font-size:3rem;
 margin-bottom:20px;
 }
 
-.cta p{
-max-width:720px;
-margin:auto;
+.contact-left p{
 color:#cbd5e1;
-line-height:1.8;
 margin-bottom:35px;
 }
 
-/* ---------- FOOTER ---------- */
+.contact-info{
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.info-box{
+background:rgba(255,255,255,.05);
+padding:24px;
+border-radius:20px;
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(12px);
+}
+
+.info-box h4{
+margin-bottom:10px;
+color:#4cc9f0;
+}
+
+.contact-form-box{
+background:rgba(255,255,255,.05);
+padding:40px;
+border-radius:30px;
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(12px);
+box-shadow:0 25px 60px rgba(0,0,0,.35);
+}
+
+.contact-form-box form{
+display:flex;
+flex-direction:column;
+gap:18px;
+}
+
+.contact-form-box input,
+.contact-form-box textarea,
+.contact-form-box select{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+padding:16px;
+border-radius:14px;
+color:white;
+font-size:1rem;
+outline:none;
+transition:.3s;
+}
+
+.contact-form-box input:focus,
+.contact-form-box textarea:focus,
+.contact-form-box select:focus{
+border-color:#4cc9f0;
+box-shadow:0 0 20px rgba(76,201,240,.2);
+}
+
+.contact-form-box button{
+padding:16px;
+border:none;
+border-radius:14px;
+background:linear-gradient(135deg,#4361ee,#4cc9f0);
+color:white;
+font-weight:700;
+font-size:1rem;
+cursor:pointer;
+transition:.3s;
+box-shadow:0 15px 35px rgba(76,201,240,.25);
+}
+
+.contact-form-box button:hover{
+transform:translateY(-3px);
+}
+
+::placeholder{
+color:#94a3b8;
+}
+
+/* =========================
+FOOTER
+========================= */
 
 footer{
 padding:45px 0;
@@ -369,7 +408,9 @@ text-align:center;
 color:#94a3b8;
 }
 
-/* ---------- MOBILE ---------- */
+/* =========================
+MOBILE
+========================= */
 
 @media(max-width:950px){
 
@@ -386,19 +427,24 @@ justify-content:center;
 }
 
 .section-title h2{
-font-size:2.2rem;
+font-size:2.3rem;
 }
 
-.cta h2{
+.contact-left h2{
 font-size:2.2rem;
 }
 
 }
 
 </style>
+
 </head>
 
 <body>
+
+<!-- =========================
+HEADER
+========================= -->
 
 <header>
 
@@ -411,34 +457,10 @@ DAMALZ <span>Tech</span>
 <nav class="nav-links">
 
 <a href="#home">Home</a>
-
-<div class="dropdown">
-<a href="#">Services ▾</a>
-
-<div class="dropdown-menu">
-<a href="#">Managed IT Services</a>
-<a href="#">Cloud Infrastructure</a>
-<a href="#">Data Center Monitoring</a>
-<a href="#">Cybersecurity</a>
-<a href="#">Networking</a>
-<a href="#">Automation & DevOps</a>
-</div>
-</div>
-
-<div class="dropdown">
-<a href="#">Infrastructure ▾</a>
-
-<div class="dropdown-menu">
-<a href="#">Servers & Storage</a>
-<a href="#">Virtualization</a>
-<a href="#">Hybrid Cloud</a>
-<a href="#">Monitoring Systems</a>
-<a href="#">Lab Environments</a>
-</div>
-</div>
-
+<a href="#services">Services</a>
+<a href="#monitoring">Monitoring</a>
+<a href="#infrastructure">Infrastructure</a>
 <a href="#about">About</a>
-
 <a href="#contact">Contact</a>
 
 </nav>
@@ -447,7 +469,9 @@ DAMALZ <span>Tech</span>
 
 </header>
 
-<!-- HERO -->
+<!-- =========================
+HERO
+========================= -->
 
 <section class="hero" id="home">
 
@@ -462,20 +486,18 @@ Solutions
 </h1>
 
 <p>
-DAMALZ Technologies LLC delivers enterprise-grade managed IT services,
-data center monitoring, cloud operations, cybersecurity,
-network engineering, infrastructure automation,
-and advanced technology solutions built for modern businesses.
+DAMALZ Technologies LLC provides enterprise-grade managed IT services,
+data center monitoring, cloud engineering,
+cybersecurity, networking,
+automation, virtualization,
+and advanced infrastructure solutions
+for modern businesses and organizations.
 </p>
 
 <div class="hero-buttons">
 
 <a href="#contact" class="btn btn-primary">
-Schedule Consultation
-</a>
-
-<a href="#services" class="btn btn-secondary">
-Explore Services
+Request Consultation
 </a>
 
 </div>
@@ -487,23 +509,33 @@ Explore Services
 <h3>Technology Operations Center</h3>
 
 <div class="panel-item">
-<strong>24/7 Infrastructure Monitoring</strong>
-Real-time monitoring and operational visibility across systems and networks.
+<strong>24/7 Monitoring</strong>
+Real-time monitoring, uptime visibility,
+alerting systems, and operational analytics.
 </div>
 
 <div class="panel-item">
-<strong>Enterprise MSP Services</strong>
-Proactive maintenance, support, patching, and remote management.
+<strong>Managed IT Services</strong>
+Enterprise MSP operations,
+maintenance, support,
+patch management, and infrastructure administration.
 </div>
 
 <div class="panel-item">
-<strong>Cloud & Virtualization</strong>
-Hybrid cloud infrastructure, virtualization platforms, and scalable systems.
+<strong>Cloud & Infrastructure</strong>
+Hybrid cloud engineering,
+virtualization,
+networking,
+and scalable infrastructure operations.
 </div>
 
 <div class="panel-item">
-<strong>Cybersecurity Operations</strong>
-Security-first architecture, protection, compliance, and access control.
+<strong>Cybersecurity</strong>
+Security operations,
+endpoint protection,
+access management,
+compliance,
+and enterprise defense solutions.
 </div>
 
 </div>
@@ -512,7 +544,9 @@ Security-first architecture, protection, compliance, and access control.
 
 </section>
 
-<!-- SERVICES -->
+<!-- =========================
+SERVICES
+========================= -->
 
 <section id="services">
 
@@ -520,80 +554,89 @@ Security-first architecture, protection, compliance, and access control.
 
 <div class="section-title">
 
-<h2>Enterprise Technology Services</h2>
+<h2>Managed IT Services</h2>
 
 <p>
-Comprehensive enterprise IT infrastructure and MSP solutions
-focused on reliability, scalability, automation, and operational excellence.
+Enterprise MSP solutions focused on reliability,
+performance,
+security,
+and operational excellence.
 </p>
 
 </div>
 
-<div class="services-grid">
+<div class="grid">
 
-<div class="service-card">
-<div class="service-icon">🖥️</div>
-
-<h3>Managed IT Services</h3>
+<div class="card">
+<h3>Managed Service Provider (MSP)</h3>
 
 <p>
-Full-service MSP operations including support, maintenance,
-patch management, monitoring, and enterprise IT administration.
+Comprehensive IT support,
+maintenance,
+remote management,
+monitoring,
+patching,
+and enterprise infrastructure operations.
 </p>
 </div>
 
-<div class="service-card">
-<div class="service-icon">📡</div>
-
-<h3>Data Center Monitoring</h3>
-
-<p>
-Advanced monitoring systems, alerting platforms,
-uptime visibility, analytics, and infrastructure observability.
-</p>
-</div>
-
-<div class="service-card">
-<div class="service-icon">☁️</div>
-
+<div class="card">
 <h3>Cloud Engineering</h3>
 
 <p>
-Cloud migration, hybrid infrastructure,
-virtualization, scalable deployment architectures, and optimization.
+Hybrid cloud architecture,
+virtualization,
+cloud migration,
+deployment automation,
+and scalable infrastructure design.
 </p>
 </div>
 
-<div class="service-card">
-<div class="service-icon">🔐</div>
-
-<h3>Cybersecurity</h3>
-
-<p>
-Security operations, firewall management,
-endpoint protection, compliance, and access security.
-</p>
-</div>
-
-<div class="service-card">
-<div class="service-icon">🌐</div>
-
+<div class="card">
 <h3>Network Infrastructure</h3>
 
 <p>
-Enterprise networking, routing, switching,
-wireless systems, VPNs, VLANs, and connectivity engineering.
+Enterprise networking,
+routing,
+switching,
+VPN deployment,
+wireless infrastructure,
+and connectivity engineering.
 </p>
 </div>
 
-<div class="service-card">
-<div class="service-icon">🧪</div>
+<div class="card">
+<h3>Cybersecurity</h3>
 
+<p>
+Security operations,
+firewall management,
+endpoint protection,
+compliance,
+and infrastructure hardening.
+</p>
+</div>
+
+<div class="card">
+<h3>Automation & DevOps</h3>
+
+<p>
+Infrastructure automation,
+configuration management,
+CI/CD deployment pipelines,
+workflow optimization,
+and orchestration.
+</p>
+</div>
+
+<div class="card">
 <h3>Lab & Testing Environments</h3>
 
 <p>
-Virtual labs, testing environments,
-proof-of-concept systems, and enterprise validation infrastructure.
+Enterprise testing environments,
+virtual labs,
+proof-of-concept systems,
+and infrastructure validation.
 </p>
 </div>
 
@@ -603,68 +646,60 @@ proof-of-concept systems, and enterprise validation infrastructure.
 
 </section>
 
-<!-- INFRASTRUCTURE -->
+<!-- =========================
+MONITORING
+========================= -->
 
-<section class="infrastructure">
+<section id="monitoring" class="about">
 
 <div class="container">
 
 <div class="section-title">
 
-<h2>Infrastructure & Operations</h2>
+<h2>Data Center Monitoring</h2>
 
 <p>
-Designed for enterprise reliability, uptime,
-security, operational visibility, and performance optimization.
+Operational visibility,
+analytics,
+performance monitoring,
+and enterprise infrastructure observability.
 </p>
 
 </div>
 
-<div class="infra-grid">
+<div class="grid">
 
-<div class="infra-box">
-
+<div class="card">
 <h3>Infrastructure Monitoring</h3>
 
-<ul>
-<li>Real-time dashboards</li>
-<li>Server health analytics</li>
-<li>Automated alerting systems</li>
-<li>Performance monitoring</li>
-<li>Operational visibility</li>
-<li>Capacity planning</li>
-</ul>
-
+<p>
+Real-time visibility across systems,
+servers,
+networks,
+applications,
+and enterprise platforms.
+</p>
 </div>
 
-<div class="infra-box">
+<div class="card">
+<h3>Alerting Systems</h3>
 
-<h3>Enterprise Infrastructure</h3>
-
-<ul>
-<li>Virtualization platforms</li>
-<li>Storage systems</li>
-<li>Hybrid cloud deployments</li>
-<li>Backup & disaster recovery</li>
-<li>High availability architecture</li>
-<li>Server engineering</li>
-</ul>
-
+<p>
+Automated notifications,
+incident response workflows,
+and operational escalation management.
+</p>
 </div>
 
-<div class="infra-box">
+<div class="card">
+<h3>Performance Analytics</h3>
 
-<h3>Automation & DevOps</h3>
-
-<ul>
-<li>Infrastructure automation</li>
-<li>CI/CD deployment pipelines</li>
-<li>Configuration management</li>
-<li>Cloud orchestration</li>
-<li>Workflow automation</li>
-<li>Operational optimization</li>
-</ul>
-
+<p>
+Capacity planning,
+resource utilization,
+performance optimization,
+and infrastructure analytics.
+</p>
 </div>
 
 </div>
@@ -673,46 +708,120 @@ security, operational visibility, and performance optimization.
 
 </section>
 
-<!-- ABOUT -->
+<!-- =========================
+INFRASTRUCTURE
+========================= -->
 
-<section id="about">
+<section id="infrastructure">
 
-<div class="container about-grid">
+<div class="container">
 
-<div>
+<div class="section-title">
 
-<div class="section-title" style="text-align:left;margin-bottom:30px;">
+<h2>Infrastructure & Engineering</h2>
+
+<p>
+Modern enterprise infrastructure solutions designed for
+security,
+scalability,
+performance,
+and reliability.
+</p>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+<h3>Virtualization Platforms</h3>
+
+<p>
+Virtualized infrastructure environments,
+server optimization,
+resource allocation,
+and enterprise virtualization solutions.
+</p>
+</div>
+
+<div class="card">
+<h3>Backup & Disaster Recovery</h3>
+
+<p>
+Data protection,
+business continuity,
+backup infrastructure,
+recovery planning,
+and high availability systems.
+</p>
+</div>
+
+<div class="card">
+<h3>Enterprise Networking</h3>
+
+<p>
+Advanced networking architecture,
+VLANs,
+switching,
+routing,
+VPNs,
+and secure enterprise connectivity.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =========================
+ABOUT
+========================= -->
+
+<section id="about" class="about">
+
+<div class="container">
+
+<div class="section-title">
 
 <h2>About DAMALZ Tech</h2>
 
-<p style="margin:0;">
-DAMALZ Technologies LLC is focused on modern enterprise technology,
-managed services, infrastructure engineering,
-and operational excellence for growing businesses.
+<p>
+Enterprise MSP,
+cloud infrastructure,
+monitoring,
+and operational technology solutions.
 </p>
 
 </div>
 
-</div>
-
-<div class="about-box">
+<div class="about-content">
 
 <p>
-We provide scalable MSP and enterprise IT solutions designed to improve
-uptime, security, visibility, and business continuity.
-</p>
-
-<p>
-From data center monitoring and infrastructure engineering
-to cloud operations, cybersecurity, networking,
-and advanced lab environments,
-DAMALZ Tech delivers modern technology solutions
-built for reliability and performance.
+DAMALZ Technologies LLC,
+operating as DAMALZ Tech,
+focuses on delivering enterprise-grade managed IT services,
+cloud engineering,
+monitoring systems,
+cybersecurity,
+networking,
+automation,
+and infrastructure operations.
 </p>
 
 <p>
 Our mission is to help organizations modernize infrastructure,
-streamline operations, and build resilient enterprise systems.
+improve operational visibility,
+increase reliability,
+strengthen cybersecurity posture,
+and build scalable enterprise technology environments.
+</p>
+
+<p>
+We provide solutions designed for performance,
+security,
+business continuity,
+and long-term operational excellence.
 </p>
 
 </div>
@@ -721,31 +830,116 @@ streamline operations, and build resilient enterprise systems.
 
 </section>
 
-<!-- CTA -->
+<!-- =========================
+CONTACT
+========================= -->
 
 <section id="contact">
 
 <div class="container">
 
-<div class="cta">
+<div class="contact-wrapper">
 
-<h2>Ready to Modernize Your Infrastructure?</h2>
+<div class="contact-left">
+
+<h2>Request Enterprise IT Support</h2>
 
 <p>
-Partner with DAMALZ Tech for enterprise MSP services,
-cloud engineering, cybersecurity,
-monitoring systems, and infrastructure solutions.
+Connect with DAMALZ Tech for MSP services,
+cloud engineering,
+monitoring systems,
+cybersecurity,
+network infrastructure,
+automation,
+and enterprise technology operations.
 </p>
 
-<a href="mailto:info@damalz.com" class="btn btn-primary">
-Contact DAMALZ Tech
-</a>
+<div class="contact-info">
+
+<div class="info-box">
+<h4>Email</h4>
+<p>info@damalztech.com</p>
+</div>
+
+<div class="info-box">
+<h4>Core Services</h4>
+<p>MSP • Monitoring • Cloud • Security • Infrastructure</p>
+</div>
+
+<div class="info-box">
+<h4>Technology Operations</h4>
+<p>Enterprise Infrastructure & Managed IT Solutions</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="contact-form-box">
+
+<form
+action="mailto:info@damalztech.com"
+method="POST"
+enctype="text/plain"
+>
+
+<input
+type="text"
+name="Name"
+placeholder="Full Name"
+required
+>
+
+<input
+type="email"
+name="Email"
+placeholder="Business Email"
+required
+>
+
+<input
+type="text"
+name="Company"
+placeholder="Company Name"
+>
+
+<select name="Service">
+
+<option>Select Service</option>
+
+<option>Managed IT Services</option>
+<option>Data Center Monitoring</option>
+<option>Cloud Engineering</option>
+<option>Cybersecurity</option>
+<option>Network Infrastructure</option>
+<option>Automation & DevOps</option>
+
+</select>
+
+<textarea
+name="Message"
+rows="6"
+placeholder="Describe your infrastructure or technology requirements..."
+required
+></textarea>
+
+<button type="submit">
+Submit Request
+</button>
+
+</form>
+
+</div>
 
 </div>
 
 </div>
 
 </section>
+
+<!-- =========================
+FOOTER
+========================= -->
 
 <footer>
 
@@ -760,4 +954,5 @@ Contact DAMALZ Tech
 </footer>
 
 </body>
+
 </html>
