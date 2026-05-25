@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -93,6 +92,7 @@ gap:12px;
 font-size:1.5rem;
 font-weight:800;
 color:#38bdf8;
+text-decoration:none;
 }
 
 .logo span{
@@ -379,11 +379,6 @@ max-width:1000px;
 margin:auto;
 }
 
-.about-box p{
-margin-bottom:24px;
-color:#b8c5d3;
-}
-
 /* CONTACT */
 
 .contact-grid{
@@ -404,38 +399,6 @@ font-size:1.4rem;
 .contact-card p{
 color:#b8c5d3;
 margin-bottom:20px;
-}
-
-/* FORM */
-
-.contact-form{
-display:flex;
-flex-direction:column;
-gap:16px;
-margin-top:20px;
-}
-
-.contact-form input,
-.contact-form textarea{
-width:100%;
-padding:16px;
-border:none;
-border-radius:14px;
-background:rgba(255,255,255,.05);
-color:white;
-font-family:'Inter',sans-serif;
-border:1px solid rgba(255,255,255,.06);
-outline:none;
-}
-
-.contact-form textarea{
-min-height:140px;
-resize:vertical;
-}
-
-.contact-form button{
-border:none;
-cursor:pointer;
 }
 
 /* FOOTER */
@@ -476,6 +439,99 @@ text-align:center;
 color:#7d8da1;
 }
 
+/* POPUP FORM */
+
+.popup-overlay{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.7);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:99999;
+padding:20px;
+}
+
+.popup-overlay.active{
+display:flex;
+}
+
+.popup-box{
+width:100%;
+max-width:560px;
+background:#0f172a;
+border:1px solid rgba(255,255,255,.08);
+border-radius:28px;
+padding:40px;
+position:relative;
+box-shadow:0 30px 80px rgba(0,0,0,.55);
+animation:popupFade .3s ease;
+}
+
+@keyframes popupFade{
+from{
+opacity:0;
+transform:translateY(20px) scale(.95);
+}
+to{
+opacity:1;
+transform:translateY(0) scale(1);
+}
+}
+
+.popup-close{
+position:absolute;
+top:18px;
+right:18px;
+width:42px;
+height:42px;
+border-radius:50%;
+border:none;
+background:rgba(255,255,255,.08);
+color:white;
+font-size:20px;
+cursor:pointer;
+}
+
+.popup-box h2{
+font-size:2rem;
+margin-bottom:12px;
+}
+
+.popup-box p{
+color:#94a3b8;
+margin-bottom:24px;
+}
+
+.popup-form{
+display:flex;
+flex-direction:column;
+gap:16px;
+}
+
+.popup-form input,
+.popup-form textarea{
+width:100%;
+padding:16px;
+border:none;
+border-radius:14px;
+background:rgba(255,255,255,.05);
+color:white;
+font-family:'Inter',sans-serif;
+border:1px solid rgba(255,255,255,.06);
+outline:none;
+}
+
+.popup-form textarea{
+min-height:140px;
+resize:vertical;
+}
+
+.popup-form button{
+border:none;
+cursor:pointer;
+}
+
 /* MOBILE */
 
 @media(max-width:950px){
@@ -486,10 +542,27 @@ display:none;
 
 .hero{
 text-align:center;
+padding-top:140px;
+}
+
+.hero-grid{
+grid-template-columns:1fr;
+}
+
+.hero-card{
+padding:28px;
 }
 
 .section-title h2{
 font-size:2.3rem;
+}
+
+.popup-box{
+padding:28px;
+}
+
+.hero h1{
+font-size:2.8rem;
 }
 
 }
@@ -503,8 +576,8 @@ font-size:2.3rem;
 
 <div class="container navbar">
 
-<!-- LOGO -->
-<div class="logo">
+<!-- CLICKABLE LOGO -->
+<a href="#home" class="logo">
 
 <svg width="38" height="38" viewBox="0 0 24 24" fill="none">
 <path d="M12 2L3 6V12C3 16.5 6.2 20.7 12 22C17.8 20.7 21 16.5 21 12V6L12 2Z"
@@ -516,7 +589,7 @@ fill="rgba(56,189,248,.08)"/>
 
 DAMALZ <span>Tech</span>
 
-</div>
+</a>
 
 <!-- NAV -->
 <nav class="nav-links">
@@ -530,13 +603,11 @@ Services ▾
 </button>
 
 <div class="dropdown-content">
-
 <a href="#services">Managed IT Services</a>
 <a href="#infrastructure">Infrastructure Deployment</a>
 <a href="#security">Cybersecurity</a>
 <a href="#wifi">Wireless Engineering</a>
 <a href="#monitoring">Monitoring Solutions</a>
-
 </div>
 
 </div>
@@ -548,12 +619,10 @@ Solutions ▾
 </button>
 
 <div class="dropdown-content">
-
 <a href="#datacenter">Datacenter Solutions</a>
 <a href="#cabling">Cable & Rack Installation</a>
 <a href="#camera">Security Camera Systems</a>
 <a href="#about">Business Support</a>
-
 </div>
 
 </div>
@@ -585,7 +654,7 @@ Solutions
 DAMALZ Technologies LLC delivers managed IT services, cloud infrastructure, networking, datacenter deployments, wireless engineering, infrastructure monitoring, and cybersecurity solutions for modern businesses and enterprise environments.
 </p>
 
-<a href="#contact" class="btn btn-primary">
+<a href="#" class="btn btn-primary open-popup">
 Request Consultation
 </a>
 
@@ -640,14 +709,9 @@ Professional infrastructure and operational support services designed for modern
 <div class="grid">
 
 <div class="glass card">
-
 <div class="icon-wrap">🖥️</div>
-
 <h3>Managed IT Services</h3>
-
-<p>
-Operational IT support and infrastructure management for business continuity and stability.
-</p>
+<p>Operational IT support and infrastructure management for business continuity and stability.</p>
 
 <ul class="service-list">
 <li>24/7 infrastructure monitoring</li>
@@ -656,18 +720,12 @@ Operational IT support and infrastructure management for business continuity and
 <li>Endpoint administration</li>
 <li>Patch management</li>
 </ul>
-
 </div>
 
 <div class="glass card">
-
 <div class="icon-wrap">☁️</div>
-
 <h3>Cloud Infrastructure</h3>
-
-<p>
-Scalable cloud deployments and virtualization solutions for hybrid environments.
-</p>
+<p>Scalable cloud deployments and virtualization solutions for hybrid environments.</p>
 
 <ul class="service-list">
 <li>Microsoft 365 support</li>
@@ -676,18 +734,12 @@ Scalable cloud deployments and virtualization solutions for hybrid environments.
 <li>Backup & recovery</li>
 <li>Hybrid cloud operations</li>
 </ul>
-
 </div>
 
 <div class="glass card" id="security">
-
 <div class="icon-wrap">🔐</div>
-
 <h3>Cybersecurity Solutions</h3>
-
-<p>
-Security-first infrastructure design and protection for modern enterprise environments.
-</p>
+<p>Security-first infrastructure design and protection for modern enterprise environments.</p>
 
 <ul class="service-list">
 <li>Firewall deployments</li>
@@ -696,7 +748,6 @@ Security-first infrastructure design and protection for modern enterprise enviro
 <li>Access security</li>
 <li>Security hardening</li>
 </ul>
-
 </div>
 
 </div>
@@ -712,7 +763,6 @@ Security-first infrastructure design and protection for modern enterprise enviro
 <div class="container">
 
 <div class="section-title">
-
 <h2>Infrastructure Design & Deployment</h2>
 
 <p>
@@ -724,14 +774,8 @@ Professional infrastructure installation and deployment services for businesses,
 <div class="grid">
 
 <div class="glass card">
-
 <div class="icon-wrap">🗄️</div>
-
 <h3>Rack & Server Installation</h3>
-
-<p>
-Deployment and organization of enterprise hardware and datacenter equipment.
-</p>
 
 <ul class="service-list">
 <li>Rack installation</li>
@@ -740,18 +784,11 @@ Deployment and organization of enterprise hardware and datacenter equipment.
 <li>UPS deployment</li>
 <li>Switch installation</li>
 </ul>
-
 </div>
 
 <div class="glass card" id="cabling">
-
 <div class="icon-wrap">🔌</div>
-
 <h3>Structured Cabling</h3>
-
-<p>
-Professional network cabling and connectivity solutions for modern environments.
-</p>
 
 <ul class="service-list">
 <li>Cat6/Cat6A cabling</li>
@@ -760,18 +797,11 @@ Professional network cabling and connectivity solutions for modern environments.
 <li>Network labeling</li>
 <li>Office wiring deployment</li>
 </ul>
-
 </div>
 
 <div class="glass card" id="datacenter">
-
 <div class="icon-wrap">🌐</div>
-
 <h3>Network Infrastructure</h3>
-
-<p>
-Enterprise-grade routing, switching, and wireless infrastructure deployments.
-</p>
 
 <ul class="service-list">
 <li>Switch configuration</li>
@@ -780,7 +810,6 @@ Enterprise-grade routing, switching, and wireless infrastructure deployments.
 <li>Wireless networks</li>
 <li>VPN connectivity</li>
 </ul>
-
 </div>
 
 </div>
@@ -796,51 +825,28 @@ Enterprise-grade routing, switching, and wireless infrastructure deployments.
 <div class="container">
 
 <div class="section-title">
-
 <h2>Wireless Engineering & WiFi Solutions</h2>
-
-<p>
-Enterprise wireless design, optimization, and professional Ekahau survey services.
-</p>
-
+<p>Enterprise wireless design, optimization, and professional Ekahau survey services.</p>
 </div>
 
 <div class="grid">
 
 <div class="glass card">
-
 <div class="icon-wrap">📶</div>
-
 <h3>Ekahau Site Surveys</h3>
-
-<p>
-Wireless heatmaps, RF analysis, signal validation, and optimization services.
-</p>
-
+<p>Wireless heatmaps, RF analysis, signal validation, and optimization services.</p>
 </div>
 
 <div class="glass card">
-
 <div class="icon-wrap">🏢</div>
-
 <h3>Enterprise WiFi Design</h3>
-
-<p>
-Office, warehouse, hospitality, and enterprise wireless deployments.
-</p>
-
+<p>Office, warehouse, hospitality, and enterprise wireless deployments.</p>
 </div>
 
 <div class="glass card" id="camera">
-
 <div class="icon-wrap">📹</div>
-
 <h3>Security Camera Systems</h3>
-
-<p>
-Business surveillance systems, camera installation, and monitoring infrastructure.
-</p>
-
+<p>Business surveillance systems, camera installation, and monitoring infrastructure.</p>
 </div>
 
 </div>
@@ -856,51 +862,28 @@ Business surveillance systems, camera installation, and monitoring infrastructur
 <div class="container">
 
 <div class="section-title">
-
 <h2>Infrastructure Monitoring</h2>
-
-<p>
-Operational visibility and proactive monitoring for critical business environments.
-</p>
-
+<p>Operational visibility and proactive monitoring for critical business environments.</p>
 </div>
 
 <div class="grid">
 
 <div class="glass card">
-
 <div class="icon-wrap">📊</div>
-
 <h3>Operational Dashboards</h3>
-
-<p>
-Centralized dashboards and infrastructure monitoring visibility platforms.
-</p>
-
+<p>Centralized dashboards and infrastructure monitoring visibility platforms.</p>
 </div>
 
 <div class="glass card">
-
 <div class="icon-wrap">🚨</div>
-
 <h3>Alerting Systems</h3>
-
-<p>
-Real-time notifications and automated infrastructure health monitoring.
-</p>
-
+<p>Real-time notifications and automated infrastructure health monitoring.</p>
 </div>
 
 <div class="glass card">
-
 <div class="icon-wrap">📈</div>
-
 <h3>Performance Analytics</h3>
-
-<p>
-Infrastructure analytics, uptime tracking, and operational reporting.
-</p>
-
+<p>Infrastructure analytics, uptime tracking, and operational reporting.</p>
 </div>
 
 </div>
@@ -916,7 +899,6 @@ Infrastructure analytics, uptime tracking, and operational reporting.
 <div class="container">
 
 <div class="section-title">
-
 <h2>About DAMALZ Tech</h2>
 
 <p>
@@ -928,7 +910,7 @@ Modern MSP and infrastructure services for growing businesses and enterprise env
 <div class="glass about-box">
 
 <p>
-DAMALZ Technologies LLC focuses on delivering professional managed IT services, infrastructure support, networking solutions, monitoring systems, and wireless engineering for businesses seeking reliable technology operations.
+DAMALZ Technologies LLC focuses on delivering professional managed IT services, infrastructure support, networking solutions, monitoring systems, and wireless engineering.
 </p>
 
 <p>
@@ -936,7 +918,7 @@ Our services include infrastructure deployment, cable and rack installation, ent
 </p>
 
 <p>
-DAMALZ Tech is committed to helping businesses modernize infrastructure environments, improve operational visibility, strengthen cybersecurity posture, and maintain reliable business connectivity.
+DAMALZ Tech is committed to helping businesses modernize infrastructure environments and maintain reliable business connectivity.
 </p>
 
 </div>
@@ -968,24 +950,12 @@ Connect with us for consultations, infrastructure projects, support services, an
 <h3>Consultation Requests</h3>
 
 <p>
-Reach out to DAMALZ Tech regarding infrastructure projects, managed IT services, networking, security, or wireless deployments.
+Click below to open the consultation request form.
 </p>
 
-<form class="contact-form">
-
-<input type="text" placeholder="Full Name">
-
-<input type="email" placeholder="Business Email">
-
-<input type="text" placeholder="Company Name">
-
-<textarea placeholder="Tell us about your project or infrastructure requirements..."></textarea>
-
-<button class="btn btn-primary">
-Submit Request
-</button>
-
-</form>
+<a href="#" class="btn btn-primary open-popup">
+Open Consultation Form
+</a>
 
 </div>
 
@@ -1038,7 +1008,7 @@ info@damalztech.com
 
 <div>
 
-<div class="logo" style="margin-bottom:18px;">
+<a href="#home" class="logo" style="margin-bottom:18px;">
 
 <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
 <path d="M12 2L3 6V12C3 16.5 6.2 20.7 12 22C17.8 20.7 21 16.5 21 12V6L12 2Z"
@@ -1050,7 +1020,7 @@ fill="rgba(56,189,248,.08)"/>
 
 DAMALZ <span>Tech</span>
 
-</div>
+</a>
 
 <p style="color:#9db0c5;">
 Managed IT, infrastructure, networking, wireless engineering, and business technology solutions.
@@ -1087,18 +1057,50 @@ Managed IT, infrastructure, networking, wireless engineering, and business techn
 </div>
 
 <div class="footer-bottom">
-
 © 2026 DAMALZ Technologies LLC • DAMALZ Tech
-
 </div>
 
 </div>
 
 </footer>
 
+<!-- POPUP FORM -->
+
+<div class="popup-overlay" id="popup">
+
+<div class="popup-box">
+
+<button class="popup-close" id="closePopup">✕</button>
+
+<h2>Request Consultation</h2>
+
+<p>
+Tell us about your project or infrastructure requirements.
+</p>
+
+<form class="popup-form">
+
+<input type="text" placeholder="Full Name" required>
+
+<input type="email" placeholder="Business Email" required>
+
+<input type="text" placeholder="Company Name">
+
+<textarea placeholder="Tell us about your project..." required></textarea>
+
+<button type="submit" class="btn btn-primary">
+Submit Request
+</button>
+
+</form>
+
+</div>
+
+</div>
+
 <script>
 
-/* DROPDOWN FIX */
+/* DROPDOWNS */
 
 const dropdowns = document.querySelectorAll('.dropdown');
 
@@ -1110,21 +1112,17 @@ button.addEventListener('click', function(e){
 
 e.stopPropagation();
 
-/* CLOSE OTHER DROPDOWNS */
 dropdowns.forEach(d=>{
 if(d !== dropdown){
 d.classList.remove('active');
 }
 });
 
-/* TOGGLE CURRENT */
 dropdown.classList.toggle('active');
 
 });
 
 });
-
-/* CLOSE WHEN CLICK OUTSIDE */
 
 window.addEventListener('click', function(){
 
@@ -1134,15 +1132,33 @@ dropdown.classList.remove('active');
 
 });
 
-/* CLOSE DROPDOWN AFTER LINK CLICK */
+/* POPUP */
 
-document.querySelectorAll('.dropdown-content a').forEach(link=>{
+const popup = document.getElementById('popup');
 
-link.addEventListener('click', ()=>{
-dropdowns.forEach(dropdown=>{
-dropdown.classList.remove('active');
+document.querySelectorAll('.open-popup').forEach(btn=>{
+
+btn.addEventListener('click', function(e){
+
+e.preventDefault();
+
+popup.classList.add('active');
+
 });
+
 });
+
+document.getElementById('closePopup').addEventListener('click', function(){
+
+popup.classList.remove('active');
+
+});
+
+popup.addEventListener('click', function(e){
+
+if(e.target === popup){
+popup.classList.remove('active');
+}
 
 });
 
