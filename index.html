@@ -1128,70 +1128,165 @@ Infrastructure analytics, uptime tracking, and operational reporting.
 
 </section>
 
-<!-- ================= VENDORS SECTION FIXED ================= -->
+<!-- ================= VENDORS SECTION (100% FIXED) ================= -->
+
+<style>
+#vendors {
+  padding: 80px 20px;
+  background: #0b1220;
+  color: #fff;
+  text-align: center;
+}
+
+#vendors .container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.section-title p {
+  opacity: 0.8;
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+}
+
+.vendor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+}
+
+.vendor-box {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 20px;
+  border-radius: 14px;
+  transition: 0.3s;
+}
+
+.vendor-box:hover {
+  transform: translateY(-5px);
+}
+
+.vendor-box img,
+.vendor-box svg {
+  width: 55px;
+  height: 55px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.vendor-name {
+  font-size: 14px;
+}
+</style>
 
 <section id="vendors">
+  <div class="container">
 
-<div class="container">
+    <div class="section-title">
+      <h2>Vendor Technologies Supported</h2>
+      <p>Enterprise networking, cloud, security, virtualization, and infrastructure platforms.</p>
+    </div>
 
-<div class="section-title">
+    <div class="vendor-grid">
 
-<h2>Vendor Technologies Supported</h2>
+      <!-- Cisco -->
+      <div class="vendor-box">
+        <img src="https://cdn.simpleicons.org/cisco/1BA0D7" alt="Cisco">
+        <div class="vendor-name">Cisco</div>
+      </div>
 
-<p>
-Supporting modern enterprise infrastructure vendors across networking, cloud, wireless, security, and datacenter environments.
-</p>
+      <!-- AWS (FIXED - official SVG source) -->
+      <div class="vendor-box">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS">
+        <div class="vendor-name">AWS</div>
+      </div>
 
-</div>
-<!-- CISCO FIXED -->
-<div class="vendor-grid">
-<div class="vendor-box">
-<img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Cisco_logo.svg" alt="Cisco">
-<div class="vendor-name">Cisco</div>
-</div>
+      <!-- Azure (FIXED - official SVG source) -->
+      <div class="vendor-box">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg" alt="Azure">
+        <div class="vendor-name">Microsoft Azure</div>
+      </div>
 
-<!-- EKAHUA FIX (NO OFFICIAL LOGO AVAILABLE - CLEAN BADGE) -->
-<div class="vendor-box">
-<svg width="60" height="60" viewBox="0 0 100 100" fill="none">
-<circle cx="50" cy="50" r="45" stroke="#38bdf8" stroke-width="4"/>
-<text x="50%" y="55%" text-anchor="middle" fill="#38bdf8" font-size="22" font-family="Arial" font-weight="bold">EK</text>
+      <!-- VMware -->
+      <div class="vendor-box">
+        <img src="https://cdn.simpleicons.org/vmware/607078" alt="VMware">
+        <div class="vendor-name">VMware</div>
+      </div>
 
-</svg>
-<div class="vendor-name">Ekahau</div>
-</div>
+      <!-- Docker -->
+      <div class="vendor-box">
+        <img src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker">
+        <div class="vendor-name">Docker</div>
+      </div>
 
-<!-- OTHER VENDORS -->
-<div class="vendor-box">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux">
-<div class="vendor-name">Linux</div>
-</div>
+      <!-- Kubernetes -->
+      <div class="vendor-box">
+        <img src="https://cdn.simpleicons.org/kubernetes/326CE5" alt="Kubernetes">
+        <div class="vendor-name">Kubernetes</div>
+      </div>
 
-<div class="vendor-box">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure">
-<div class="vendor-name">Microsoft Azure</div>
-</div>
+      <!-- Linux -->
+      <div class="vendor-box">
+        <img src="https://cdn.simpleicons.org/linux/FCC624" alt="Linux">
+        <div class="vendor-name">Linux</div>
+      </div>
 
-<div class="vendor-box">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker">
-<div class="vendor-name">Docker</div>
-</div>
+      <!-- Fortinet -->
+      <div class="vendor-box">
+        <img src="https://cdn.simpleicons.org/fortinet/EE3124" alt="Fortinet">
+        <div class="vendor-name">Fortinet</div>
+      </div>
 
-<div class="vendor-box">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes">
-<div class="vendor-name">Kubernetes</div>
-</div>
+      <!-- Palo Alto -->
+      <div class="vendor-box">
+        <img src="https://cdn.simpleicons.org/paloaltonetworks/F04E23" alt="Palo Alto">
+        <div class="vendor-name">Palo Alto</div>
+      </div>
 
-<div class="vendor-box">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vsphere/vsphere-original.svg" alt="VMware">
-<div class="vendor-name">VMware</div>
-</div>
+      <!-- Juniper -->
+      <div class="vendor-box">
+        <img src="https://cdn.simpleicons.org/junipernetworks/84B135" alt="Juniper">
+        <div class="vendor-name">Juniper</div>
+      </div>
 
-</div>
+      <!-- Red Hat -->
+      <div class="vendor-box">
+        <img src="https://cdn.simpleicons.org/redhat/EE0000" alt="Red Hat">
+        <div class="vendor-name">Red Hat</div>
+      </div>
 
-</div>
+      <!-- HPE -->
+      <div class="vendor-box">
+        <img src="https://cdn.simpleicons.org/hewlettpackardenterprise/01A982" alt="HPE">
+        <div class="vendor-name">HPE</div>
+      </div>
 
+      <!-- NetApp -->
+      <div class="vendor-box">
+        <img src="https://cdn.simpleicons.org/netapp/0067C5" alt="NetApp">
+        <div class="vendor-name">NetApp</div>
+      </div>
+
+      <!-- Ekahau -->
+      <div class="vendor-box">
+        <svg width="55" height="55" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="45" stroke="#38bdf8" stroke-width="4" fill="none"/>
+          <text x="50%" y="55%" text-anchor="middle" fill="#38bdf8"
+                font-size="20" font-family="Arial" font-weight="bold">EK</text>
+        </svg>
+        <div class="vendor-name">Ekahau</div>
+      </div>
+
+    </div>
+
+  </div>
 </section>
-
 <!-- ABOUT -->
 
 <section id="about">
