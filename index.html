@@ -985,7 +985,7 @@ color:#fecaca;
 
 
 /* =========================
-FIX AI + HOME FEATURE CARD CORNERS
+NORMALIZE AI + HOME BOXES AND VENDOR LOGOS
 ========================= */
 
 .ai-feature-card,
@@ -993,61 +993,54 @@ FIX AI + HOME FEATURE CARD CORNERS
 position:relative;
 overflow:hidden !important;
 isolation:isolate;
-border-radius:40px !important;
-clip-path:inset(0 round 40px);
-background:
-linear-gradient(145deg,rgba(15,23,42,.86),rgba(8,17,31,.96)),
-radial-gradient(circle at 88% 10%,rgba(56,189,248,.16),transparent 34%);
-border:1px solid rgba(56,189,248,.20);
+border-radius:26px !important;
+clip-path:inset(0 round 26px);
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.07);
+backdrop-filter:blur(14px);
+box-shadow:none;
+transition:.35s;
+}
+
+.ai-feature-card:hover,
+.home-feature-card:hover{
+transform:translateY(-10px);
+border-color:rgba(56,189,248,.25);
 box-shadow:
-0 20px 60px rgba(0,0,0,.34),
-0 0 35px rgba(56,189,248,.10),
-inset 0 1px 0 rgba(255,255,255,.06);
+0 20px 60px rgba(0,0,0,.35),
+0 0 25px rgba(56,189,248,.12),
+0 0 60px rgba(56,189,248,.20),
+0 0 100px rgba(6,182,212,.12);
 }
 
 .ai-feature-card::before,
 .home-feature-card::before{
 content:'';
 position:absolute;
-width:420px;
-height:420px;
-top:-180px;
-right:-180px;
-border-radius:50%;
-background:radial-gradient(circle,rgba(56,189,248,.16),transparent 68%);
-filter:blur(8px);
-z-index:0;
-pointer-events:none;
-}
-
-.ai-feature-card::after,
-.home-feature-card::after{
-content:'';
-position:absolute;
 top:0;
-left:-130%;
-width:130%;
+left:-120%;
+width:100%;
 height:100%;
 border-radius:inherit;
-background:linear-gradient(90deg,transparent,rgba(255,255,255,.075),transparent);
-transition:.85s ease;
+background:linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.08),
+transparent
+);
+transition:.8s;
 z-index:1;
 pointer-events:none;
 }
 
-.ai-feature-card:hover,
-.home-feature-card:hover{
-transform:translateY(-8px) scale(1.01);
-border-color:rgba(56,189,248,.34);
-box-shadow:
-0 28px 80px rgba(0,0,0,.44),
-0 0 45px rgba(56,189,248,.20),
-inset 0 1px 0 rgba(255,255,255,.09);
+.ai-feature-card:hover::before,
+.home-feature-card:hover::before{
+left:120%;
 }
 
-.ai-feature-card:hover::after,
-.home-feature-card:hover::after{
-left:130%;
+.ai-feature-card::after,
+.home-feature-card::after{
+display:none !important;
 }
 
 .ai-feature-card h3,
@@ -1060,25 +1053,300 @@ position:relative;
 z-index:3;
 }
 
-.ai-feature-card .service-list li::marker,
-.home-feature-card .service-list li::marker{
-color:#38bdf8;
-}
-
-/* Make the graphic boxes match the same rounded clipping behavior */
+/* Keep the diagram boxes clean but no stronger than other cards */
 .ai-visual,
 .home-visual{
+min-height:420px;
+position:relative;
 overflow:hidden !important;
 isolation:isolate;
-border-radius:40px !important;
-clip-path:inset(0 round 40px);
+border-radius:26px !important;
+clip-path:inset(0 round 26px);
+background:
+linear-gradient(180deg,rgba(15,23,42,.95),rgba(2,8,23,.98));
+border:1px solid rgba(255,255,255,.07);
+box-shadow:0 20px 50px rgba(0,0,0,.35);
+transition:.35s;
+}
+
+.ai-visual:hover,
+.home-visual:hover{
+transform:translateY(-10px);
+border-color:rgba(56,189,248,.25);
+box-shadow:
+0 20px 60px rgba(0,0,0,.35),
+0 0 25px rgba(56,189,248,.12),
+0 0 70px rgba(56,189,248,.18),
+0 0 120px rgba(6,182,212,.10);
 }
 
 .ai-visual::before,
-.ai-visual::after,
-.home-visual::before,
-.home-visual::after{
+.home-visual::before{
+content:'';
+position:absolute;
+inset:0;
 border-radius:inherit;
+background:
+linear-gradient(rgba(56,189,248,.045) 1px,transparent 1px),
+linear-gradient(90deg,rgba(56,189,248,.045) 1px,transparent 1px);
+background-size:48px 48px;
+animation:gridMove 18s linear infinite;
+opacity:.65;
+z-index:0;
+pointer-events:none;
+}
+
+.ai-visual::after,
+.home-visual::after{
+content:'';
+position:absolute;
+top:0;
+left:-120%;
+width:100%;
+height:100%;
+border-radius:inherit;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);
+transition:.8s;
+z-index:9;
+pointer-events:none;
+}
+
+.ai-visual:hover::after,
+.home-visual:hover::after{
+left:120%;
+}
+
+@keyframes gridMove{
+0%{transform:translateY(0);}
+100%{transform:translateY(48px);}
+}
+
+.ai-core{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:150px;
+height:150px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:2.4rem;
+font-weight:900;
+color:#38bdf8;
+border:1px solid rgba(56,189,248,.35);
+background:rgba(56,189,248,.08);
+box-shadow:0 0 45px rgba(56,189,248,.18);
+z-index:4;
+}
+
+.ai-node{
+position:absolute;
+width:115px;
+height:52px;
+border-radius:18px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:.85rem;
+font-weight:700;
+background:rgba(255,255,255,.06);
+border:1px solid rgba(56,189,248,.18);
+box-shadow:0 0 18px rgba(56,189,248,.10);
+z-index:5;
+animation:softFloat 5s ease-in-out infinite;
+}
+
+.ai-node.one{top:48px;left:50%;animation:softFloatCenter 5s ease-in-out infinite;}
+.ai-node.two{top:48%;left:30px;}
+.ai-node.three{top:48%;right:30px;}
+.ai-node.four{bottom:48px;left:50%;animation:softFloatCenter 5s ease-in-out infinite;}
+
+.home-ring{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:230px;
+height:230px;
+border-radius:50%;
+border:1px solid rgba(56,189,248,.28);
+box-shadow:0 0 45px rgba(56,189,248,.08);
+z-index:3;
+}
+
+.home-ring::before,
+.home-ring::after{
+content:'';
+position:absolute;
+border-radius:50%;
+border:1px solid rgba(56,189,248,.16);
+inset:34px;
+}
+
+.home-ring::after{
+inset:72px;
+}
+
+.home-center{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:100px;
+height:100px;
+border-radius:28px;
+background:rgba(56,189,248,.08);
+border:1px solid rgba(56,189,248,.32);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:2.2rem;
+z-index:4;
+box-shadow:0 0 30px rgba(56,189,248,.14);
+}
+
+.home-device{
+position:absolute;
+padding:10px 14px;
+border-radius:14px;
+font-size:.82rem;
+font-weight:700;
+background:rgba(255,255,255,.07);
+border:1px solid rgba(56,189,248,.18);
+box-shadow:0 0 18px rgba(56,189,248,.10);
+z-index:5;
+animation:softFloat 5.5s ease-in-out infinite;
+}
+
+.home-device.a{top:18px;left:50%;animation:softFloatCenter 5.5s ease-in-out infinite;}
+.home-device.b{top:48%;left:10px;}
+.home-device.c{top:48%;right:10px;}
+.home-device.d{bottom:18px;left:50%;animation:softFloatCenter 5.5s ease-in-out infinite;}
+
+@keyframes softFloat{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-8px);}
+}
+
+@keyframes softFloatCenter{
+0%,100%{transform:translateX(-50%) translateY(0);}
+50%{transform:translateX(-50%) translateY(-8px);}
+}
+
+/* Vendor boxes: same card shine level as the rest of the website */
+.vendor-box{
+position:relative;
+overflow:hidden !important;
+isolation:isolate;
+border-radius:26px !important;
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.07);
+backdrop-filter:blur(14px);
+box-shadow:none;
+transition:.35s;
+}
+
+.vendor-box:hover{
+transform:translateY(-10px);
+border-color:rgba(56,189,248,.25);
+box-shadow:
+0 20px 60px rgba(0,0,0,.35),
+0 0 25px rgba(56,189,248,.12),
+0 0 60px rgba(56,189,248,.15);
+}
+
+.vendor-box::before{
+content:'';
+position:absolute;
+top:0;
+left:-120%;
+width:100%;
+height:100%;
+background:linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.08),
+transparent
+);
+transition:.8s;
+z-index:1;
+pointer-events:none;
+}
+
+.vendor-box:hover::before{
+left:120%;
+}
+
+.vendor-box::after{
+display:none !important;
+}
+
+.vendor-box img,
+.vendor-box svg,
+.vendor-box .vendor-name{
+position:relative;
+z-index:2;
+}
+
+.ekahau-logo{
+width:120px !important;
+height:70px !important;
+margin-bottom:14px;
+overflow:visible;
+}
+
+.ekahau-word{
+font-family:Arial, Helvetica, sans-serif;
+font-size:30px;
+font-weight:700;
+fill:#ffffff;
+letter-spacing:-1px;
+}
+
+.ekahau-sub{
+font-family:Arial, Helvetica, sans-serif;
+font-size:10px;
+font-weight:700;
+fill:#9ca3af;
+letter-spacing:1.8px;
+}
+
+
+/* =========================
+FINAL HOVER GLOW FIX
+========================= */
+
+.ai-feature-card:hover,
+.home-feature-card:hover{
+transform:translateY(-10px);
+border-color:rgba(56,189,248,.25);
+box-shadow:
+0 20px 60px rgba(0,0,0,.35),
+0 0 25px rgba(56,189,248,.12),
+0 0 60px rgba(56,189,248,.20),
+0 0 100px rgba(6,182,212,.12) !important;
+}
+
+.ai-visual:hover,
+.home-visual:hover{
+transform:translateY(-10px);
+border-color:rgba(56,189,248,.25);
+box-shadow:
+0 20px 60px rgba(0,0,0,.35),
+0 0 25px rgba(56,189,248,.12),
+0 0 70px rgba(56,189,248,.18),
+0 0 120px rgba(6,182,212,.10) !important;
+}
+
+.vendor-box:hover{
+transform:translateY(-10px);
+border-color:rgba(56,189,248,.25);
+box-shadow:
+0 20px 60px rgba(0,0,0,.35),
+0 0 25px rgba(56,189,248,.12),
+0 0 60px rgba(56,189,248,.15) !important;
 }
 
 /* =========================
@@ -1131,7 +1399,8 @@ grid-template-columns:1fr;
 .ai-visual,
 .home-visual{
 min-height:360px;
-border-radius:32px;
+border-radius:32px !important;
+clip-path:inset(0 round 32px);
 }
 
 .ai-node{
@@ -1143,6 +1412,296 @@ font-size:.75rem;
 font-size:.72rem;
 }
 
+}
+
+
+/* =========================
+HERO SECTION POLISH
+========================= */
+
+.hero{
+padding-top:170px;
+padding-bottom:110px;
+position:relative;
+}
+
+.hero::before{
+content:'';
+position:absolute;
+width:520px;
+height:520px;
+right:4%;
+top:130px;
+background:radial-gradient(circle,rgba(56,189,248,.10),transparent 68%);
+filter:blur(20px);
+z-index:-1;
+}
+
+.hero-grid{
+display:grid;
+grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);
+gap:58px;
+align-items:center;
+}
+
+.hero-left{
+max-width:760px;
+}
+
+.hero h1{
+font-size:clamp(3.2rem,6vw,5.7rem);
+line-height:1;
+font-weight:900;
+margin-bottom:26px;
+letter-spacing:-2px;
+}
+
+.hero h1 span{
+background:linear-gradient(135deg,#38bdf8,#06b6d4);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{
+font-size:1.08rem;
+color:#b5c3d4;
+max-width:720px;
+margin-bottom:32px;
+}
+
+.hero-actions{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+}
+
+.hero-badges{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+margin-top:28px;
+}
+
+.hero-badge{
+padding:10px 14px;
+border-radius:999px;
+background:rgba(255,255,255,.045);
+border:1px solid rgba(255,255,255,.07);
+color:#cbd5e1;
+font-size:.88rem;
+font-weight:700;
+}
+
+.hero-badge span{
+color:#38bdf8;
+margin-right:6px;
+}
+
+.hero-card{
+padding:30px;
+box-shadow:
+0 20px 50px rgba(0,0,0,.35),
+0 0 30px rgba(56,189,248,.08);
+animation:heroFloat 6s ease-in-out infinite;
+position:relative;
+overflow:hidden;
+}
+
+.hero-card::before{
+content:'';
+position:absolute;
+top:0;
+left:-120%;
+width:100%;
+height:100%;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);
+transition:.8s;
+pointer-events:none;
+}
+
+.hero-card:hover::before{
+left:120%;
+}
+
+@keyframes heroFloat{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-8px);}
+}
+
+.hero-card h3{
+font-size:1.55rem;
+margin-bottom:22px;
+}
+
+.hero-card-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:16px;
+}
+
+.hero-mini-card{
+position:relative;
+overflow:hidden;
+padding:22px;
+border-radius:20px;
+background:rgba(255,255,255,.045);
+border:1px solid rgba(255,255,255,.075);
+transition:.35s ease;
+min-height:150px;
+}
+
+.hero-mini-card:hover{
+transform:translateY(-6px);
+border-color:rgba(56,189,248,.25);
+box-shadow:
+0 16px 40px rgba(0,0,0,.32),
+0 0 24px rgba(56,189,248,.12);
+}
+
+.hero-mini-card::before{
+content:'';
+position:absolute;
+top:0;
+left:-120%;
+width:100%;
+height:100%;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);
+transition:.8s;
+pointer-events:none;
+}
+
+.hero-mini-card:hover::before{
+left:120%;
+}
+
+.hero-mini-icon{
+width:46px;
+height:46px;
+border-radius:14px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:1.35rem;
+margin-bottom:14px;
+background:linear-gradient(135deg,rgba(37,99,235,.25),rgba(6,182,212,.15));
+border:1px solid rgba(255,255,255,.08);
+box-shadow:0 0 20px rgba(56,189,248,.12);
+}
+
+.hero-mini-card strong{
+display:block;
+color:#38bdf8;
+margin-bottom:8px;
+font-size:1rem;
+}
+
+.hero-mini-card p{
+font-size:.9rem;
+line-height:1.55;
+color:#b8c5d3;
+margin:0;
+}
+
+@media(max-width:950px){
+
+.hero{
+text-align:center;
+padding-top:140px;
+}
+
+.hero-grid{
+grid-template-columns:1fr;
+gap:34px;
+}
+
+.hero-left{
+max-width:100%;
+}
+
+.hero h1{
+font-size:2.85rem;
+letter-spacing:-1px;
+}
+
+.hero-actions,
+.hero-badges{
+justify-content:center;
+}
+
+.hero-card{
+animation:none;
+}
+
+.hero-card-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+
+/* =========================
+HOW WE WORK
+========================= */
+
+.process-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:24px;
+}
+
+.process-card{
+position:relative;
+overflow:hidden;
+padding:32px;
+transition:.35s;
+}
+
+.process-card:hover{
+transform:translateY(-10px);
+border-color:rgba(56,189,248,.25);
+box-shadow:
+0 20px 60px rgba(0,0,0,.35),
+0 0 25px rgba(56,189,248,.12);
+}
+
+.process-card::before{
+content:'';
+position:absolute;
+top:0;
+left:-120%;
+width:100%;
+height:100%;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);
+transition:.8s;
+pointer-events:none;
+}
+
+.process-card:hover::before{
+left:120%;
+}
+
+.process-number{
+width:48px;
+height:48px;
+border-radius:16px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:900;
+color:#38bdf8;
+background:linear-gradient(135deg,rgba(37,99,235,.25),rgba(6,182,212,.15));
+border:1px solid rgba(255,255,255,.08);
+box-shadow:0 0 25px rgba(56,189,248,.12);
+margin-bottom:18px;
+}
+
+.process-card h3{
+font-size:1.25rem;
+margin-bottom:12px;
+}
+
+.process-card p{
+color:#b6c2d1;
 }
 
 </style>
@@ -1191,6 +1750,7 @@ Services ▾
 <a href="#private-ai">Private AI Solutions</a>
 <a href="#home-networking">Secure Home Infrastructure</a>
 <a href="#monitoring">Monitoring</a>
+<a href="#process">How We Work</a>
 </div>
 
 </div>
@@ -1241,6 +1801,7 @@ Solutions ▾
 <a href="#monitoring">Monitoring</a>
 <a href="#vendors">Vendors</a>
 <a href="#about">About</a>
+<a href="#process">How We Work</a>
 <a href="#contact">Contact</a>
 
 </div>
@@ -1251,7 +1812,7 @@ Solutions ▾
 
 <div class="container hero-grid">
 
-<div>
+<div class="hero-left">
 
 <h1>
 Modern MSP &
@@ -1260,7 +1821,7 @@ Solutions
 </h1>
 
 <p>
-DAMALZ Technologies LLC provides Managed IT Services, Infrastructure Deployment, Cybersecurity, Wireless Engineering, Cloud Solutions, Private AI Infrastructure, and Enterprise-Grade Home Networking for small businesses, startups, remote workers, and growing organizations.
+DAMALZ Technologies LLC delivers managed IT, infrastructure deployment, cybersecurity, wireless engineering, private AI infrastructure, and enterprise-grade networking solutions for businesses, home offices, and growing organizations.
 </p>
 
 <div class="hero-actions">
@@ -1273,30 +1834,45 @@ Explore Services
 </a>
 </div>
 
+<div class="hero-badges">
+<div class="hero-badge"><span>✓</span>MSP Services</div>
+<div class="hero-badge"><span>✓</span>Private AI</div>
+<div class="hero-badge"><span>✓</span>Cybersecurity</div>
+<div class="hero-badge"><span>✓</span>Wireless Engineering</div>
+</div>
+
 </div>
 
 <div class="glass hero-card">
 
 <h3>Technology Operations</h3>
 
-<div class="hero-item">
-<strong>Managed IT Services</strong>
-Monitoring, maintenance, operational support, remote management, and infrastructure lifecycle management.
+<div class="hero-card-grid">
+
+<div class="hero-mini-card">
+<div class="hero-mini-icon">🖥️</div>
+<strong>IT Operations</strong>
+<p>Support, maintenance, endpoint management, infrastructure visibility, and business technology continuity.</p>
 </div>
 
-<div class="hero-item">
-<strong>Infrastructure Design & Deployment</strong>
-Server installations, rack deployment, structured cabling, switching, firewalls, and wireless systems.
+<div class="hero-mini-card">
+<div class="hero-mini-icon">🤖</div>
+<strong>Private AI Infrastructure</strong>
+<p>Local AI labs, LLM hosting, knowledge assistants, document search, and automation planning.</p>
 </div>
 
-<div class="hero-item">
-<strong>Cybersecurity, AI & Monitoring</strong>
-Security hardening, local AI solutions, endpoint protection, alerting systems, dashboards, and operational visibility.
+<div class="hero-mini-card">
+<div class="hero-mini-icon">🔐</div>
+<strong>Cybersecurity</strong>
+<p>Firewalls, VPNs, secure access, segmentation, endpoint protection, and network hardening.</p>
 </div>
 
-<div class="hero-item">
-<strong>Enterprise Wireless & Home Infrastructure</strong>
-Ekahau WiFi surveys, RF optimization, enterprise-grade home networking, smart device isolation, and secure connectivity.
+<div class="hero-mini-card">
+<div class="hero-mini-icon">🧰</div>
+<strong>Infrastructure Engineering</strong>
+<p>Switching, routing, cabling, WiFi, server deployment, and secure home or office networks.</p>
+</div>
+
 </div>
 
 </div>
@@ -1855,28 +2431,14 @@ Infrastructure analytics, uptime tracking, and operational reporting.
 </div>
 
 <div class="vendor-box glass">
-<svg width="70" height="70" viewBox="0 0 100 100">
-<circle cx="50" cy="50" r="45" stroke="#38bdf8" stroke-width="4" fill="none"/>
-<text x="50%" y="55%" text-anchor="middle" fill="#38bdf8"
-font-size="20" font-family="Arial" font-weight="bold">AI</text>
-</svg>
-<div class="vendor-name">Ollama / LLMs</div>
-</div>
-
-<div class="vendor-box glass">
-<svg width="70" height="70" viewBox="0 0 100 100">
-<circle cx="50" cy="50" r="45" stroke="#38bdf8" stroke-width="4" fill="none"/>
-<text x="50%" y="55%" text-anchor="middle" fill="#38bdf8"
-font-size="20" font-family="Arial" font-weight="bold">FW</text>
-</svg>
-<div class="vendor-name">OPNsense / pfSense</div>
-</div>
-
-<div class="vendor-box glass">
-<svg width="70" height="70" viewBox="0 0 100 100">
-<circle cx="50" cy="50" r="45" stroke="#38bdf8" stroke-width="4" fill="none"/>
-<text x="50%" y="55%" text-anchor="middle" fill="#38bdf8"
-font-size="20" font-family="Arial" font-weight="bold">EK</text>
+<svg class="ekahau-logo" viewBox="0 0 180 100" xmlns="http://www.w3.org/2000/svg" aria-label="Ekahau logo">
+  <text x="90" y="42" text-anchor="middle" class="ekahau-word">ekahau</text>
+  <rect x="28" y="54" width="26" height="5" rx="2" fill="#ef4444"/>
+  <rect x="54" y="54" width="26" height="5" rx="2" fill="#f97316"/>
+  <rect x="80" y="54" width="26" height="5" rx="2" fill="#facc15"/>
+  <rect x="106" y="54" width="26" height="5" rx="2" fill="#a3e635"/>
+  <rect x="132" y="54" width="20" height="5" rx="2" fill="#22c55e"/>
+  <text x="90" y="76" text-anchor="middle" class="ekahau-sub">WIRELESS DESIGN</text>
 </svg>
 <div class="vendor-name">Ekahau</div>
 </div>
@@ -1916,6 +2478,71 @@ Our services include infrastructure deployment, cable and rack installation, ent
 <p>
 As a growing technology company, DAMALZ Tech is built on enterprise infrastructure experience, practical lab work, and modern IT operational practices. Our goal is to help clients build secure, reliable, scalable, and future-ready technology environments.
 </p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- HOW WE WORK -->
+
+<section id="process">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>How We Work</h2>
+
+<p>
+A simple, professional process for understanding your environment, designing the right solution, and supporting reliable technology operations.
+</p>
+
+</div>
+
+<div class="process-grid">
+
+<div class="glass process-card">
+<div class="process-number">01</div>
+<h3>Consultation</h3>
+<p>
+We start by understanding your business, home office, infrastructure, security, wireless, AI, or support requirements.
+</p>
+</div>
+
+<div class="glass process-card">
+<div class="process-number">02</div>
+<h3>Assessment</h3>
+<p>
+We review your current environment, identify risks, performance gaps, connectivity issues, and improvement opportunities.
+</p>
+</div>
+
+<div class="glass process-card">
+<div class="process-number">03</div>
+<h3>Design</h3>
+<p>
+We create a practical technology plan focused on security, scalability, reliability, and long-term operational value.
+</p>
+</div>
+
+<div class="glass process-card">
+<div class="process-number">04</div>
+<h3>Deployment</h3>
+<p>
+We implement infrastructure, networking, cloud, monitoring, AI, security, or home networking solutions with clean documentation.
+</p>
+</div>
+
+<div class="glass process-card">
+<div class="process-number">05</div>
+<h3>Support</h3>
+<p>
+We provide follow-up support, improvements, monitoring options, and guidance as your technology needs grow.
+</p>
+</div>
 
 </div>
 
