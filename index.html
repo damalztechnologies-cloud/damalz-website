@@ -3003,6 +3003,485 @@ color:#38bdf8;
 color:#9fb0c6;
 }
 
+
+/* =========================
+CONTACT SECTION FINAL POLISH
+========================= */
+
+.contact-card{
+position:relative;
+overflow:hidden;
+}
+
+.contact-card::before{
+content:'';
+position:absolute;
+top:0;
+left:-120%;
+width:100%;
+height:100%;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);
+transition:.8s;
+pointer-events:none;
+}
+
+.contact-card:hover::before{
+left:120%;
+}
+
+.contact-card:hover{
+transform:translateY(-10px);
+border-color:rgba(56,189,248,.25);
+box-shadow:
+0 20px 60px rgba(0,0,0,.35),
+0 0 25px rgba(56,189,248,.12);
+}
+
+.contact-benefits{
+margin-top:26px;
+display:grid;
+gap:12px;
+}
+
+.contact-benefit{
+display:flex;
+align-items:center;
+gap:10px;
+color:#b8c5d3;
+font-weight:650;
+}
+
+.contact-benefit span{
+color:#38bdf8;
+font-weight:900;
+}
+
+.focus-tags{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+margin-top:22px;
+}
+
+.focus-tags span{
+padding:10px 14px;
+border-radius:999px;
+background:rgba(255,255,255,.045);
+border:1px solid rgba(255,255,255,.075);
+color:#cbd5e1;
+font-size:.9rem;
+font-weight:750;
+}
+
+.contact-info-list{
+display:grid;
+gap:16px;
+margin:24px 0;
+}
+
+.contact-info-item{
+display:flex;
+gap:14px;
+align-items:flex-start;
+padding:16px;
+border-radius:18px;
+background:rgba(255,255,255,.045);
+border:1px solid rgba(255,255,255,.075);
+}
+
+.contact-info-icon{
+width:38px;
+height:38px;
+min-width:38px;
+border-radius:13px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(135deg,rgba(37,99,235,.25),rgba(6,182,212,.15));
+border:1px solid rgba(255,255,255,.08);
+box-shadow:0 0 20px rgba(56,189,248,.12);
+}
+
+.contact-info-item strong{
+display:block;
+color:#38bdf8;
+font-size:.78rem;
+letter-spacing:1px;
+text-transform:uppercase;
+margin-bottom:4px;
+}
+
+.contact-info-item a,
+.contact-info-item span{
+color:#e5eef8;
+text-decoration:none;
+font-weight:700;
+word-break:break-word;
+}
+
+.contact-actions{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+margin-top:18px;
+}
+
+.contact-actions .btn{
+text-align:center;
+}
+
+@media(max-width:950px){
+.contact-actions{
+flex-direction:column;
+}
+
+.contact-actions .btn{
+width:100%;
+}
+
+.focus-tags span{
+font-size:.85rem;
+}
+}
+
+
+/* =========================
+ABOUT + CONTACT REFINEMENT
+========================= */
+
+.about-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:26px;
+margin-top:34px;
+}
+
+.about-card{
+position:relative;
+overflow:hidden;
+padding:34px;
+transition:.35s;
+}
+
+.about-card:hover{
+transform:translateY(-10px);
+border-color:rgba(56,189,248,.25);
+box-shadow:
+0 20px 60px rgba(0,0,0,.35),
+0 0 25px rgba(56,189,248,.12);
+}
+
+.about-card::before{
+content:'';
+position:absolute;
+top:0;
+left:-120%;
+width:100%;
+height:100%;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);
+transition:.8s;
+pointer-events:none;
+}
+
+.about-card:hover::before{
+left:120%;
+}
+
+.about-card .icon-wrap{
+margin-bottom:20px;
+}
+
+.about-card h3{
+font-size:1.25rem;
+margin-bottom:12px;
+}
+
+.about-card p{
+color:#b8c5d3;
+}
+
+.contact-grid.refined{
+grid-template-columns:1fr 1fr;
+max-width:1080px;
+margin:auto;
+}
+
+.contact-card.compact{
+min-height:auto;
+}
+
+.focus-tags.compact span{
+font-size:.88rem;
+padding:9px 13px;
+}
+
+.contact-info-list.compact{
+margin-top:18px;
+}
+
+.contact-actions.single{
+margin-top:22px;
+}
+
+@media(max-width:950px){
+.contact-grid.refined{
+grid-template-columns:1fr;
+}
+
+.about-card:hover,
+.contact-card:hover{
+transform:none;
+}
+}
+
+
+/* =========================
+UNIFIED PREMIUM CONSULTATION FORM
+========================= */
+
+.popup-overlay{
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at 50% 18%,rgba(56,189,248,.14),transparent 32%),
+rgba(2,8,23,.78);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:999999;
+padding:20px;
+backdrop-filter:blur(12px);
+}
+
+.popup-overlay.active{
+display:flex;
+}
+
+.popup-box{
+width:100%;
+max-width:640px;
+position:relative;
+overflow:hidden;
+border-radius:32px;
+padding:42px;
+background:
+linear-gradient(145deg,rgba(15,23,42,.92),rgba(8,17,31,.98));
+border:1px solid rgba(56,189,248,.22);
+box-shadow:
+0 35px 95px rgba(0,0,0,.62),
+0 0 55px rgba(56,189,248,.16),
+inset 0 1px 0 rgba(255,255,255,.08);
+animation:popupFade .28s ease;
+}
+
+.popup-box::before{
+content:'';
+position:absolute;
+inset:0;
+background:
+linear-gradient(rgba(56,189,248,.04) 1px,transparent 1px),
+linear-gradient(90deg,rgba(56,189,248,.04) 1px,transparent 1px);
+background-size:44px 44px;
+opacity:.65;
+pointer-events:none;
+}
+
+.popup-box::after{
+content:'';
+position:absolute;
+top:0;
+left:-120%;
+width:120%;
+height:100%;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);
+animation:popupShine 5s ease-in-out infinite;
+pointer-events:none;
+}
+
+@keyframes popupShine{
+0%,70%{left:-120%;}
+100%{left:120%;}
+}
+
+@keyframes popupFade{
+from{
+opacity:0;
+transform:translateY(18px) scale(.96);
+}
+to{
+opacity:1;
+transform:translateY(0) scale(1);
+}
+}
+
+.popup-close{
+position:absolute;
+top:18px;
+right:18px;
+width:44px;
+height:44px;
+border-radius:16px;
+border:1px solid rgba(255,255,255,.10);
+background:rgba(255,255,255,.07);
+color:white;
+font-size:20px;
+cursor:pointer;
+z-index:5;
+transition:.25s;
+}
+
+.popup-close:hover{
+background:rgba(56,189,248,.14);
+border-color:rgba(56,189,248,.25);
+transform:translateY(-2px);
+}
+
+.popup-box h2,
+.popup-box p,
+.popup-form{
+position:relative;
+z-index:3;
+}
+
+.popup-box h2{
+font-size:2.2rem;
+line-height:1.12;
+margin-bottom:12px;
+letter-spacing:-.5px;
+}
+
+.popup-box p{
+color:#aebbd0;
+margin-bottom:26px;
+line-height:1.7;
+}
+
+.popup-form{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:16px;
+}
+
+.popup-form input,
+.popup-form textarea,
+.popup-form select{
+width:100%;
+padding:16px 16px;
+border-radius:16px;
+background:rgba(255,255,255,.055);
+color:white;
+font-family:'Inter',sans-serif;
+font-size:15px;
+border:1px solid rgba(255,255,255,.08);
+outline:none;
+transition:.25s;
+}
+
+.popup-form input::placeholder,
+.popup-form textarea::placeholder{
+color:#8fa1b8;
+}
+
+.popup-form input:focus,
+.popup-form textarea:focus,
+.popup-form select:focus{
+border-color:rgba(56,189,248,.45);
+box-shadow:
+0 0 0 3px rgba(56,189,248,.10),
+0 0 24px rgba(56,189,248,.10);
+background:rgba(255,255,255,.075);
+}
+
+.popup-form select{
+appearance:none;
+background-image:
+linear-gradient(45deg,transparent 50%,#38bdf8 50%),
+linear-gradient(135deg,#38bdf8 50%,transparent 50%);
+background-position:
+calc(100% - 22px) 50%,
+calc(100% - 16px) 50%;
+background-size:6px 6px,6px 6px;
+background-repeat:no-repeat;
+}
+
+.popup-form textarea,
+.popup-form select,
+.popup-form button,
+.popup-form .form-full{
+grid-column:1 / -1;
+}
+
+.popup-form textarea{
+min-height:130px;
+resize:vertical;
+}
+
+.popup-form button{
+border:none;
+cursor:pointer;
+width:100%;
+}
+
+.form-note{
+grid-column:1 / -1;
+color:#8fa1b8;
+font-size:.82rem;
+line-height:1.5;
+margin-top:-4px;
+}
+
+.form-success{
+display:none;
+grid-column:1 / -1;
+padding:14px 16px;
+border-radius:16px;
+background:rgba(34,197,94,.10);
+border:1px solid rgba(34,197,94,.25);
+color:#bbf7d0;
+font-weight:750;
+}
+
+.form-success.active{
+display:block;
+}
+
+@media(max-width:700px){
+.popup-overlay{
+align-items:flex-start;
+overflow-y:auto;
+padding:14px;
+}
+
+.popup-box{
+margin-top:80px;
+padding:28px;
+border-radius:26px;
+max-height:calc(100vh - 100px);
+overflow-y:auto;
+}
+
+.popup-box h2{
+font-size:1.75rem;
+padding-right:42px;
+}
+
+.popup-form{
+grid-template-columns:1fr;
+gap:13px;
+}
+
+.popup-form input,
+.popup-form textarea,
+.popup-form select{
+font-size:16px;
+padding:14px;
+}
+
+.popup-form textarea{
+min-height:110px;
+}
+}
+
 </style>
 
 </head>
@@ -3897,82 +4376,29 @@ Modern MSP and infrastructure services for small businesses, remote work environ
 
 </div>
 
-<div class="glass about-box">
+<div class="about-grid">
 
+<div class="glass about-card">
+<div class="icon-wrap">🧭</div>
+<h3>Who We Are</h3>
 <p>
-DAMALZ Technologies LLC focuses on delivering professional managed IT services, infrastructure support, networking solutions, monitoring systems, wireless engineering, private AI infrastructure, and enterprise-grade home networking.
-</p>
-
-<p>
-Our services include infrastructure deployment, cable and rack installation, enterprise networking, cloud systems, security solutions, wireless optimization, monitoring platforms, home lab design, AI proof-of-concepts, and datacenter support.
-</p>
-
-<p>
-As a growing technology company, DAMALZ Tech is built on enterprise infrastructure experience, practical lab work, and modern IT operational practices. Our goal is to help clients build secure, reliable, scalable, and future-ready technology environments.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- HOW WE WORK -->
-
-<section id="process">
-
-<div class="container">
-
-<div class="section-title">
-
-<h2>How We Work</h2>
-
-<p>
-A simple, professional process for understanding your environment, designing the right solution, and supporting reliable technology operations.
-</p>
-
-</div>
-
-<div class="process-grid">
-
-<div class="glass process-card">
-<div class="process-number">01</div>
-<h3>Consultation</h3>
-<p>
-We start by understanding your business, home office, infrastructure, security, wireless, AI, or support requirements.
+DAMALZ Technologies LLC is a growing technology company focused on managed IT, infrastructure support, networking, monitoring, wireless engineering, private AI infrastructure, and secure home-office environments.
 </p>
 </div>
 
-<div class="glass process-card">
-<div class="process-number">02</div>
-<h3>Assessment</h3>
+<div class="glass about-card">
+<div class="icon-wrap">🛠️</div>
+<h3>What We Build</h3>
 <p>
-We review your current environment, identify risks, performance gaps, connectivity issues, and improvement opportunities.
+We support infrastructure deployment, cable and rack installation, enterprise networking, cloud systems, security solutions, wireless optimization, monitoring platforms, home lab design, and datacenter support.
 </p>
 </div>
 
-<div class="glass process-card">
-<div class="process-number">03</div>
-<h3>Design</h3>
+<div class="glass about-card">
+<div class="icon-wrap">🔐</div>
+<h3>How We Approach Work</h3>
 <p>
-We create a practical technology plan focused on security, scalability, reliability, and long-term operational value.
-</p>
-</div>
-
-<div class="glass process-card">
-<div class="process-number">04</div>
-<h3>Deployment</h3>
-<p>
-We implement infrastructure, networking, cloud, monitoring, AI, security, or home networking solutions with clean documentation.
-</p>
-</div>
-
-<div class="glass process-card">
-<div class="process-number">05</div>
-<h3>Support</h3>
-<p>
-We provide follow-up support, improvements, monitoring options, and guidance as your technology needs grow.
+Our goal is to help clients build secure, reliable, scalable, and future-ready technology environments using practical lab work, structured planning, and modern operational practices.
 </p>
 </div>
 
@@ -3993,59 +4419,80 @@ We provide follow-up support, improvements, monitoring options, and guidance as 
 <h2>Contact DAMALZ Tech</h2>
 
 <p>
-Connect with us for consultations, infrastructure projects, secure home networking, private AI solutions, support services, and technology planning.
+Connect with DAMALZ Tech for consultation requests, infrastructure planning, cybersecurity, wireless, private AI, monitoring, or secure home-office technology services.
 </p>
 
 </div>
 
-<div class="contact-grid">
+<div class="contact-grid refined">
 
-<div class="glass contact-card">
+<div class="glass contact-card compact">
 
-<h3>Consultation Requests</h3>
+<h3>Request Consultation</h3>
 
 <p>
-Click below to request a consultation or project quote.
+Start with a practical conversation about your project, technology goals, support needs, or infrastructure requirements.
 </p>
 
 <button type="button" class="btn btn-primary open-popup">
-Request Quote
+Request Consultation
 </button>
 
+<div class="contact-benefits">
+<div class="contact-benefit"><span>✓</span> Free initial consultation</div>
+<div class="contact-benefit"><span>✓</span> Infrastructure planning</div>
+<div class="contact-benefit"><span>✓</span> Security and network review</div>
+<div class="contact-benefit"><span>✓</span> Wireless and home-office design</div>
+<div class="contact-benefit"><span>✓</span> Private AI discussion</div>
 </div>
-
-<div class="glass contact-card">
-
-<h3>Core Focus Areas</h3>
-
-<p>• Managed IT Services</p>
-<p>• Infrastructure Deployment</p>
-<p>• Cable & Rack Installation</p>
-<p>• Datacenter Support</p>
-<p>• Cloud & Networking</p>
-<p>• Wireless Engineering</p>
-<p>• Cybersecurity</p>
-<p>• Private AI Solutions</p>
-<p>• Secure Home Infrastructure</p>
-<p>• Security Cameras</p>
 
 </div>
 
-<div class="glass contact-card">
+<div class="glass contact-card compact">
 
-<h3>Business Technology Solutions</h3>
-
-<p>
-Helping businesses and home office environments build secure, scalable, and professionally managed technology systems.
-</p>
+<h3>Business Technology Support</h3>
 
 <p>
-Infrastructure • Networking • Wireless • Security • AI • Monitoring • Support
+DAMALZ Tech supports core technology areas for small businesses, startups, remote workers, home offices, and growing organizations.
 </p>
 
+<div class="focus-tags compact">
+<span>Managed IT</span>
+<span>Infrastructure</span>
+<span>Cybersecurity</span>
+<span>Private AI</span>
+<span>Wireless</span>
+<span>Networking</span>
+<span>Monitoring</span>
+<span>Cloud</span>
+<span>Secure Home Infrastructure</span>
+</div>
+
+<div class="contact-info-list compact">
+
+<div class="contact-info-item">
+<div class="contact-info-icon">📧</div>
+<div>
+<strong>Email</strong>
+<a href="mailto:info@damalztech.com">info@damalztech.com</a>
+</div>
+</div>
+
+<div class="contact-info-item">
+<div class="contact-info-icon">🌐</div>
+<div>
+<strong>Website</strong>
+<a href="https://damalztech.com" target="_blank">damalztech.com</a>
+</div>
+</div>
+
+</div>
+
+<div class="contact-actions single">
 <a href="mailto:info@damalztech.com" class="btn btn-primary">
-info@damalztech.com
+Send Email
 </a>
+</div>
 
 </div>
 
@@ -4132,44 +4579,54 @@ Managed IT, infrastructure, networking, cybersecurity, private AI, secure home i
 
 <div class="popup-box">
 
-<button type="button" class="popup-close" id="closePopup">✕</button>
+<button class="popup-close" id="closePopup" type="button" aria-label="Close consultation form">✕</button>
 
 <h2>Request Consultation</h2>
 
 <p>
-Tell us about your infrastructure project, business technology need, private AI idea, or secure home networking requirement.
+Tell us what you need help with. DAMALZ Tech can review your request and follow up by email.
 </p>
 
-<form id="consultationForm" class="popup-form">
+<form class="popup-form" id="consultationForm" action="https://formsubmit.co/info@damalztech.com" method="POST">
 
 <input type="hidden" name="_subject" value="New DAMALZ Tech Consultation Request">
 <input type="hidden" name="_captcha" value="false">
 <input type="hidden" name="_template" value="table">
+<input type="hidden" name="_next" value="https://damalztech.com/?submitted=true">
 
-<input type="text" name="Full Name" placeholder="Full Name" required>
+<input type="text" name="name" placeholder="Full Name" required>
 
-<input type="email" name="Business Email" placeholder="Business Email" required>
+<input type="email" name="email" placeholder="Business Email" required>
 
-<input type="text" name="Company Name" placeholder="Company Name">
+<input type="text" name="company" placeholder="Company Name">
 
-<select name="Requested Service" required>
-<option value="Managed IT Services">Managed IT Services</option>
-<option value="Infrastructure Deployment">Infrastructure Deployment</option>
-<option value="Wireless Engineering">Wireless Engineering</option>
-<option value="Cybersecurity">Cybersecurity</option>
-<option value="Monitoring Solutions">Monitoring Solutions</option>
-<option value="Security Cameras">Security Cameras</option>
-<option value="Private AI Solutions">Private AI Solutions</option>
-<option value="Secure Home Infrastructure">Secure Home Infrastructure</option>
-<option value="Home Lab / Proxmox / Firewall Setup">Home Lab / Proxmox / Firewall Setup</option>
+<input type="text" name="location" placeholder="City / State">
+
+<select name="service" required>
+<option value="" disabled selected>Select Service Area</option>
+<option>Managed IT Services</option>
+<option>Infrastructure Deployment</option>
+<option>Cybersecurity</option>
+<option>Wireless Engineering</option>
+<option>Private AI Solutions</option>
+<option>Secure Home Infrastructure</option>
+<option>Monitoring Solutions</option>
+<option>Security Cameras</option>
+<option>Other / Not Sure Yet</option>
 </select>
 
-<textarea name="Project Details" placeholder="Tell us about your project..." required></textarea>
+<textarea name="message" placeholder="Tell us about your project, environment, issue, or goal..." required></textarea>
 
-<div id="formStatus" class="form-status"></div>
+<div class="form-note">
+By submitting this form, your request will be sent to DAMALZ Technologies LLC by email.
+</div>
 
-<button id="submitButton" type="submit" class="btn btn-primary">
-Submit Request
+<div class="form-success" id="formSuccess">
+Your consultation request was submitted. Thank you.
+</div>
+
+<button type="submit" class="btn btn-primary">
+Submit Consultation Request
 </button>
 
 </form>
@@ -4389,6 +4846,39 @@ mobileMenu.classList.remove('active');
 unlockBodyScroll();
 }
 }
+});
+
+
+/* =========================
+CONSULTATION FORM CONSISTENCY
+========================= */
+
+const consultationForm = document.getElementById('consultationForm');
+const formSuccess = document.getElementById('formSuccess');
+
+if(window.location.search.includes('submitted=true')){
+if(popup){
+popup.classList.add('active');
+}
+if(formSuccess){
+formSuccess.classList.add('active');
+}
+if(consultationForm){
+consultationForm.reset();
+}
+window.history.replaceState({}, document.title, window.location.pathname + window.location.hash);
+}
+
+if(consultationForm){
+consultationForm.addEventListener('submit', function(){
+setTimeout(() => {
+consultationForm.reset();
+}, 200);
+});
+}
+
+document.querySelectorAll('.open-popup').forEach(btn=>{
+btn.textContent = btn.textContent.replace('Request Quote','Request Consultation');
 });
 
 </script>
