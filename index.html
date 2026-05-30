@@ -5,7 +5,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>DAMALZ Tech | Managed IT & Infrastructure Solutions</title>
+<title>DAMALZ Tech | Managed IT, Infrastructure, Cybersecurity & Private AI Solutions</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -160,7 +160,7 @@ position:absolute;
 top:48px;
 left:0;
 background:#0f172a;
-min-width:260px;
+min-width:275px;
 padding:14px;
 border-radius:18px;
 border:1px solid rgba(255,255,255,.08);
@@ -261,7 +261,7 @@ background:linear-gradient(135deg,#38bdf8,#06b6d4);
 .hero p{
 font-size:1.1rem;
 color:#b5c3d4;
-max-width:700px;
+max-width:730px;
 margin-bottom:34px;
 }
 
@@ -298,6 +298,23 @@ transform:translateY(-4px);
 box-shadow:
 0 18px 45px rgba(37,99,235,.45),
 0 0 30px rgba(56,189,248,.25);
+}
+
+.btn-secondary{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+color:white;
+}
+
+.btn-secondary:hover{
+background:rgba(255,255,255,.08);
+transform:translateY(-4px);
+}
+
+.hero-actions{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
 }
 
 /* =========================
@@ -359,7 +376,7 @@ margin-bottom:14px;
 }
 
 .section-title p{
-max-width:760px;
+max-width:820px;
 margin:auto;
 color:#94a3b8;
 }
@@ -451,6 +468,176 @@ margin-bottom:8px;
 }
 
 /* =========================
+SPECIALITY SECTIONS
+========================= */
+
+.feature-split{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:35px;
+align-items:center;
+}
+
+.feature-box{
+padding:42px;
+position:relative;
+overflow:hidden;
+}
+
+.feature-box::before{
+content:'';
+position:absolute;
+width:360px;
+height:360px;
+background:radial-gradient(circle,rgba(56,189,248,.14),transparent 70%);
+top:-150px;
+right:-150px;
+filter:blur(10px);
+}
+
+.feature-box h3{
+font-size:2rem;
+margin-bottom:16px;
+position:relative;
+z-index:2;
+}
+
+.feature-box p,
+.feature-box ul{
+position:relative;
+z-index:2;
+}
+
+.ai-visual,
+.home-visual{
+min-height:420px;
+position:relative;
+overflow:hidden;
+border-radius:30px;
+background:
+linear-gradient(180deg,rgba(15,23,42,.95),rgba(2,8,23,.98));
+border:1px solid rgba(255,255,255,.08);
+box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+
+.ai-visual::before,
+.home-visual::before{
+content:'';
+position:absolute;
+inset:0;
+background:
+linear-gradient(rgba(56,189,248,.05) 1px,transparent 1px),
+linear-gradient(90deg,rgba(56,189,248,.05) 1px,transparent 1px);
+background-size:48px 48px;
+animation:gridMove 18s linear infinite;
+opacity:.75;
+}
+
+@keyframes gridMove{
+0%{transform:translateY(0);}
+100%{transform:translateY(48px);}
+}
+
+.ai-core{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:150px;
+height:150px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:2.4rem;
+font-weight:900;
+color:#38bdf8;
+border:1px solid rgba(56,189,248,.35);
+background:rgba(56,189,248,.08);
+box-shadow:0 0 70px rgba(56,189,248,.22);
+z-index:2;
+}
+
+.ai-node{
+position:absolute;
+width:115px;
+height:52px;
+border-radius:18px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:.85rem;
+font-weight:700;
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.08);
+z-index:2;
+}
+
+.ai-node.one{top:48px;left:50%;transform:translateX(-50%);}
+.ai-node.two{top:48%;left:30px;}
+.ai-node.three{top:48%;right:30px;}
+.ai-node.four{bottom:48px;left:50%;transform:translateX(-50%);}
+
+.home-ring{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:260px;
+height:260px;
+border-radius:50%;
+border:1px solid rgba(56,189,248,.28);
+box-shadow:0 0 60px rgba(56,189,248,.1);
+}
+
+.home-ring::before,
+.home-ring::after{
+content:'';
+position:absolute;
+border-radius:50%;
+border:1px solid rgba(56,189,248,.18);
+inset:38px;
+}
+
+.home-ring::after{
+inset:78px;
+}
+
+.home-center{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:100px;
+height:100px;
+border-radius:28px;
+background:rgba(56,189,248,.1);
+border:1px solid rgba(56,189,248,.35);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:2.2rem;
+z-index:3;
+box-shadow:0 0 45px rgba(56,189,248,.2);
+}
+
+.home-device{
+position:absolute;
+padding:10px 14px;
+border-radius:14px;
+font-size:.82rem;
+font-weight:700;
+background:rgba(255,255,255,.07);
+border:1px solid rgba(255,255,255,.08);
+z-index:3;
+}
+
+.home-device.a{top:54px;left:50%;transform:translateX(-50%);}
+.home-device.b{top:48%;left:32px;}
+.home-device.c{top:48%;right:32px;}
+.home-device.d{bottom:54px;left:50%;transform:translateX(-50%);}
+
+/* =========================
 VENDORS
 ========================= */
 
@@ -475,12 +662,17 @@ transform:translateY(-6px);
 border-color:rgba(56,189,248,.25);
 }
 
-.vendor-box img{
+.vendor-box img,
+.vendor-box svg{
 width:70px;
 height:70px;
 object-fit:contain;
 margin-bottom:14px;
 filter:brightness(1.1);
+}
+
+.vendor-name{
+font-size:14px;
 }
 
 /* =========================
@@ -724,6 +916,28 @@ padding:28px;
 font-size:2.8rem;
 }
 
+.hero-actions{
+justify-content:center;
+}
+
+.feature-split{
+grid-template-columns:1fr;
+}
+
+.ai-visual,
+.home-visual{
+min-height:360px;
+}
+
+.ai-node{
+width:96px;
+font-size:.75rem;
+}
+
+.home-device{
+font-size:.72rem;
+}
+
 }
 
 </style>
@@ -769,6 +983,8 @@ Services ▾
 <a href="#infrastructure">Infrastructure Deployment</a>
 <a href="#security">Cybersecurity</a>
 <a href="#wifi">Wireless Engineering</a>
+<a href="#private-ai">Private AI Solutions</a>
+<a href="#home-networking">Secure Home Infrastructure</a>
 <a href="#monitoring">Monitoring</a>
 </div>
 
@@ -784,6 +1000,8 @@ Solutions ▾
 <a href="#datacenter">Datacenter</a>
 <a href="#cabling">Structured Cabling</a>
 <a href="#camera">Security Cameras</a>
+<a href="#private-ai">Private AI & Automation</a>
+<a href="#home-networking">Home & Small Office</a>
 <a href="#about">Business Support</a>
 </div>
 
@@ -813,6 +1031,8 @@ Solutions ▾
 <a href="#services">Services</a>
 <a href="#infrastructure">Infrastructure</a>
 <a href="#wifi">Wireless</a>
+<a href="#private-ai">Private AI</a>
+<a href="#home-networking">Home Networking</a>
 <a href="#monitoring">Monitoring</a>
 <a href="#vendors">Vendors</a>
 <a href="#about">About</a>
@@ -835,12 +1055,18 @@ Solutions
 </h1>
 
 <p>
-DAMALZ Technologies LLC delivers managed IT services, cloud infrastructure, networking, datacenter deployments, wireless engineering, infrastructure monitoring, and cybersecurity solutions for modern businesses and enterprise environments.
+DAMALZ Technologies LLC provides Managed IT Services, Infrastructure Deployment, Cybersecurity, Wireless Engineering, Cloud Solutions, Private AI Infrastructure, and Enterprise-Grade Home Networking for small businesses, startups, remote workers, and growing organizations.
 </p>
 
+<div class="hero-actions">
 <button type="button" class="btn btn-primary open-popup">
 Request Consultation
 </button>
+
+<a href="#services" class="btn btn-secondary">
+Explore Services
+</a>
+</div>
 
 </div>
 
@@ -859,13 +1085,13 @@ Server installations, rack deployment, structured cabling, switching, firewalls,
 </div>
 
 <div class="hero-item">
-<strong>Cybersecurity & Monitoring</strong>
-Security hardening, endpoint protection, alerting systems, dashboards, and operational visibility.
+<strong>Cybersecurity, AI & Monitoring</strong>
+Security hardening, local AI solutions, endpoint protection, alerting systems, dashboards, and operational visibility.
 </div>
 
 <div class="hero-item">
-<strong>Enterprise Wireless Engineering</strong>
-Ekahau WiFi surveys, RF optimization, enterprise wireless planning, and coverage analysis.
+<strong>Enterprise Wireless & Home Infrastructure</strong>
+Ekahau WiFi surveys, RF optimization, enterprise-grade home networking, smart device isolation, and secure connectivity.
 </div>
 
 </div>
@@ -885,7 +1111,7 @@ Ekahau WiFi surveys, RF optimization, enterprise wireless planning, and coverage
 <h2>Managed Technology Services</h2>
 
 <p>
-Professional infrastructure and operational support services designed for modern businesses and growing environments.
+Professional infrastructure and operational support services designed for small businesses, growing organizations, remote work environments, and modern technology operations.
 </p>
 
 </div>
@@ -903,7 +1129,7 @@ Operational IT support and infrastructure management for business continuity and
 </p>
 
 <ul class="service-list">
-<li>24/7 infrastructure monitoring</li>
+<li>Infrastructure monitoring</li>
 <li>Remote support & troubleshooting</li>
 <li>System maintenance</li>
 <li>Endpoint administration</li>
@@ -939,7 +1165,7 @@ Scalable cloud deployments and virtualization solutions for hybrid environments.
 <h3>Cybersecurity Solutions</h3>
 
 <p>
-Security-first infrastructure design and protection for modern enterprise environments.
+Security-first infrastructure design and protection for modern business and home office environments.
 </p>
 
 <ul class="service-list">
@@ -948,6 +1174,66 @@ Security-first infrastructure design and protection for modern enterprise enviro
 <li>Endpoint protection</li>
 <li>Access security</li>
 <li>Security hardening</li>
+</ul>
+
+</div>
+
+<div class="glass card">
+
+<div class="icon-wrap">🤖</div>
+
+<h3>Private AI Solutions</h3>
+
+<p>
+Secure AI assistants, local language models, knowledge bases, and automation platforms for business productivity.
+</p>
+
+<ul class="service-list">
+<li>Local LLM hosting</li>
+<li>Ollama deployments</li>
+<li>AI chatbots</li>
+<li>Document search</li>
+<li>Workflow automation</li>
+</ul>
+
+</div>
+
+<div class="glass card">
+
+<div class="icon-wrap">🏠</div>
+
+<h3>Secure Home Infrastructure</h3>
+
+<p>
+Enterprise-grade networking, security, WiFi, VPN, monitoring, and smart device protection for homes and small offices.
+</p>
+
+<ul class="service-list">
+<li>Advanced WiFi design</li>
+<li>VLAN segmentation</li>
+<li>Enterprise firewall setup</li>
+<li>Smart device isolation</li>
+<li>Home lab support</li>
+</ul>
+
+</div>
+
+<div class="glass card">
+
+<div class="icon-wrap">🧪</div>
+
+<h3>Lab & Proof-of-Concept Builds</h3>
+
+<p>
+Test environments for virtualization, monitoring, AI, security, and infrastructure before production deployment.
+</p>
+
+<ul class="service-list">
+<li>Proxmox lab design</li>
+<li>OPNsense / pfSense testing</li>
+<li>Ubuntu server builds</li>
+<li>Monitoring stack labs</li>
+<li>AI proof-of-concepts</li>
 </ul>
 
 </div>
@@ -969,7 +1255,7 @@ Security-first infrastructure design and protection for modern enterprise enviro
 <h2>Infrastructure Design & Deployment</h2>
 
 <p>
-Professional infrastructure installation and deployment services for businesses, offices, and datacenter environments.
+Professional infrastructure installation and deployment services for businesses, offices, home labs, remote workspaces, and datacenter environments.
 </p>
 
 </div>
@@ -1053,7 +1339,7 @@ Enterprise-grade routing, switching, and wireless infrastructure deployments.
 <h2>Wireless Engineering & WiFi Solutions</h2>
 
 <p>
-Enterprise wireless design, optimization, and professional Ekahau survey services.
+Enterprise wireless design, optimization, secure home WiFi upgrades, and professional Ekahau survey services.
 </p>
 
 </div>
@@ -1079,7 +1365,7 @@ Wireless heatmaps, RF analysis, signal validation, and optimization services.
 <h3>Enterprise WiFi Design</h3>
 
 <p>
-Office, warehouse, hospitality, and enterprise wireless deployments.
+Office, warehouse, hospitality, small business, and enterprise wireless deployments.
 </p>
 
 </div>
@@ -1091,8 +1377,119 @@ Office, warehouse, hospitality, and enterprise wireless deployments.
 <h3>Security Camera Systems</h3>
 
 <p>
-Business surveillance systems, camera installation, and monitoring infrastructure.
+Business and home surveillance systems, camera installation, PoE networking, and monitoring infrastructure.
 </p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PRIVATE AI -->
+
+<section id="private-ai">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>Private AI Infrastructure & Automation</h2>
+
+<p>
+Secure AI solutions designed for businesses that want productivity, automation, and knowledge search while keeping sensitive data under control.
+</p>
+
+</div>
+
+<div class="feature-split">
+
+<div class="glass feature-box">
+
+<h3>Private AI Solutions</h3>
+
+<p style="color:#b8c5d3;margin-bottom:20px;">
+DAMALZ Tech helps small businesses and growing organizations explore secure AI deployments using local language models, private knowledge bases, document search, and workflow automation.
+</p>
+
+<ul class="service-list">
+<li>Local LLM hosting and AI lab environments</li>
+<li>Ollama deployment and model management</li>
+<li>Private AI chatbot proof-of-concepts</li>
+<li>Business document search and knowledge assistants</li>
+<li>AI workflow automation for repetitive tasks</li>
+<li>Secure AI infrastructure planning</li>
+</ul>
+
+</div>
+
+<div class="ai-visual">
+
+<div class="ai-core">AI</div>
+
+<div class="ai-node one">LLM Host</div>
+<div class="ai-node two">Documents</div>
+<div class="ai-node three">Automation</div>
+<div class="ai-node four">Private Data</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- HOME NETWORKING -->
+
+<section id="home-networking">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>Enterprise-Grade Home & Small Office Networking</h2>
+
+<p>
+Professional networking and cybersecurity practices for home offices, remote workers, executives, smart homes, and small business environments.
+</p>
+
+</div>
+
+<div class="feature-split">
+
+<div class="home-visual">
+
+<div class="home-ring"></div>
+<div class="home-center">🏠</div>
+
+<div class="home-device a">Firewall</div>
+<div class="home-device b">WiFi</div>
+<div class="home-device c">IoT</div>
+<div class="home-device d">VPN</div>
+
+</div>
+
+<div class="glass feature-box">
+
+<h3>Secure Home Infrastructure</h3>
+
+<p style="color:#b8c5d3;margin-bottom:20px;">
+Bring enterprise-inspired security, reliability, and performance to your home network, home office, or small office environment.
+</p>
+
+<ul class="service-list">
+<li>Advanced WiFi design and optimization</li>
+<li>Enterprise firewall deployment</li>
+<li>VPN and secure remote access</li>
+<li>Smart home and IoT device isolation</li>
+<li>Guest WiFi and network segmentation</li>
+<li>Security camera and PoE network integration</li>
+<li>NAS, home server, and home lab setup</li>
+<li>Network monitoring and alerting</li>
+</ul>
 
 </div>
 
@@ -1113,7 +1510,7 @@ Business surveillance systems, camera installation, and monitoring infrastructur
 <h2>Infrastructure Monitoring</h2>
 
 <p>
-Operational visibility and proactive monitoring for critical business environments.
+Operational visibility and proactive monitoring for critical business, lab, and home office environments.
 </p>
 
 </div>
@@ -1162,150 +1559,125 @@ Infrastructure analytics, uptime tracking, and operational reporting.
 
 </section>
 
-<!-- ================= VENDORS SECTION (100% FIXED) ================= -->
-
-<style>
-#vendors {
-  padding: 80px 20px;
-  background: #0b1220;
-  color: #fff;
-  text-align: center;
-}
-
-#vendors .container {
-  max-width: 1200px;
-  margin: auto;
-}
-
-.section-title h2 {
-  font-size: 32px;
-  margin-bottom: 10px;
-}
-
-.section-title p {
-  opacity: 0.8;
-  max-width: 700px;
-  margin: 0 auto 40px auto;
-}
-
-.vendor-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 20px;
-}
-
-.vendor-box {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
-  padding: 20px;
-  border-radius: 14px;
-  transition: 0.3s;
-}
-
-.vendor-box:hover {
-  transform: translateY(-5px);
-}
-
-.vendor-box img,
-.vendor-box svg {
-  width: 55px;
-  height: 55px;
-  object-fit: contain;
-  margin-bottom: 10px;
-}
-
-.vendor-name {
-  font-size: 14px;
-}
-</style>
+<!-- VENDORS -->
 
 <section id="vendors">
-  <div class="container">
 
-    <div class="section-title">
-      <h2>Vendor Technologies Supported</h2>
-      <p>Enterprise networking, cloud, security, virtualization, and infrastructure platforms.</p>
-    </div>
+<div class="container">
 
-    <div class="vendor-grid">
+<div class="section-title">
+<h2>Vendor Technologies Supported</h2>
+<p>Enterprise networking, cloud, security, virtualization, AI infrastructure, automation, and monitoring platforms.</p>
+</div>
 
-      <div class="vendor-box">
-        <img src="https://cdn.simpleicons.org/cisco/1BA0D7" alt="Cisco">
-        <div class="vendor-name">Cisco</div>
-      </div>
+<div class="vendor-grid">
 
-      <div class="vendor-box">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS">
-        <div class="vendor-name">AWS</div>
-      </div>
+<div class="vendor-box glass">
+<img src="https://cdn.simpleicons.org/cisco/1BA0D7" alt="Cisco">
+<div class="vendor-name">Cisco</div>
+</div>
 
-      <div class="vendor-box">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg" alt="Azure">
-        <div class="vendor-name">Microsoft Azure</div>
-      </div>
+<div class="vendor-box glass">
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS">
+<div class="vendor-name">AWS</div>
+</div>
 
-      <div class="vendor-box">
-        <img src="https://cdn.simpleicons.org/vmware/607078" alt="VMware">
-        <div class="vendor-name">VMware</div>
-      </div>
+<div class="vendor-box glass">
+<img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg" alt="Azure">
+<div class="vendor-name">Microsoft Azure</div>
+</div>
 
-      <div class="vendor-box">
-        <img src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker">
-        <div class="vendor-name">Docker</div>
-      </div>
+<div class="vendor-box glass">
+<img src="https://cdn.simpleicons.org/vmware/607078" alt="VMware">
+<div class="vendor-name">VMware</div>
+</div>
 
-      <div class="vendor-box">
-        <img src="https://cdn.simpleicons.org/kubernetes/326CE5" alt="Kubernetes">
-        <div class="vendor-name">Kubernetes</div>
-      </div>
+<div class="vendor-box glass">
+<img src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker">
+<div class="vendor-name">Docker</div>
+</div>
 
-      <div class="vendor-box">
-        <img src="https://cdn.simpleicons.org/linux/FCC624" alt="Linux">
-        <div class="vendor-name">Linux</div>
-      </div>
+<div class="vendor-box glass">
+<img src="https://cdn.simpleicons.org/kubernetes/326CE5" alt="Kubernetes">
+<div class="vendor-name">Kubernetes</div>
+</div>
 
-      <div class="vendor-box">
-        <img src="https://cdn.simpleicons.org/fortinet/EE3124" alt="Fortinet">
-        <div class="vendor-name">Fortinet</div>
-      </div>
+<div class="vendor-box glass">
+<img src="https://cdn.simpleicons.org/linux/FCC624" alt="Linux">
+<div class="vendor-name">Linux</div>
+</div>
 
-      <div class="vendor-box">
-        <img src="https://cdn.simpleicons.org/paloaltonetworks/F04E23" alt="Palo Alto">
-        <div class="vendor-name">Palo Alto</div>
-      </div>
+<div class="vendor-box glass">
+<img src="https://cdn.simpleicons.org/fortinet/EE3124" alt="Fortinet">
+<div class="vendor-name">Fortinet</div>
+</div>
 
-      <div class="vendor-box">
-        <img src="https://cdn.simpleicons.org/junipernetworks/84B135" alt="Juniper">
-        <div class="vendor-name">Juniper</div>
-      </div>
+<div class="vendor-box glass">
+<img src="https://cdn.simpleicons.org/paloaltonetworks/F04E23" alt="Palo Alto">
+<div class="vendor-name">Palo Alto</div>
+</div>
 
-      <div class="vendor-box">
-        <img src="https://cdn.simpleicons.org/redhat/EE0000" alt="Red Hat">
-        <div class="vendor-name">Red Hat</div>
-      </div>
+<div class="vendor-box glass">
+<img src="https://cdn.simpleicons.org/junipernetworks/84B135" alt="Juniper">
+<div class="vendor-name">Juniper</div>
+</div>
 
-      <div class="vendor-box">
-        <img src="https://cdn.simpleicons.org/hewlettpackardenterprise/01A982" alt="HPE">
-        <div class="vendor-name">HPE</div>
-      </div>
+<div class="vendor-box glass">
+<img src="https://cdn.simpleicons.org/redhat/EE0000" alt="Red Hat">
+<div class="vendor-name">Red Hat</div>
+</div>
 
-      <div class="vendor-box">
-        <img src="https://cdn.simpleicons.org/netapp/0067C5" alt="NetApp">
-        <div class="vendor-name">NetApp</div>
-      </div>
+<div class="vendor-box glass">
+<img src="https://cdn.simpleicons.org/hewlettpackardenterprise/01A982" alt="HPE">
+<div class="vendor-name">HPE</div>
+</div>
 
-      <div class="vendor-box">
-        <svg width="55" height="55" viewBox="0 0 100 100">
-          <circle cx="50" cy="50" r="45" stroke="#38bdf8" stroke-width="4" fill="none"/>
-          <text x="50%" y="55%" text-anchor="middle" fill="#38bdf8"
-                font-size="20" font-family="Arial" font-weight="bold">EK</text>
-        </svg>
-        <div class="vendor-name">Ekahau</div>
-      </div>
+<div class="vendor-box glass">
+<img src="https://cdn.simpleicons.org/netapp/0067C5" alt="NetApp">
+<div class="vendor-name">NetApp</div>
+</div>
 
-    </div>
+<div class="vendor-box glass">
+<img src="https://cdn.simpleicons.org/proxmox/E57000" alt="Proxmox">
+<div class="vendor-name">Proxmox</div>
+</div>
 
-  </div>
+<div class="vendor-box glass">
+<img src="https://cdn.simpleicons.org/nvidia/76B900" alt="NVIDIA">
+<div class="vendor-name">NVIDIA</div>
+</div>
+
+<div class="vendor-box glass">
+<svg width="70" height="70" viewBox="0 0 100 100">
+<circle cx="50" cy="50" r="45" stroke="#38bdf8" stroke-width="4" fill="none"/>
+<text x="50%" y="55%" text-anchor="middle" fill="#38bdf8"
+font-size="20" font-family="Arial" font-weight="bold">AI</text>
+</svg>
+<div class="vendor-name">Ollama / LLMs</div>
+</div>
+
+<div class="vendor-box glass">
+<svg width="70" height="70" viewBox="0 0 100 100">
+<circle cx="50" cy="50" r="45" stroke="#38bdf8" stroke-width="4" fill="none"/>
+<text x="50%" y="55%" text-anchor="middle" fill="#38bdf8"
+font-size="20" font-family="Arial" font-weight="bold">FW</text>
+</svg>
+<div class="vendor-name">OPNsense / pfSense</div>
+</div>
+
+<div class="vendor-box glass">
+<svg width="70" height="70" viewBox="0 0 100 100">
+<circle cx="50" cy="50" r="45" stroke="#38bdf8" stroke-width="4" fill="none"/>
+<text x="50%" y="55%" text-anchor="middle" fill="#38bdf8"
+font-size="20" font-family="Arial" font-weight="bold">EK</text>
+</svg>
+<div class="vendor-name">Ekahau</div>
+</div>
+
+</div>
+
+</div>
+
 </section>
 
 <!-- ABOUT -->
@@ -1319,7 +1691,7 @@ Infrastructure analytics, uptime tracking, and operational reporting.
 <h2>About DAMALZ Tech</h2>
 
 <p>
-Modern MSP and infrastructure services for growing businesses and enterprise environments.
+Modern MSP and infrastructure services for small businesses, remote work environments, growing organizations, and technology-focused homes.
 </p>
 
 </div>
@@ -1327,15 +1699,15 @@ Modern MSP and infrastructure services for growing businesses and enterprise env
 <div class="glass about-box">
 
 <p>
-DAMALZ Technologies LLC focuses on delivering professional managed IT services, infrastructure support, networking solutions, monitoring systems, and wireless engineering for businesses seeking reliable technology operations.
+DAMALZ Technologies LLC focuses on delivering professional managed IT services, infrastructure support, networking solutions, monitoring systems, wireless engineering, private AI infrastructure, and enterprise-grade home networking.
 </p>
 
 <p>
-Our services include infrastructure deployment, cable and rack installation, enterprise networking, cloud systems, security solutions, wireless optimization, monitoring platforms, and datacenter support.
+Our services include infrastructure deployment, cable and rack installation, enterprise networking, cloud systems, security solutions, wireless optimization, monitoring platforms, home lab design, AI proof-of-concepts, and datacenter support.
 </p>
 
 <p>
-DAMALZ Tech is committed to helping businesses modernize infrastructure environments, improve operational visibility, strengthen cybersecurity posture, and maintain reliable business connectivity.
+As a growing technology company, DAMALZ Tech is built on enterprise infrastructure experience, practical lab work, and modern IT operational practices. Our goal is to help clients build secure, reliable, scalable, and future-ready technology environments.
 </p>
 
 </div>
@@ -1355,7 +1727,7 @@ DAMALZ Tech is committed to helping businesses modernize infrastructure environm
 <h2>Contact DAMALZ Tech</h2>
 
 <p>
-Connect with us for consultations, infrastructure projects, support services, and technology solutions.
+Connect with us for consultations, infrastructure projects, secure home networking, private AI solutions, support services, and technology planning.
 </p>
 
 </div>
@@ -1387,6 +1759,8 @@ Request Quote
 <p>• Cloud & Networking</p>
 <p>• Wireless Engineering</p>
 <p>• Cybersecurity</p>
+<p>• Private AI Solutions</p>
+<p>• Secure Home Infrastructure</p>
 <p>• Security Cameras</p>
 
 </div>
@@ -1396,11 +1770,11 @@ Request Quote
 <h3>Business Technology Solutions</h3>
 
 <p>
-Helping businesses build secure, scalable, and professionally managed technology environments.
+Helping businesses and home office environments build secure, scalable, and professionally managed technology systems.
 </p>
 
 <p>
-Infrastructure • Networking • Wireless • Security • Monitoring • Support
+Infrastructure • Networking • Wireless • Security • AI • Monitoring • Support
 </p>
 
 <a href="mailto:info@damalztech.com" class="btn btn-primary">
@@ -1440,7 +1814,7 @@ DAMALZ <span>Tech</span>
 </a>
 
 <p style="color:#9db0c5;">
-Managed IT, infrastructure, networking, wireless engineering, and business technology solutions.
+Managed IT, infrastructure, networking, cybersecurity, private AI, secure home infrastructure, wireless engineering, and business technology solutions.
 </p>
 
 </div>
@@ -1453,6 +1827,8 @@ Managed IT, infrastructure, networking, wireless engineering, and business techn
 <a href="#services">Managed IT</a>
 <a href="#infrastructure">Infrastructure Deployment</a>
 <a href="#wifi">Wireless Engineering</a>
+<a href="#private-ai">Private AI Solutions</a>
+<a href="#home-networking">Secure Home Infrastructure</a>
 <a href="#monitoring">Monitoring</a>
 </div>
 
@@ -1466,6 +1842,7 @@ Managed IT, infrastructure, networking, wireless engineering, and business techn
 <a href="#security">Cybersecurity</a>
 <a href="#camera">Security Cameras</a>
 <a href="#datacenter">Datacenter Support</a>
+<a href="#cabling">Structured Cabling</a>
 <a href="#contact">Consultation</a>
 </div>
 
@@ -1494,7 +1871,7 @@ Managed IT, infrastructure, networking, wireless engineering, and business techn
 <h2>Request Consultation</h2>
 
 <p>
-Tell us about your infrastructure project or support requirements.
+Tell us about your infrastructure project, business technology need, private AI idea, or secure home networking requirement.
 </p>
 
 <form id="consultationForm" class="popup-form">
@@ -1516,6 +1893,9 @@ Tell us about your infrastructure project or support requirements.
 <option value="Cybersecurity">Cybersecurity</option>
 <option value="Monitoring Solutions">Monitoring Solutions</option>
 <option value="Security Cameras">Security Cameras</option>
+<option value="Private AI Solutions">Private AI Solutions</option>
+<option value="Secure Home Infrastructure">Secure Home Infrastructure</option>
+<option value="Home Lab / Proxmox / Firewall Setup">Home Lab / Proxmox / Firewall Setup</option>
 </select>
 
 <textarea name="Project Details" placeholder="Tell us about your project..." required></textarea>
@@ -1613,9 +1993,6 @@ popup.classList.remove('active');
 
 /* =========================
 AJAX FORM SUBMISSION
-This prevents FormSubmit redirect page,
-clears the form after submit,
-and sends the message to info@damalztech.com.
 ========================= */
 
 consultationForm.addEventListener('submit', function(e){
