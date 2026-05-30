@@ -278,6 +278,13 @@ font-weight:700;
 transition:.3s;
 }
 
+button.btn{
+border:none;
+cursor:pointer;
+font-family:'Inter',sans-serif;
+font-size:15px;
+}
+
 .btn-primary{
 background:linear-gradient(135deg,#2563eb,#0891b2);
 color:white;
@@ -641,6 +648,11 @@ border:1px solid rgba(255,255,255,.06);
 outline:none;
 }
 
+.popup-form select option{
+background:#0f172a;
+color:white;
+}
+
 .popup-form textarea{
 min-height:140px;
 resize:vertical;
@@ -804,9 +816,9 @@ Solutions
 DAMALZ Technologies LLC delivers managed IT services, cloud infrastructure, networking, datacenter deployments, wireless engineering, infrastructure monitoring, and cybersecurity solutions for modern businesses and enterprise environments.
 </p>
 
-<a href="#" class="btn btn-primary open-popup">
+<button type="button" class="btn btn-primary open-popup">
 Request Consultation
-</a>
+</button>
 
 </div>
 
@@ -1201,13 +1213,13 @@ Infrastructure analytics, uptime tracking, and operational reporting.
         <div class="vendor-name">Cisco</div>
       </div>
 
-      <!-- AWS (FIXED - official SVG source) -->
+      <!-- AWS -->
       <div class="vendor-box">
         <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS">
         <div class="vendor-name">AWS</div>
       </div>
 
-      <!-- Azure (FIXED - official SVG source) -->
+      <!-- Azure -->
       <div class="vendor-box">
         <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg" alt="Azure">
         <div class="vendor-name">Microsoft Azure</div>
@@ -1287,6 +1299,7 @@ Infrastructure analytics, uptime tracking, and operational reporting.
 
   </div>
 </section>
+
 <!-- ABOUT -->
 
 <section id="about">
@@ -1349,9 +1362,9 @@ Connect with us for consultations, infrastructure projects, support services, an
 Click below to request a consultation or project quote.
 </p>
 
-<a href="#" class="btn btn-primary open-popup">
+<button type="button" class="btn btn-primary open-popup">
 Request Quote
-</a>
+</button>
 
 </div>
 
@@ -1468,7 +1481,7 @@ Managed IT, infrastructure, networking, wireless engineering, and business techn
 
 <div class="popup-box">
 
-<button class="popup-close" id="closePopup">✕</button>
+<button type="button" class="popup-close" id="closePopup">✕</button>
 
 <h2>Request Consultation</h2>
 
@@ -1476,24 +1489,31 @@ Managed IT, infrastructure, networking, wireless engineering, and business techn
 Tell us about your infrastructure project or support requirements.
 </p>
 
-<form class="popup-form">
+<form
+action="https://formsubmit.co/info@damalztech.com"
+method="POST"
+class="popup-form">
 
-<input type="text" placeholder="Full Name" required>
+<input type="hidden" name="_subject" value="New DAMALZ Tech Consultation Request">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_template" value="table">
 
-<input type="email" placeholder="Business Email" required>
+<input type="text" name="Full Name" placeholder="Full Name" required>
 
-<input type="text" placeholder="Company Name">
+<input type="email" name="Business Email" placeholder="Business Email" required>
 
-<select>
-<option>Managed IT Services</option>
-<option>Infrastructure Deployment</option>
-<option>Wireless Engineering</option>
-<option>Cybersecurity</option>
-<option>Monitoring Solutions</option>
-<option>Security Cameras</option>
+<input type="text" name="Company Name" placeholder="Company Name">
+
+<select name="Requested Service" required>
+<option value="Managed IT Services">Managed IT Services</option>
+<option value="Infrastructure Deployment">Infrastructure Deployment</option>
+<option value="Wireless Engineering">Wireless Engineering</option>
+<option value="Cybersecurity">Cybersecurity</option>
+<option value="Monitoring Solutions">Monitoring Solutions</option>
+<option value="Security Cameras">Security Cameras</option>
 </select>
 
-<textarea placeholder="Tell us about your project..." required></textarea>
+<textarea name="Project Details" placeholder="Tell us about your project..." required></textarea>
 
 <button type="submit" class="btn btn-primary">
 Submit Request
