@@ -3482,6 +3482,67 @@ min-height:110px;
 }
 }
 
+
+/* =========================
+BUTTON RESET FIX
+========================= */
+
+button.btn{
+border:none;
+font-family:'Inter',sans-serif;
+cursor:pointer;
+}
+
+button.btn:focus,
+a:focus,
+.dropdown-btn:focus,
+.mobile-toggle:focus,
+.mobile-close:focus,
+.popup-close:focus{
+outline:2px solid rgba(56,189,248,.55);
+outline-offset:3px;
+}
+
+
+/* =========================
+CRITICAL MENU + POPUP FIXES
+========================= */
+
+.dropdown.active .dropdown-content{
+display:block !important;
+}
+
+.popup-overlay{
+display:none;
+}
+
+.popup-overlay.active{
+display:flex !important;
+}
+
+.mobile-menu.active{
+right:0 !important;
+}
+
+.mobile-menu-label{
+display:block;
+margin:18px 0 8px;
+font-size:.78rem;
+font-weight:800;
+letter-spacing:1.6px;
+text-transform:uppercase;
+color:#38bdf8;
+opacity:.95;
+}
+
+.form-success{
+display:none;
+}
+
+.form-success.active{
+display:block;
+}
+
 </style>
 
 </head>
@@ -3568,7 +3629,7 @@ Solutions ▾
 
 <!-- MOBILE MENU -->
 
-<div class="mobile-menu" id="mobileMenu">
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
 
 <div class="mobile-close" id="mobileClose" role="button" aria-label="Close mobile menu" tabindex="0">✕</div>
 
@@ -4575,7 +4636,7 @@ Managed IT, infrastructure, networking, cybersecurity, private AI, secure home i
 
 <!-- POPUP FORM -->
 
-<div class="popup-overlay" id="popup">
+<div class="popup-overlay" id="popup" aria-hidden="true">
 
 <div class="popup-box">
 
@@ -4635,252 +4696,163 @@ Submit Consultation Request
 
 </div>
 
+
 <script>
+document.addEventListener('DOMContentLoaded', function(){
 
-/* =========================
-DROPDOWNS
-========================= */
+  /* DROPDOWNS */
+  const dropdowns = document.querySelectorAll('.dropdown');
 
-const dropdowns = document.querySelectorAll('.dropdown');
+  dropdowns.forEach(function(dropdown){
+    const button = dropdown.querySelector('.dropdown-btn');
+    if(!button) return;
 
-dropdowns.forEach(dropdown => {
+    button.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
 
-const button = dropdown.querySelector('.dropdown-btn');
+      dropdowns.forEach(function(other){
+        if(other !== dropdown){
+          other.classList.remove('active');
+        }
+      });
 
-button.addEventListener('click', function(e){
+      dropdown.classList.toggle('active');
+    });
+  });
 
-e.stopPropagation();
+  document.addEventListener('click', function(e){
+    if(!e.target.closest('.dropdown')){
+      dropdowns.forEach(function(dropdown){
+        dropdown.classList.remove('active');
+      });
+    }
+  });
 
-dropdowns.forEach(d=>{
+  document.querySelectorAll('.dropdown-content a').forEach(function(link){
+    link.addEventListener('click', function(){
+      dropdowns.forEach(function(dropdown){
+        dropdown.classList.remove('active');
+      });
+    });
+  });
 
-if(d !== dropdown){
-d.classList.remove('active');
-}
 
-});
+  /* MOBILE MENU */
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileToggle = document.getElementById('mobileToggle');
+  const mobileClose = document.getElementById('mobileClose');
 
-dropdown.classList.toggle('active');
+  function openMobileMenu(){
+    if(!mobileMenu) return;
+    mobileMenu.classList.add('active');
+    mobileMenu.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+  }
 
-});
+  function closeMobileMenu(){
+    if(!mobileMenu) return;
+    mobileMenu.classList.remove('active');
+    mobileMenu.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  }
 
-});
+  if(mobileToggle){
+    mobileToggle.addEventListener('click', openMobileMenu);
+    mobileToggle.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){
+        e.preventDefault();
+        openMobileMenu();
+      }
+    });
+  }
 
-window.addEventListener('click', function(){
+  if(mobileClose){
+    mobileClose.addEventListener('click', closeMobileMenu);
+    mobileClose.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){
+        e.preventDefault();
+        closeMobileMenu();
+      }
+    });
+  }
 
-dropdowns.forEach(dropdown=>{
-dropdown.classList.remove('active');
-});
+  document.querySelectorAll('.mobile-menu a').forEach(function(link){
+    link.addEventListener('click', closeMobileMenu);
+  });
 
-});
 
-/* =========================
-POPUP
-========================= */
+  /* CONSULTATION POPUP */
+  const popup = document.getElementById('popup');
+  const closePopup = document.getElementById('closePopup');
+  const consultationForm = document.getElementById('consultationForm');
+  const formSuccess = document.getElementById('formSuccess');
 
-const popup = document.getElementById('popup');
-const consultationForm = document.getElementById('consultationForm');
-const formStatus = document.getElementById('formStatus');
-const submitButton = document.getElementById('submitButton');
+  function openPopup(){
+    if(!popup) return;
+    popup.classList.add('active');
+    popup.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+  }
 
-document.querySelectorAll('.open-popup').forEach(btn=>{
+  function closePopupFn(){
+    if(!popup) return;
+    popup.classList.remove('active');
+    popup.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  }
 
-btn.addEventListener('click', function(e){
+  document.querySelectorAll('.open-popup').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      openPopup();
+    });
+  });
 
-e.preventDefault();
+  if(closePopup){
+    closePopup.addEventListener('click', closePopupFn);
+  }
 
-consultationForm.reset();
-formStatus.className = 'form-status';
-formStatus.textContent = '';
-submitButton.disabled = false;
-submitButton.textContent = 'Submit Request';
+  if(popup){
+    popup.addEventListener('click', function(e){
+      if(e.target === popup){
+        closePopupFn();
+      }
+    });
+  }
 
-popup.classList.add('active');
+  if(window.location.search.includes('submitted=true')){
+    openPopup();
+    if(formSuccess){
+      formSuccess.classList.add('active');
+    }
+    if(consultationForm){
+      consultationForm.reset();
+    }
+    window.history.replaceState({}, document.title, window.location.pathname + window.location.hash);
+  }
 
-});
+  if(consultationForm){
+    consultationForm.addEventListener('submit', function(){
+      setTimeout(function(){
+        consultationForm.reset();
+      }, 250);
+    });
+  }
 
-});
 
-document.getElementById('closePopup').addEventListener('click', function(){
-
-popup.classList.remove('active');
-
-});
-
-popup.addEventListener('click', function(e){
-
-if(e.target === popup){
-popup.classList.remove('active');
-}
-
-});
-
-/* =========================
-AJAX FORM SUBMISSION
-========================= */
-
-consultationForm.addEventListener('submit', function(e){
-
-e.preventDefault();
-
-submitButton.disabled = true;
-submitButton.textContent = 'Submitting...';
-
-formStatus.className = 'form-status';
-formStatus.textContent = '';
-
-const formData = new FormData(consultationForm);
-
-fetch('https://formsubmit.co/ajax/info@damalztech.com', {
-method: 'POST',
-body: formData,
-headers: {
-'Accept': 'application/json'
-}
-})
-.then(response => response.json())
-.then(data => {
-
-consultationForm.reset();
-
-formStatus.className = 'form-status success';
-formStatus.textContent = 'Thank you. Your consultation request was submitted successfully.';
-
-submitButton.textContent = 'Submitted';
-
-setTimeout(() => {
-popup.classList.remove('active');
-submitButton.disabled = false;
-submitButton.textContent = 'Submit Request';
-formStatus.className = 'form-status';
-formStatus.textContent = '';
-}, 2500);
-
-})
-.catch(error => {
-
-formStatus.className = 'form-status error';
-formStatus.textContent = 'The form could not be submitted. Please email info@damalztech.com directly.';
-
-submitButton.disabled = false;
-submitButton.textContent = 'Submit Request';
-
-});
-
-});
-
-/* =========================
-MOBILE MENU
-========================= */
-
-const mobileMenu = document.getElementById('mobileMenu');
-const mobileToggle = document.getElementById('mobileToggle');
-const mobileClose = document.getElementById('mobileClose');
-
-mobileToggle.addEventListener('click', ()=>{
-
-mobileMenu.classList.add('active');
-
-});
-
-mobileClose.addEventListener('click', ()=>{
-
-mobileMenu.classList.remove('active');
-
-});
-
-document.querySelectorAll('.mobile-menu a').forEach(link=>{
-
-link.addEventListener('click', ()=>{
-
-mobileMenu.classList.remove('active');
+  /* KEYBOARD ESC CLOSE */
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){
+      closeMobileMenu();
+      closePopupFn();
+      dropdowns.forEach(function(dropdown){
+        dropdown.classList.remove('active');
+      });
+    }
+  });
 
 });
-
-});
-
-
-/* =========================
-MOBILE MENU ACCESSIBILITY + BODY LOCK
-========================= */
-
-function lockBodyScroll(){
-document.body.style.overflow = 'hidden';
-}
-
-function unlockBodyScroll(){
-document.body.style.overflow = '';
-}
-
-if(typeof mobileToggle !== 'undefined' && typeof mobileMenu !== 'undefined'){
-mobileToggle.addEventListener('click', lockBodyScroll);
-}
-
-if(typeof mobileClose !== 'undefined' && typeof mobileMenu !== 'undefined'){
-mobileClose.addEventListener('click', unlockBodyScroll);
-}
-
-document.querySelectorAll('.mobile-menu a').forEach(link=>{
-link.addEventListener('click', unlockBodyScroll);
-});
-
-document.addEventListener('keydown', function(e){
-if(e.key === 'Escape'){
-if(typeof mobileMenu !== 'undefined'){
-mobileMenu.classList.remove('active');
-unlockBodyScroll();
-}
-if(typeof popup !== 'undefined'){
-popup.classList.remove('active');
-}
-}
-
-if(e.key === 'Enter' || e.key === ' '){
-if(document.activeElement === mobileToggle){
-e.preventDefault();
-mobileMenu.classList.add('active');
-lockBodyScroll();
-}
-if(document.activeElement === mobileClose){
-e.preventDefault();
-mobileMenu.classList.remove('active');
-unlockBodyScroll();
-}
-}
-});
-
-
-/* =========================
-CONSULTATION FORM CONSISTENCY
-========================= */
-
-const consultationForm = document.getElementById('consultationForm');
-const formSuccess = document.getElementById('formSuccess');
-
-if(window.location.search.includes('submitted=true')){
-if(popup){
-popup.classList.add('active');
-}
-if(formSuccess){
-formSuccess.classList.add('active');
-}
-if(consultationForm){
-consultationForm.reset();
-}
-window.history.replaceState({}, document.title, window.location.pathname + window.location.hash);
-}
-
-if(consultationForm){
-consultationForm.addEventListener('submit', function(){
-setTimeout(() => {
-consultationForm.reset();
-}, 200);
-});
-}
-
-document.querySelectorAll('.open-popup').forEach(btn=>{
-btn.textContent = btn.textContent.replace('Request Quote','Request Consultation');
-});
-
 </script>
 
 </body>
