@@ -663,6 +663,28 @@ border:none;
 cursor:pointer;
 }
 
+.form-status{
+display:none;
+padding:14px 16px;
+border-radius:14px;
+font-size:.95rem;
+font-weight:600;
+}
+
+.form-status.success{
+display:block;
+background:rgba(34,197,94,.12);
+border:1px solid rgba(34,197,94,.35);
+color:#bbf7d0;
+}
+
+.form-status.error{
+display:block;
+background:rgba(239,68,68,.12);
+border:1px solid rgba(239,68,68,.35);
+color:#fecaca;
+}
+
 /* =========================
 MOBILE
 ========================= */
@@ -1207,85 +1229,71 @@ Infrastructure analytics, uptime tracking, and operational reporting.
 
     <div class="vendor-grid">
 
-      <!-- Cisco -->
       <div class="vendor-box">
         <img src="https://cdn.simpleicons.org/cisco/1BA0D7" alt="Cisco">
         <div class="vendor-name">Cisco</div>
       </div>
 
-      <!-- AWS -->
       <div class="vendor-box">
         <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS">
         <div class="vendor-name">AWS</div>
       </div>
 
-      <!-- Azure -->
       <div class="vendor-box">
         <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Microsoft_Azure.svg" alt="Azure">
         <div class="vendor-name">Microsoft Azure</div>
       </div>
 
-      <!-- VMware -->
       <div class="vendor-box">
         <img src="https://cdn.simpleicons.org/vmware/607078" alt="VMware">
         <div class="vendor-name">VMware</div>
       </div>
 
-      <!-- Docker -->
       <div class="vendor-box">
         <img src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker">
         <div class="vendor-name">Docker</div>
       </div>
 
-      <!-- Kubernetes -->
       <div class="vendor-box">
         <img src="https://cdn.simpleicons.org/kubernetes/326CE5" alt="Kubernetes">
         <div class="vendor-name">Kubernetes</div>
       </div>
 
-      <!-- Linux -->
       <div class="vendor-box">
         <img src="https://cdn.simpleicons.org/linux/FCC624" alt="Linux">
         <div class="vendor-name">Linux</div>
       </div>
 
-      <!-- Fortinet -->
       <div class="vendor-box">
         <img src="https://cdn.simpleicons.org/fortinet/EE3124" alt="Fortinet">
         <div class="vendor-name">Fortinet</div>
       </div>
 
-      <!-- Palo Alto -->
       <div class="vendor-box">
         <img src="https://cdn.simpleicons.org/paloaltonetworks/F04E23" alt="Palo Alto">
         <div class="vendor-name">Palo Alto</div>
       </div>
 
-      <!-- Juniper -->
       <div class="vendor-box">
         <img src="https://cdn.simpleicons.org/junipernetworks/84B135" alt="Juniper">
         <div class="vendor-name">Juniper</div>
       </div>
 
-      <!-- Red Hat -->
       <div class="vendor-box">
         <img src="https://cdn.simpleicons.org/redhat/EE0000" alt="Red Hat">
         <div class="vendor-name">Red Hat</div>
       </div>
 
-      <!-- HPE -->
       <div class="vendor-box">
         <img src="https://cdn.simpleicons.org/hewlettpackardenterprise/01A982" alt="HPE">
         <div class="vendor-name">HPE</div>
       </div>
 
-      <!-- NetApp -->
       <div class="vendor-box">
         <img src="https://cdn.simpleicons.org/netapp/0067C5" alt="NetApp">
         <div class="vendor-name">NetApp</div>
       </div>
 
-      <!-- Ekahau -->
       <div class="vendor-box">
         <svg width="55" height="55" viewBox="0 0 100 100">
           <circle cx="50" cy="50" r="45" stroke="#38bdf8" stroke-width="4" fill="none"/>
@@ -1489,10 +1497,7 @@ Managed IT, infrastructure, networking, wireless engineering, and business techn
 Tell us about your infrastructure project or support requirements.
 </p>
 
-<form
-action="https://formsubmit.co/info@damalztech.com"
-method="POST"
-class="popup-form">
+<form id="consultationForm" class="popup-form">
 
 <input type="hidden" name="_subject" value="New DAMALZ Tech Consultation Request">
 <input type="hidden" name="_captcha" value="false">
@@ -1515,7 +1520,9 @@ class="popup-form">
 
 <textarea name="Project Details" placeholder="Tell us about your project..." required></textarea>
 
-<button type="submit" class="btn btn-primary">
+<div id="formStatus" class="form-status"></div>
+
+<button id="submitButton" type="submit" class="btn btn-primary">
 Submit Request
 </button>
 
@@ -1568,12 +1575,21 @@ POPUP
 ========================= */
 
 const popup = document.getElementById('popup');
+const consultationForm = document.getElementById('consultationForm');
+const formStatus = document.getElementById('formStatus');
+const submitButton = document.getElementById('submitButton');
 
 document.querySelectorAll('.open-popup').forEach(btn=>{
 
 btn.addEventListener('click', function(e){
 
 e.preventDefault();
+
+consultationForm.reset();
+formStatus.className = 'form-status';
+formStatus.textContent = '';
+submitButton.disabled = false;
+submitButton.textContent = 'Submit Request';
 
 popup.classList.add('active');
 
@@ -1592,6 +1608,63 @@ popup.addEventListener('click', function(e){
 if(e.target === popup){
 popup.classList.remove('active');
 }
+
+});
+
+/* =========================
+AJAX FORM SUBMISSION
+This prevents FormSubmit redirect page,
+clears the form after submit,
+and sends the message to info@damalztech.com.
+========================= */
+
+consultationForm.addEventListener('submit', function(e){
+
+e.preventDefault();
+
+submitButton.disabled = true;
+submitButton.textContent = 'Submitting...';
+
+formStatus.className = 'form-status';
+formStatus.textContent = '';
+
+const formData = new FormData(consultationForm);
+
+fetch('https://formsubmit.co/ajax/info@damalztech.com', {
+method: 'POST',
+body: formData,
+headers: {
+'Accept': 'application/json'
+}
+})
+.then(response => response.json())
+.then(data => {
+
+consultationForm.reset();
+
+formStatus.className = 'form-status success';
+formStatus.textContent = 'Thank you. Your consultation request was submitted successfully.';
+
+submitButton.textContent = 'Submitted';
+
+setTimeout(() => {
+popup.classList.remove('active');
+submitButton.disabled = false;
+submitButton.textContent = 'Submit Request';
+formStatus.className = 'form-status';
+formStatus.textContent = '';
+}, 2500);
+
+})
+.catch(error => {
+
+formStatus.className = 'form-status error';
+formStatus.textContent = 'The form could not be submitted. Please email info@damalztech.com directly.';
+
+submitButton.disabled = false;
+submitButton.textContent = 'Submit Request';
+
+});
 
 });
 
