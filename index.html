@@ -982,6 +982,105 @@ border:1px solid rgba(239,68,68,.35);
 color:#fecaca;
 }
 
+
+
+/* =========================
+FIX AI + HOME FEATURE CARD CORNERS
+========================= */
+
+.ai-feature-card,
+.home-feature-card{
+position:relative;
+overflow:hidden !important;
+isolation:isolate;
+border-radius:40px !important;
+clip-path:inset(0 round 40px);
+background:
+linear-gradient(145deg,rgba(15,23,42,.86),rgba(8,17,31,.96)),
+radial-gradient(circle at 88% 10%,rgba(56,189,248,.16),transparent 34%);
+border:1px solid rgba(56,189,248,.20);
+box-shadow:
+0 20px 60px rgba(0,0,0,.34),
+0 0 35px rgba(56,189,248,.10),
+inset 0 1px 0 rgba(255,255,255,.06);
+}
+
+.ai-feature-card::before,
+.home-feature-card::before{
+content:'';
+position:absolute;
+width:420px;
+height:420px;
+top:-180px;
+right:-180px;
+border-radius:50%;
+background:radial-gradient(circle,rgba(56,189,248,.16),transparent 68%);
+filter:blur(8px);
+z-index:0;
+pointer-events:none;
+}
+
+.ai-feature-card::after,
+.home-feature-card::after{
+content:'';
+position:absolute;
+top:0;
+left:-130%;
+width:130%;
+height:100%;
+border-radius:inherit;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,.075),transparent);
+transition:.85s ease;
+z-index:1;
+pointer-events:none;
+}
+
+.ai-feature-card:hover,
+.home-feature-card:hover{
+transform:translateY(-8px) scale(1.01);
+border-color:rgba(56,189,248,.34);
+box-shadow:
+0 28px 80px rgba(0,0,0,.44),
+0 0 45px rgba(56,189,248,.20),
+inset 0 1px 0 rgba(255,255,255,.09);
+}
+
+.ai-feature-card:hover::after,
+.home-feature-card:hover::after{
+left:130%;
+}
+
+.ai-feature-card h3,
+.ai-feature-card p,
+.ai-feature-card ul,
+.home-feature-card h3,
+.home-feature-card p,
+.home-feature-card ul{
+position:relative;
+z-index:3;
+}
+
+.ai-feature-card .service-list li::marker,
+.home-feature-card .service-list li::marker{
+color:#38bdf8;
+}
+
+/* Make the graphic boxes match the same rounded clipping behavior */
+.ai-visual,
+.home-visual{
+overflow:hidden !important;
+isolation:isolate;
+border-radius:40px !important;
+clip-path:inset(0 round 40px);
+}
+
+.ai-visual::before,
+.ai-visual::after,
+.home-visual::before,
+.home-visual::after{
+border-radius:inherit;
+}
+
 /* =========================
 MOBILE
 ========================= */
@@ -1512,7 +1611,7 @@ Secure AI solutions designed for businesses that want productivity, automation, 
 
 <div class="feature-split">
 
-<div class="glass feature-box">
+<div class="glass feature-box ai-feature-card">
 
 <h3>Private AI Solutions</h3>
 
@@ -1578,7 +1677,7 @@ Professional networking and cybersecurity practices for home offices, remote wor
 
 </div>
 
-<div class="glass feature-box">
+<div class="glass feature-box home-feature-card">
 
 <h3>Secure Home Infrastructure</h3>
 
@@ -1734,7 +1833,9 @@ Infrastructure analytics, uptime tracking, and operational reporting.
 </div>
 
 <div class="vendor-box glass">
-<img src="https://cdn.simpleicons.org/hewlettpackardenterprise/01A982" alt="HPE">
+<svg width="70" height="70" viewBox="0 0 140 90" xmlns="http://www.w3.org/2000/svg" aria-label="HPE logo">
+  <rect x="12" y="22" width="116" height="46" rx="2" fill="none" stroke="#01A982" stroke-width="9"/>
+</svg>
 <div class="vendor-name">HPE</div>
 </div>
 
