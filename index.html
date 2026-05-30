@@ -3900,6 +3900,302 @@ animation:hlWifi 3.4s ease-out infinite;
 .hl-arrow{width:18px;}
 }
 
+
+/* =========================
+TECHNICAL VISUALS CLEANUP FINAL
+========================= */
+
+/* Better desktop balance */
+.tech-visual-grid{
+grid-template-columns:repeat(4,1fr);
+gap:24px;
+}
+
+.tech-visual-card{
+min-height:500px;
+padding:30px;
+justify-content:flex-start;
+}
+
+.tech-visual-card h3{
+font-size:1.45rem;
+line-height:1.16;
+min-height:58px;
+}
+
+.tech-visual-card p{
+font-size:.92rem;
+line-height:1.65;
+min-height:112px;
+}
+
+.visual-chip-row{
+min-height:74px;
+align-content:flex-start;
+gap:8px;
+}
+
+.visual-chip-row span{
+font-size:.72rem;
+padding:7px 10px;
+}
+
+.visual-stage{
+height:230px;
+margin-top:14px;
+}
+
+/* Network diagram rebuilt to avoid overlap */
+.hl-network{
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.hl-network .hl-node{
+width:86px;
+height:42px;
+font-size:.68rem;
+}
+
+.hl-node.cloud{
+top:18px;
+left:50%;
+transform:translateX(-50%);
+}
+
+.hl-node.firewall{
+top:78px;
+left:50%;
+transform:translateX(-50%);
+}
+
+.hl-node.core{
+top:138px;
+bottom:auto;
+left:50%;
+transform:translateX(-50%);
+}
+
+.hl-node.wifi{
+bottom:18px;
+left:26px;
+}
+
+.hl-node.servers{
+bottom:18px;
+right:26px;
+}
+
+.hl-line.v1{
+top:61px;
+width:52px;
+left:50%;
+transform:translateX(-50%) rotate(90deg);
+}
+
+.hl-line.v2{
+top:121px;
+width:52px;
+left:50%;
+transform:translateX(-50%) rotate(90deg);
+}
+
+.hl-line.l1{
+bottom:55px;
+left:72px;
+width:112px;
+transform:rotate(-20deg);
+}
+
+.hl-line.l2{
+bottom:55px;
+right:72px;
+width:112px;
+transform:rotate(20deg);
+}
+
+/* AI visual: keep content readable */
+.hl-ai{
+gap:10px;
+padding:18px;
+}
+
+.hl-ai-box{
+width:74px;
+height:72px;
+font-size:.64rem;
+}
+
+.hl-arrow{
+width:22px;
+}
+
+/* Monitoring visual: reduce oversized dashboard */
+.hl-monitor{
+padding:20px;
+}
+
+.hl-window{
+padding:20px;
+max-width:235px;
+margin:auto;
+}
+
+.hl-metric label{
+font-size:.68rem;
+}
+
+/* Wireless visual: center and soften */
+.hl-ap{
+width:72px;
+height:72px;
+font-size:1.8rem;
+}
+
+.hl-ring.r1{width:112px;height:112px;}
+.hl-ring.r2{width:162px;height:162px;}
+.hl-ring.r3{width:208px;height:208px;}
+
+/* Medium desktop/tablet */
+@media(max-width:1250px){
+.tech-visual-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.tech-visual-card{
+min-height:480px;
+}
+
+.tech-visual-card h3,
+.tech-visual-card p,
+.visual-chip-row{
+min-height:auto;
+}
+}
+
+/* Mobile */
+@media(max-width:950px){
+.tech-visual-grid{
+grid-template-columns:1fr;
+gap:22px;
+}
+
+.tech-visual-card{
+min-height:auto;
+padding:26px;
+}
+
+.tech-visual-card h3{
+font-size:1.65rem;
+min-height:auto;
+}
+
+.tech-visual-card p{
+font-size:.98rem;
+min-height:auto;
+}
+
+.visual-chip-row{
+min-height:auto;
+}
+
+.visual-stage{
+height:250px;
+}
+
+.hl-network .hl-node{
+width:82px;
+height:42px;
+font-size:.68rem;
+}
+
+.hl-node.wifi{
+left:18px;
+}
+
+.hl-node.servers{
+right:18px;
+}
+
+.hl-line.l1{
+left:62px;
+width:112px;
+}
+
+.hl-line.l2{
+right:62px;
+width:112px;
+}
+
+.hl-ai-box{
+width:72px;
+height:70px;
+font-size:.64rem;
+}
+
+.hl-arrow{
+width:24px;
+}
+}
+
+/* Small phones */
+@media(max-width:420px){
+.tech-visual-card{
+padding:24px;
+}
+
+.visual-stage{
+height:235px;
+}
+
+.hl-network .hl-node{
+width:72px;
+height:40px;
+font-size:.62rem;
+}
+
+.hl-node.wifi{
+left:8px;
+}
+
+.hl-node.servers{
+right:8px;
+}
+
+.hl-line.l1{
+left:48px;
+width:94px;
+bottom:54px;
+}
+
+.hl-line.l2{
+right:48px;
+width:94px;
+bottom:54px;
+}
+
+.hl-ai{
+gap:7px;
+padding:14px;
+}
+
+.hl-ai-box{
+width:60px;
+height:64px;
+font-size:.56rem;
+border-radius:16px;
+}
+
+.hl-arrow{
+width:16px;
+}
+
+.visual-chip-row span{
+font-size:.68rem;
+}
+}
+
 </style>
 
 </head>
@@ -4572,14 +4868,13 @@ A clean visual overview of how DAMALZ Tech approaches networking, private AI, mo
 <h3>Network Architecture</h3>
 
 <p>
-A secure high-level design connecting internet, firewall, core network, wireless, and server resources into one managed environment.
+A clean overview of how internet, firewall, core switching, WiFi, and server resources connect together.
 </p>
 
 <div class="visual-chip-row">
 <span>Firewall</span>
-<span>Switching</span>
+<span>Core Network</span>
 <span>WiFi</span>
-<span>Servers</span>
 </div>
 
 <div class="visual-stage hl-network">
@@ -4603,14 +4898,13 @@ A secure high-level design connecting internet, firewall, core network, wireless
 <h3>Private AI Workflow</h3>
 
 <p>
-A practical AI flow for documents, secure retrieval, local language models, and private business assistants.
+A simple private AI flow for documents, retrieval, local models, and business assistant workflows.
 </p>
 
 <div class="visual-chip-row">
-<span>Docs</span>
-<span>Search</span>
+<span>Documents</span>
+<span>Private Search</span>
 <span>Local AI</span>
-<span>Automation</span>
 </div>
 
 <div class="visual-stage hl-ai">
@@ -4629,13 +4923,12 @@ A practical AI flow for documents, secure retrieval, local language models, and 
 <h3>Monitoring Dashboard</h3>
 
 <p>
-A high-level visibility model for uptime, performance, device health, alerts, and operational status.
+A high-level view of infrastructure health, uptime, alerts, and performance monitoring.
 </p>
 
 <div class="visual-chip-row">
 <span>Uptime</span>
 <span>Alerts</span>
-<span>Performance</span>
 <span>Health</span>
 </div>
 
@@ -4667,13 +4960,12 @@ A high-level visibility model for uptime, performance, device health, alerts, an
 <h3>Wireless Coverage</h3>
 
 <p>
-A simplified view of access point planning, RF coverage, signal validation, and wireless performance design.
+A simplified view of wireless planning, RF coverage, access point placement, and optimization.
 </p>
 
 <div class="visual-chip-row">
 <span>Coverage</span>
-<span>RF</span>
-<span>WiFi Design</span>
+<span>RF Design</span>
 <span>Optimization</span>
 </div>
 
