@@ -2719,6 +2719,290 @@ right:6px !important;
 }
 }
 
+
+/* =========================
+FINAL TECH VISUAL + MOBILE MENU FIX
+========================= */
+
+/* Make technical visual cards better balanced on desktop */
+.tech-visual-grid{
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+align-items:stretch;
+}
+
+.tech-visual-card{
+display:flex;
+flex-direction:column;
+}
+
+.tech-visual-card .visual-stage{
+margin-top:auto;
+}
+
+/* Fix Network Architecture overlap on desktop */
+.network-stage{
+height:240px;
+}
+
+.net-node{
+width:82px;
+height:46px;
+z-index:5;
+}
+
+.net-node.internet{
+top:14px;
+left:50%;
+transform:translateX(-50%);
+}
+
+.net-node.firewall{
+top:76px;
+left:50%;
+transform:translateX(-50%);
+}
+
+.net-node.switch{
+top:138px;
+left:50%;
+transform:translateX(-50%);
+}
+
+.net-node.wifi{
+bottom:18px;
+left:34px;
+}
+
+.net-node.server{
+bottom:18px;
+right:34px;
+}
+
+.net-line.v1{
+top:58px;
+left:50%;
+width:58px;
+transform:translateX(-50%) rotate(90deg);
+}
+
+.net-line.v2{
+top:120px;
+left:50%;
+width:58px;
+transform:translateX(-50%) rotate(90deg);
+}
+
+.net-line.l1{
+bottom:55px;
+left:78px;
+width:120px;
+transform:rotate(-16deg);
+}
+
+.net-line.l2{
+bottom:55px;
+right:78px;
+width:120px;
+transform:rotate(16deg);
+}
+
+/* Improve AI pipeline spacing on desktop */
+.ai-pipeline-stage{
+gap:14px;
+}
+
+.pipeline-box{
+min-width:76px;
+}
+
+/* Mobile shine should still be visible without mouse hover */
+@media(max-width:950px){
+
+.tech-visual-card::after,
+.card::before,
+.vendor-box::before,
+.hero-mini-card::before,
+.process-card::before,
+.trust-card::before,
+.stack-card::before,
+.contact-card::before{
+animation:mobileShineSweep 5.5s ease-in-out infinite;
+left:-130%;
+}
+
+@keyframes mobileShineSweep{
+0%,68%{left:-130%;}
+100%{left:130%;}
+}
+
+/* Keep hover disabled for layout stability, but keep shadows/glow visible */
+.tech-visual-card,
+.card,
+.vendor-box,
+.hero-mini-card,
+.process-card,
+.trust-card,
+.stack-card,
+.contact-card{
+box-shadow:
+0 14px 40px rgba(0,0,0,.24),
+0 0 18px rgba(56,189,248,.08);
+}
+
+/* Mobile network diagram: clean, no overlap */
+.network-stage{
+height:225px !important;
+}
+
+.net-node{
+width:72px !important;
+height:40px !important;
+font-size:.68rem !important;
+}
+
+.net-node.internet{
+top:12px !important;
+left:50% !important;
+transform:translateX(-50%) !important;
+}
+
+.net-node.firewall{
+top:70px !important;
+left:50% !important;
+transform:translateX(-50%) !important;
+}
+
+.net-node.switch{
+top:128px !important;
+left:50% !important;
+transform:translateX(-50%) !important;
+}
+
+.net-node.wifi{
+bottom:14px !important;
+left:14px !important;
+}
+
+.net-node.server{
+bottom:14px !important;
+right:14px !important;
+}
+
+.net-line.v1{
+top:54px !important;
+width:54px !important;
+left:50% !important;
+transform:translateX(-50%) rotate(90deg) !important;
+}
+
+.net-line.v2{
+top:112px !important;
+width:54px !important;
+left:50% !important;
+transform:translateX(-50%) rotate(90deg) !important;
+}
+
+.net-line.l1{
+bottom:50px !important;
+left:58px !important;
+width:92px !important;
+transform:rotate(-18deg) !important;
+}
+
+.net-line.l2{
+bottom:50px !important;
+right:58px !important;
+width:92px !important;
+transform:rotate(18deg) !important;
+}
+
+/* Mobile menu should feel complete and professional */
+.mobile-menu{
+display:block;
+}
+
+.mobile-menu a{
+font-weight:650;
+letter-spacing:.1px;
+}
+
+.mobile-menu .mobile-menu-label{
+display:block;
+margin:18px 0 8px;
+font-size:.78rem;
+font-weight:800;
+letter-spacing:1.6px;
+text-transform:uppercase;
+color:#38bdf8;
+opacity:.95;
+border-bottom:none;
+padding:0;
+}
+
+}
+
+/* Tiny phone diagram safety */
+@media(max-width:420px){
+
+.net-node{
+width:66px !important;
+font-size:.64rem !important;
+}
+
+.net-node.wifi{
+left:8px !important;
+}
+
+.net-node.server{
+right:8px !important;
+}
+
+.net-line.l1{
+left:48px !important;
+width:82px !important;
+}
+
+.net-line.l2{
+right:48px !important;
+width:82px !important;
+}
+
+}
+
+
+/* =========================
+DAMALZ GLOBAL BLUE BULLETS
+========================= */
+
+ul li::marker,
+.service-list li::marker,
+.card li::marker,
+.feature-box li::marker,
+.ai-feature-card li::marker,
+.home-feature-card li::marker,
+.tech-visual-card li::marker,
+.about-box li::marker,
+.contact-card li::marker,
+.process-card li::marker,
+.trust-card li::marker,
+.stack-card li::marker{
+color:#38bdf8;
+}
+
+/* Keep bullet text professional gray while only the bullet dot is blue */
+.service-list li,
+.feature-box li,
+.ai-feature-card li,
+.home-feature-card li,
+.tech-visual-card li,
+.about-box li,
+.contact-card li,
+.process-card li,
+.trust-card li,
+.stack-card li{
+color:#9fb0c6;
+}
+
 </style>
 
 </head>
@@ -2809,17 +3093,24 @@ Solutions ▾
 
 <div class="mobile-close" id="mobileClose" role="button" aria-label="Close mobile menu" tabindex="0">✕</div>
 
+<span class="mobile-menu-label">Main</span>
 <a href="#home">Home</a>
-<a href="#services">Services</a>
-<a href="#infrastructure">Infrastructure</a>
-<a href="#wifi">Wireless</a>
-<a href="#private-ai">Private AI</a>
-<a href="#home-networking">Home Networking</a>
-<a href="#monitoring">Monitoring</a>
-<a href="#vendors">Vendors</a>
 <a href="#about">About</a>
-<a href="#process">How We Work</a>
 <a href="#contact">Contact</a>
+
+<span class="mobile-menu-label">Services</span>
+<a href="#services">Managed IT Services</a>
+<a href="#infrastructure">Infrastructure Deployment</a>
+<a href="#security">Cybersecurity</a>
+<a href="#wifi">Wireless Engineering</a>
+<a href="#monitoring">Monitoring</a>
+
+<span class="mobile-menu-label">Solutions</span>
+<a href="#technical-visuals">Technical Visuals</a>
+<a href="#vendors">Vendors</a>
+<a href="#datacenter">Datacenter</a>
+<a href="#cabling">Structured Cabling</a>
+<a href="#camera">Security Cameras</a>
 
 </div>
 
