@@ -3543,6 +3543,363 @@ display:none;
 display:block;
 }
 
+
+/* =========================
+HIGH-LEVEL TECHNICAL DESIGN SECTION
+========================= */
+
+.tech-visual-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:28px;
+align-items:stretch;
+}
+
+.tech-visual-card{
+position:relative;
+overflow:hidden;
+padding:34px;
+min-height:430px;
+display:flex;
+flex-direction:column;
+transition:.35s;
+}
+
+.tech-visual-card:hover{
+transform:translateY(-10px);
+border-color:rgba(56,189,248,.25);
+box-shadow:0 20px 60px rgba(0,0,0,.35),0 0 25px rgba(56,189,248,.12);
+}
+
+.tech-visual-card::before{
+content:'';
+position:absolute;
+inset:0;
+background:
+linear-gradient(rgba(56,189,248,.04) 1px,transparent 1px),
+linear-gradient(90deg,rgba(56,189,248,.04) 1px,transparent 1px);
+background-size:46px 46px;
+opacity:.62;
+z-index:0;
+}
+
+.tech-visual-card::after{
+content:'';
+position:absolute;
+top:0;
+left:-120%;
+width:100%;
+height:100%;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);
+transition:.8s;
+z-index:4;
+pointer-events:none;
+}
+
+.tech-visual-card:hover::after{
+left:120%;
+}
+
+.tech-visual-card h3,
+.tech-visual-card p,
+.visual-stage,
+.visual-chip-row{
+position:relative;
+z-index:2;
+}
+
+.tech-visual-card h3{
+font-size:1.55rem;
+line-height:1.18;
+margin-bottom:14px;
+}
+
+.tech-visual-card p{
+color:#b6c2d1;
+font-size:.98rem;
+line-height:1.7;
+margin-bottom:22px;
+}
+
+.visual-stage{
+height:235px;
+margin-top:auto;
+border-radius:24px;
+background:rgba(2,8,23,.48);
+border:1px solid rgba(255,255,255,.07);
+overflow:hidden;
+}
+
+.visual-chip-row{
+display:flex;
+flex-wrap:wrap;
+gap:9px;
+margin-bottom:20px;
+}
+
+.visual-chip-row span{
+padding:8px 11px;
+border-radius:999px;
+font-size:.78rem;
+font-weight:800;
+color:#dbeafe;
+background:rgba(56,189,248,.08);
+border:1px solid rgba(56,189,248,.16);
+}
+
+.hl-network{position:relative;}
+
+.hl-node{
+position:absolute;
+width:92px;
+height:46px;
+border-radius:16px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:.75rem;
+font-weight:900;
+color:#e6f7ff;
+background:rgba(255,255,255,.075);
+border:1px solid rgba(56,189,248,.24);
+box-shadow:0 0 24px rgba(56,189,248,.12);
+z-index:3;
+}
+
+.hl-node.cloud{top:18px;left:50%;transform:translateX(-50%);}
+.hl-node.firewall{top:92px;left:50%;transform:translateX(-50%);}
+.hl-node.core{bottom:22px;left:50%;transform:translateX(-50%);}
+.hl-node.wifi{bottom:22px;left:28px;}
+.hl-node.servers{bottom:22px;right:28px;}
+
+.hl-line{
+position:absolute;
+height:2px;
+background:linear-gradient(90deg,transparent,#38bdf8,transparent);
+box-shadow:0 0 16px rgba(56,189,248,.65);
+opacity:.72;
+z-index:1;
+}
+
+.hl-line.v1{top:68px;left:50%;width:74px;transform:translateX(-50%) rotate(90deg);}
+.hl-line.v2{top:139px;left:50%;width:74px;transform:translateX(-50%) rotate(90deg);}
+.hl-line.l1{bottom:60px;left:83px;width:130px;transform:rotate(-13deg);}
+.hl-line.l2{bottom:60px;right:83px;width:130px;transform:rotate(13deg);}
+
+.hl-pulse{
+position:absolute;
+width:10px;
+height:10px;
+border-radius:50%;
+background:#38bdf8;
+box-shadow:0 0 20px #38bdf8;
+left:50%;
+top:65px;
+animation:hlPulseMove 4s linear infinite;
+z-index:2;
+}
+
+@keyframes hlPulseMove{
+0%{top:30px;left:50%;opacity:0;}
+15%{opacity:1;}
+42%{top:92px;left:50%;}
+64%{top:150px;left:50%;}
+83%{top:184px;left:25%;}
+100%{top:196px;left:14%;opacity:0;}
+}
+
+.hl-ai{
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:22px;
+gap:14px;
+}
+
+.hl-ai-box{
+width:82px;
+height:76px;
+border-radius:20px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+font-size:.72rem;
+font-weight:900;
+line-height:1.25;
+color:#e6f7ff;
+background:rgba(255,255,255,.075);
+border:1px solid rgba(56,189,248,.24);
+box-shadow:0 0 24px rgba(56,189,248,.12);
+z-index:2;
+}
+
+.hl-arrow{
+width:34px;
+height:2px;
+background:linear-gradient(90deg,#38bdf8,transparent);
+box-shadow:0 0 16px rgba(56,189,248,.7);
+position:relative;
+z-index:2;
+}
+
+.hl-arrow::after{
+content:'';
+position:absolute;
+right:0;
+top:-4px;
+border-left:8px solid #38bdf8;
+border-top:5px solid transparent;
+border-bottom:5px solid transparent;
+}
+
+.hl-scan{
+position:absolute;
+top:24px;
+left:22px;
+width:16px;
+height:180px;
+background:linear-gradient(180deg,transparent,rgba(56,189,248,.32),transparent);
+filter:blur(3px);
+animation:hlScan 4s ease-in-out infinite;
+}
+
+@keyframes hlScan{
+0%,100%{transform:translateX(0);opacity:.08;}
+50%{transform:translateX(270px);opacity:.55;}
+}
+
+.hl-monitor{padding:24px;}
+
+.hl-window{
+height:100%;
+border-radius:20px;
+background:rgba(8,17,31,.62);
+border:1px solid rgba(56,189,248,.12);
+padding:22px;
+}
+
+.hl-dots{
+display:flex;
+gap:7px;
+margin-bottom:20px;
+}
+
+.hl-dots span{
+width:11px;
+height:11px;
+border-radius:50%;
+background:rgba(56,189,248,.6);
+box-shadow:0 0 12px rgba(56,189,248,.35);
+}
+
+.hl-metric{margin-bottom:17px;}
+
+.hl-metric label{
+display:flex;
+justify-content:space-between;
+color:#cbd5e1;
+font-size:.75rem;
+font-weight:900;
+margin-bottom:7px;
+}
+
+.hl-bar{
+height:10px;
+border-radius:999px;
+background:rgba(255,255,255,.07);
+overflow:hidden;
+}
+
+.hl-bar span{
+display:block;
+height:100%;
+border-radius:999px;
+background:linear-gradient(90deg,#2563eb,#38bdf8);
+box-shadow:0 0 18px rgba(56,189,248,.4);
+animation:hlBar 3s ease-in-out infinite;
+}
+
+.hl-bar.a span{width:82%;}
+.hl-bar.b span{width:64%;}
+.hl-bar.c span{width:91%;}
+
+@keyframes hlBar{
+0%,100%{filter:brightness(1);}
+50%{filter:brightness(1.35);}
+}
+
+.hl-wifi{position:relative;}
+
+.hl-ap{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:78px;
+height:78px;
+border-radius:24px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:2rem;
+background:rgba(56,189,248,.10);
+border:1px solid rgba(56,189,248,.34);
+box-shadow:0 0 40px rgba(56,189,248,.20);
+z-index:3;
+}
+
+.hl-ring{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+border-radius:50%;
+border:2px solid rgba(56,189,248,.17);
+animation:hlWifi 3.4s ease-out infinite;
+}
+
+.hl-ring.r1{width:118px;height:118px;}
+.hl-ring.r2{width:172px;height:172px;animation-delay:.8s;}
+.hl-ring.r3{width:220px;height:220px;animation-delay:1.6s;}
+
+@keyframes hlWifi{
+0%{opacity:.1;transform:translate(-50%,-50%) scale(.82);}
+45%{opacity:.52;}
+100%{opacity:.04;transform:translate(-50%,-50%) scale(1.08);}
+}
+
+@media(max-width:950px){
+.tech-visual-grid{grid-template-columns:1fr;gap:22px;}
+.tech-visual-card{min-height:auto;padding:28px;}
+.tech-visual-card:hover{transform:none;}
+.tech-visual-card h3{font-size:1.85rem;}
+.tech-visual-card p{font-size:1rem;}
+.visual-stage{height:250px;}
+.hl-node{width:86px;height:44px;font-size:.72rem;}
+.hl-node.wifi{left:20px;}
+.hl-node.servers{right:20px;}
+.hl-line.l1{left:72px;width:116px;bottom:61px;}
+.hl-line.l2{right:72px;width:116px;bottom:61px;}
+.hl-ai{gap:10px;}
+.hl-ai-box{width:76px;height:72px;font-size:.68rem;}
+.hl-arrow{width:26px;}
+}
+
+@media(max-width:420px){
+.tech-visual-card{padding:24px;}
+.tech-visual-card h3{font-size:1.55rem;}
+.visual-stage{height:235px;}
+.hl-node{width:76px;height:42px;font-size:.66rem;}
+.hl-node.wifi{left:10px;}
+.hl-node.servers{right:10px;}
+.hl-line.l1{left:56px;width:100px;}
+.hl-line.l2{right:56px;width:100px;}
+.hl-ai-box{width:62px;height:66px;font-size:.6rem;}
+.hl-arrow{width:18px;}
+}
+
 </style>
 
 </head>
@@ -3589,6 +3946,7 @@ Services ▾
 <a href="#private-ai">Private AI Solutions</a>
 <a href="#home-networking">Secure Home Infrastructure</a>
 <a href="#monitoring">Monitoring</a>
+<a href="#process">How We Work</a>
 <a href="#technical-visuals">Technical Visuals</a>
 <a href="#process">How We Work</a>
 </div>
@@ -3615,6 +3973,7 @@ Solutions ▾
 <a href="#technical-visuals">Visuals</a>
 <a href="#vendors">Vendors</a>
 <a href="#about">About</a>
+<a href="#process">How We Work</a>
 <a href="#contact">Contact</a>
 
 </nav>
@@ -4189,6 +4548,7 @@ Infrastructure analytics, uptime tracking, and operational reporting.
 </section>
 
 
+
 <!-- TECHNICAL VISUALS -->
 
 <section id="technical-visuals">
@@ -4197,10 +4557,10 @@ Infrastructure analytics, uptime tracking, and operational reporting.
 
 <div class="section-title">
 
-<h2>Technical Infrastructure Visuals</h2>
+<h2>High-Level Infrastructure Design</h2>
 
 <p>
-Purpose-built diagrams that show how DAMALZ Tech approaches networking, private AI, monitoring, and wireless infrastructure without relying on stock photos or fake imagery.
+A clean visual overview of how DAMALZ Tech approaches networking, private AI, monitoring, and wireless infrastructure without relying on stock photos or fake imagery.
 </p>
 
 </div>
@@ -4212,24 +4572,28 @@ Purpose-built diagrams that show how DAMALZ Tech approaches networking, private 
 <h3>Network Architecture</h3>
 
 <p>
-Secure routing, firewall protection, switching, WiFi, and server connectivity designed as one complete infrastructure system.
+A secure high-level design connecting internet, firewall, core network, wireless, and server resources into one managed environment.
 </p>
 
-<div class="visual-stage network-stage">
-<div class="net-line v1"></div>
-<div class="net-line v2"></div>
-<div class="net-line l1"></div>
-<div class="net-line l2"></div>
+<div class="visual-chip-row">
+<span>Firewall</span>
+<span>Switching</span>
+<span>WiFi</span>
+<span>Servers</span>
+</div>
 
-<div class="data-dot"></div>
-<div class="data-dot two"></div>
-<div class="data-dot three"></div>
+<div class="visual-stage hl-network">
+<div class="hl-line v1"></div>
+<div class="hl-line v2"></div>
+<div class="hl-line l1"></div>
+<div class="hl-line l2"></div>
+<div class="hl-pulse"></div>
 
-<div class="net-node internet">Internet</div>
-<div class="net-node firewall">Firewall</div>
-<div class="net-node switch">Switch</div>
-<div class="net-node wifi">WiFi</div>
-<div class="net-node server">Servers</div>
+<div class="hl-node cloud">Internet</div>
+<div class="hl-node firewall">Firewall</div>
+<div class="hl-node core">Core</div>
+<div class="hl-node wifi">WiFi</div>
+<div class="hl-node servers">Servers</div>
 </div>
 
 </div>
@@ -4239,16 +4603,23 @@ Secure routing, firewall protection, switching, WiFi, and server connectivity de
 <h3>Private AI Workflow</h3>
 
 <p>
-A practical AI flow for documents, local models, private chat assistants, and business automation.
+A practical AI flow for documents, secure retrieval, local language models, and private business assistants.
 </p>
 
-<div class="visual-stage ai-pipeline-stage">
-<div class="scan-beam"></div>
-<div class="pipeline-box">Docs</div>
-<div class="pipeline-arrow"></div>
-<div class="pipeline-box">Vector<br>Search</div>
-<div class="pipeline-arrow"></div>
-<div class="pipeline-box">Local<br>LLM</div>
+<div class="visual-chip-row">
+<span>Docs</span>
+<span>Search</span>
+<span>Local AI</span>
+<span>Automation</span>
+</div>
+
+<div class="visual-stage hl-ai">
+<div class="hl-scan"></div>
+<div class="hl-ai-box">Business<br>Docs</div>
+<div class="hl-arrow"></div>
+<div class="hl-ai-box">Private<br>Search</div>
+<div class="hl-arrow"></div>
+<div class="hl-ai-box">Local<br>LLM</div>
 </div>
 
 </div>
@@ -4258,32 +4629,34 @@ A practical AI flow for documents, local models, private chat assistants, and bu
 <h3>Monitoring Dashboard</h3>
 
 <p>
-Operational visibility for servers, networks, firewalls, endpoints, uptime, and performance trends.
+A high-level visibility model for uptime, performance, device health, alerts, and operational status.
 </p>
 
-<div class="visual-stage monitor-stage">
-<div class="monitor-header">
-<span></span><span></span><span></span>
+<div class="visual-chip-row">
+<span>Uptime</span>
+<span>Alerts</span>
+<span>Performance</span>
+<span>Health</span>
 </div>
 
-<div class="metric">
-<label><span>CPU Load</span><span>72%</span></label>
-<div class="metric-bar cpu"><span></span></div>
+<div class="visual-stage hl-monitor">
+<div class="hl-window">
+<div class="hl-dots"><span></span><span></span><span></span></div>
+
+<div class="hl-metric">
+<label><span>Infrastructure</span><span>82%</span></label>
+<div class="hl-bar a"><span></span></div>
 </div>
 
-<div class="metric">
-<label><span>Memory</span><span>58%</span></label>
-<div class="metric-bar memory"><span></span></div>
+<div class="hl-metric">
+<label><span>Security</span><span>64%</span></label>
+<div class="hl-bar b"><span></span></div>
 </div>
 
-<div class="metric">
-<label><span>Network</span><span>84%</span></label>
-<div class="metric-bar network"><span></span></div>
+<div class="hl-metric">
+<label><span>Availability</span><span>91%</span></label>
+<div class="hl-bar c"><span></span></div>
 </div>
-
-<div class="metric">
-<label><span>Uptime</span><span>96%</span></label>
-<div class="metric-bar uptime"><span></span></div>
 </div>
 </div>
 
@@ -4294,14 +4667,21 @@ Operational visibility for servers, networks, firewalls, endpoints, uptime, and 
 <h3>Wireless Coverage</h3>
 
 <p>
-WiFi planning, access point placement, coverage validation, RF optimization, and signal performance.
+A simplified view of access point planning, RF coverage, signal validation, and wireless performance design.
 </p>
 
-<div class="visual-stage wifi-stage">
-<div class="wifi-ring r1"></div>
-<div class="wifi-ring r2"></div>
-<div class="wifi-ring r3"></div>
-<div class="ap-dot">📶</div>
+<div class="visual-chip-row">
+<span>Coverage</span>
+<span>RF</span>
+<span>WiFi Design</span>
+<span>Optimization</span>
+</div>
+
+<div class="visual-stage hl-wifi">
+<div class="hl-ring r1"></div>
+<div class="hl-ring r2"></div>
+<div class="hl-ring r3"></div>
+<div class="hl-ap">📶</div>
 </div>
 
 </div>
@@ -4311,6 +4691,7 @@ WiFi planning, access point placement, coverage validation, RF optimization, and
 </div>
 
 </section>
+
 
 <!-- VENDORS -->
 
@@ -4460,6 +4841,71 @@ We support infrastructure deployment, cable and rack installation, enterprise ne
 <h3>How We Approach Work</h3>
 <p>
 Our goal is to help clients build secure, reliable, scalable, and future-ready technology environments using practical lab work, structured planning, and modern operational practices.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- HOW WE WORK -->
+
+<section id="process">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>How We Work</h2>
+
+<p>
+A simple, professional process for understanding your environment, planning the right solution, and supporting reliable technology operations.
+</p>
+
+</div>
+
+<div class="process-grid">
+
+<div class="glass process-card">
+<div class="process-number">01</div>
+<h3>Discovery</h3>
+<p>
+We start by understanding your business, home office, infrastructure, security, wireless, AI, or support requirements.
+</p>
+</div>
+
+<div class="glass process-card">
+<div class="process-number">02</div>
+<h3>Assessment</h3>
+<p>
+We review your current environment, identify risks, performance gaps, connectivity issues, and improvement opportunities.
+</p>
+</div>
+
+<div class="glass process-card">
+<div class="process-number">03</div>
+<h3>Design</h3>
+<p>
+We create a practical technology plan focused on security, scalability, reliability, and long-term operational value.
+</p>
+</div>
+
+<div class="glass process-card">
+<div class="process-number">04</div>
+<h3>Deployment</h3>
+<p>
+We implement infrastructure, networking, cloud, monitoring, AI, security, or home networking solutions with clean documentation.
+</p>
+</div>
+
+<div class="glass process-card">
+<div class="process-number">05</div>
+<h3>Support</h3>
+<p>
+We provide follow-up support, improvements, monitoring options, and guidance as your technology needs grow.
 </p>
 </div>
 
