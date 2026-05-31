@@ -1032,6 +1032,112 @@ padding:32px 22px;
 }
 }
 
+
+/* =========================
+NETWORK DATA FLOW ANIMATION
+========================= */
+
+.arch-stack{
+position:relative;
+}
+
+.arch-line,
+.arch-line-wide{
+position:relative;
+overflow:visible;
+}
+
+.data-packet{
+position:absolute;
+width:10px;
+height:10px;
+border-radius:50%;
+background:#38bdf8;
+box-shadow:
+0 0 10px #38bdf8,
+0 0 22px rgba(56,189,248,.9);
+z-index:4;
+pointer-events:none;
+}
+
+.arch-line .data-packet{
+left:50%;
+top:-12px;
+transform:translateX(-50%);
+animation:packetVertical 2.3s linear infinite;
+}
+
+.arch-line.delay-one .data-packet{
+animation-delay:.55s;
+}
+
+.arch-line-wide .data-packet.left{
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+animation:packetLeft 2.5s linear infinite;
+animation-delay:1.15s;
+}
+
+.arch-line-wide .data-packet.right{
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+animation:packetRight 2.5s linear infinite;
+animation-delay:1.15s;
+}
+
+@keyframes packetVertical{
+0%{
+top:-10px;
+opacity:0;
+}
+18%{
+opacity:1;
+}
+82%{
+opacity:1;
+}
+100%{
+top:calc(100% + 4px);
+opacity:0;
+}
+}
+
+@keyframes packetLeft{
+0%{
+left:50%;
+opacity:0;
+}
+18%{
+opacity:1;
+}
+82%{
+opacity:1;
+}
+100%{
+left:0%;
+opacity:0;
+}
+}
+
+@keyframes packetRight{
+0%{
+left:50%;
+opacity:0;
+}
+18%{
+opacity:1;
+}
+82%{
+opacity:1;
+}
+100%{
+left:100%;
+opacity:0;
+}
+}
+
 </style>
 </head>
 
@@ -1059,6 +1165,7 @@ DAMALZ <span>Tech</span>
 <a href="/services/" class="active">Services</a>
 <a href="/private-ai/">Private AI</a>
 <a href="/vendors/">Technology</a>
+<a href="/how-we-work/">How We Work</a>
 <a href="/about/">About</a>
 <a href="/contact/">Contact</a>
 </nav>
@@ -1079,6 +1186,7 @@ DAMALZ <span>Tech</span>
 <a href="/services/">Services</a>
 <a href="/private-ai/">Private AI</a>
 <a href="/vendors/">Technology</a>
+<a href="/how-we-work/">How We Work</a>
 <a href="/about/">About</a>
 <a href="/contact/">Contact</a>
 
@@ -1248,11 +1356,24 @@ A clean high-level view of internet, firewall, core switching, WiFi, and server 
 <div class="clean-visual">
 <div class="arch-stack">
 <div class="arch-node">Internet</div>
-<div class="arch-line"></div>
+
+<div class="arch-line">
+<span class="data-packet"></span>
+</div>
+
 <div class="arch-node">Firewall</div>
-<div class="arch-line"></div>
+
+<div class="arch-line delay-one">
+<span class="data-packet"></span>
+</div>
+
 <div class="arch-node">Core Switch</div>
-<div class="arch-line-wide"></div>
+
+<div class="arch-line-wide">
+<span class="data-packet left"></span>
+<span class="data-packet right"></span>
+</div>
+
 <div class="arch-row">
 <div class="arch-node">WiFi</div>
 <div class="arch-node">Servers</div>
@@ -1447,6 +1568,7 @@ Managed IT, infrastructure, networking, cybersecurity, wireless engineering, pri
 <a href="/services/">Services</a>
 <a href="/private-ai/">Private AI</a>
 <a href="/vendors/">Technology</a>
+<a href="/how-we-work/">How We Work</a>
 <a href="/about/">About</a>
 <a href="/contact/">Contact</a>
 </div>
