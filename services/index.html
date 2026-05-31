@@ -1983,6 +1983,471 @@ height:188px !important;
 }
 }
 
+
+/* =========================
+PRIVATE AI + HOME NETWORKING SECTIONS
+========================= */
+
+.feature-split{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:38px;
+align-items:stretch;
+}
+
+.feature-panel{
+position:relative;
+overflow:hidden;
+padding:44px;
+min-height:520px;
+transition:.35s;
+}
+
+.feature-panel:hover{
+transform:translateY(-10px);
+border-color:rgba(56,189,248,.25);
+box-shadow:
+0 20px 60px rgba(0,0,0,.35),
+0 0 25px rgba(56,189,248,.12);
+}
+
+.feature-panel::before{
+content:'';
+position:absolute;
+inset:0;
+background:
+linear-gradient(rgba(56,189,248,.035) 1px,transparent 1px),
+linear-gradient(90deg,rgba(56,189,248,.035) 1px,transparent 1px);
+background-size:44px 44px;
+opacity:.55;
+z-index:0;
+}
+
+.feature-panel::after{
+content:'';
+position:absolute;
+top:0;
+left:-120%;
+width:100%;
+height:100%;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);
+transition:.8s;
+pointer-events:none;
+z-index:4;
+}
+
+.feature-panel:hover::after{
+left:120%;
+}
+
+.feature-panel > *{
+position:relative;
+z-index:2;
+}
+
+.feature-panel h3{
+font-size:clamp(1.8rem,3vw,2.45rem);
+line-height:1.15;
+margin-bottom:22px;
+}
+
+.feature-panel p{
+color:#b6c2d1;
+font-size:1.05rem;
+margin-bottom:24px;
+}
+
+.logo-blue-bullets{
+list-style:none;
+display:grid;
+gap:13px;
+margin-top:24px;
+}
+
+.logo-blue-bullets li{
+position:relative;
+padding-left:28px;
+color:#9fb0c6;
+font-weight:650;
+}
+
+.logo-blue-bullets li::before{
+content:'';
+position:absolute;
+left:0;
+top:.72em;
+width:8px;
+height:8px;
+border-radius:50%;
+background:#38bdf8;
+box-shadow:0 0 14px rgba(56,189,248,.75);
+transform:translateY(-50%);
+}
+
+.feature-visual{
+position:relative;
+overflow:hidden;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:34px;
+min-height:520px;
+border-color:rgba(56,189,248,.18);
+}
+
+.feature-visual::before{
+content:'';
+position:absolute;
+inset:0;
+background:
+linear-gradient(rgba(56,189,248,.045) 1px,transparent 1px),
+linear-gradient(90deg,rgba(56,189,248,.045) 1px,transparent 1px);
+background-size:54px 54px;
+opacity:.65;
+z-index:0;
+}
+
+.feature-visual > *{
+position:relative;
+z-index:2;
+}
+
+/* AI hub visual */
+.ai-hub{
+position:relative;
+width:100%;
+max-width:520px;
+height:420px;
+}
+
+.ai-center{
+position:absolute;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+width:150px;
+height:150px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:2.4rem;
+font-weight:900;
+color:#38bdf8;
+background:rgba(56,189,248,.09);
+border:2px solid rgba(56,189,248,.28);
+box-shadow:0 0 60px rgba(56,189,248,.18);
+}
+
+.ai-hub-node{
+position:absolute;
+min-width:130px;
+height:54px;
+padding:0 18px;
+border-radius:18px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:900;
+color:#e6f7ff;
+background:rgba(255,255,255,.075);
+border:1px solid rgba(56,189,248,.25);
+box-shadow:0 0 24px rgba(56,189,248,.12);
+}
+
+.ai-hub-node.top{
+top:0;
+left:50%;
+transform:translateX(-50%);
+}
+
+.ai-hub-node.left{
+left:0;
+top:50%;
+transform:translateY(-50%);
+}
+
+.ai-hub-node.right{
+right:0;
+top:50%;
+transform:translateY(-50%);
+}
+
+.ai-hub-node.bottom{
+bottom:0;
+left:50%;
+transform:translateX(-50%);
+}
+
+.ai-hub-line{
+position:absolute;
+background:rgba(56,189,248,.32);
+box-shadow:0 0 20px rgba(56,189,248,.45);
+}
+
+.ai-hub-line.v-top{
+width:2px;
+height:92px;
+left:50%;
+top:54px;
+transform:translateX(-50%);
+}
+
+.ai-hub-line.v-bottom{
+width:2px;
+height:92px;
+left:50%;
+bottom:54px;
+transform:translateX(-50%);
+}
+
+.ai-hub-line.h-left{
+height:2px;
+width:125px;
+left:130px;
+top:50%;
+transform:translateY(-50%);
+}
+
+.ai-hub-line.h-right{
+height:2px;
+width:125px;
+right:130px;
+top:50%;
+transform:translateY(-50%);
+}
+
+/* Home network visual */
+.home-network-map{
+position:relative;
+width:100%;
+max-width:560px;
+height:430px;
+}
+
+.home-center{
+position:absolute;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+width:110px;
+height:110px;
+border-radius:28px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:2.3rem;
+background:rgba(56,189,248,.09);
+border:1px solid rgba(56,189,248,.34);
+box-shadow:0 0 45px rgba(56,189,248,.18);
+z-index:4;
+}
+
+.home-ring{
+position:absolute;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+border-radius:50%;
+border:2px solid rgba(56,189,248,.18);
+}
+
+.home-ring.r1{width:180px;height:180px;}
+.home-ring.r2{width:260px;height:260px;}
+.home-ring.r3{width:350px;height:350px;}
+
+.home-node{
+position:absolute;
+min-width:92px;
+height:48px;
+padding:0 14px;
+border-radius:16px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:.78rem;
+font-weight:900;
+color:#e6f7ff;
+background:rgba(255,255,255,.075);
+border:1px solid rgba(56,189,248,.25);
+box-shadow:0 0 24px rgba(56,189,248,.12);
+z-index:5;
+}
+
+.home-node.firewall{
+top:0;
+left:50%;
+transform:translateX(-50%);
+}
+
+.home-node.wifi{
+left:0;
+top:50%;
+transform:translateY(-50%);
+}
+
+.home-node.iot{
+right:0;
+top:50%;
+transform:translateY(-50%);
+}
+
+.home-node.vpn{
+bottom:0;
+left:50%;
+transform:translateX(-50%);
+}
+
+.home-glow-line{
+position:absolute;
+background:rgba(56,189,248,.28);
+box-shadow:0 0 18px rgba(56,189,248,.45);
+z-index:2;
+}
+
+.home-glow-line.top{
+width:2px;
+height:110px;
+left:50%;
+top:48px;
+}
+
+.home-glow-line.bottom{
+width:2px;
+height:110px;
+left:50%;
+bottom:48px;
+}
+
+.home-glow-line.left{
+height:2px;
+width:135px;
+left:92px;
+top:50%;
+}
+
+.home-glow-line.right{
+height:2px;
+width:135px;
+right:92px;
+top:50%;
+}
+
+/* Make all regular bullets blue across service cards */
+.service-list li::marker{
+color:#38bdf8 !important;
+}
+
+/* Improve ordinary unordered bullets if used */
+.card ul li::marker,
+.feature-panel ul li::marker{
+color:#38bdf8 !important;
+}
+
+@media(max-width:1050px){
+.feature-split{
+grid-template-columns:1fr;
+}
+
+.feature-panel,
+.feature-visual{
+min-height:auto;
+}
+
+.feature-panel:hover{
+transform:none;
+}
+
+.feature-visual{
+min-height:430px;
+}
+
+.ai-hub{
+height:380px;
+}
+
+.home-network-map{
+height:390px;
+}
+}
+
+@media(max-width:520px){
+.feature-panel{
+padding:28px;
+}
+
+.feature-visual{
+padding:24px;
+min-height:390px;
+}
+
+.ai-hub{
+height:330px;
+}
+
+.ai-center{
+width:112px;
+height:112px;
+font-size:2rem;
+}
+
+.ai-hub-node{
+min-width:96px;
+height:46px;
+font-size:.72rem;
+}
+
+.ai-hub-line.v-top,
+.ai-hub-line.v-bottom{
+height:70px;
+}
+
+.ai-hub-line.h-left{
+left:96px;
+width:82px;
+}
+
+.ai-hub-line.h-right{
+right:96px;
+width:82px;
+}
+
+.home-network-map{
+height:340px;
+}
+
+.home-center{
+width:88px;
+height:88px;
+font-size:1.8rem;
+}
+
+.home-ring.r1{width:140px;height:140px;}
+.home-ring.r2{width:210px;height:210px;}
+.home-ring.r3{width:280px;height:280px;}
+
+.home-node{
+min-width:76px;
+height:42px;
+font-size:.66rem;
+}
+
+.home-glow-line.top,
+.home-glow-line.bottom{
+height:82px;
+}
+
+.home-glow-line.left{
+width:88px;
+left:76px;
+}
+
+.home-glow-line.right{
+width:88px;
+right:76px;
+}
+}
+
 </style>
 </head>
 
@@ -2172,6 +2637,138 @@ Enterprise-style home and small office networking for remote workers, labs, and 
 
 </section>
 
+
+
+<!-- PRIVATE AI INFRASTRUCTURE -->
+
+<section id="private-ai-service">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>Private AI Infrastructure & Automation</h2>
+
+<p>
+Secure AI solutions designed for businesses that want productivity, automation, and knowledge search while keeping sensitive data under better control.
+</p>
+
+</div>
+
+<div class="feature-split">
+
+<div class="glass feature-panel">
+
+<h3>Private AI Solutions</h3>
+
+<p>
+DAMALZ Tech helps small businesses and growing organizations explore secure AI deployments using local language models, private knowledge bases, document search, and workflow automation.
+</p>
+
+<ul class="logo-blue-bullets">
+<li>Local LLM hosting and AI lab environments</li>
+<li>Ollama deployment and model management</li>
+<li>Private AI chatbot proof-of-concepts</li>
+<li>Business document search and knowledge assistants</li>
+<li>AI workflow automation for repetitive tasks</li>
+<li>Secure AI infrastructure planning</li>
+</ul>
+
+</div>
+
+<div class="glass feature-visual">
+
+<div class="ai-hub">
+
+<div class="ai-hub-node top">LLM Host</div>
+<div class="ai-hub-node left">Documents</div>
+<div class="ai-hub-node right">Automation</div>
+<div class="ai-hub-node bottom">Private Data</div>
+
+<div class="ai-hub-line v-top"></div>
+<div class="ai-hub-line v-bottom"></div>
+<div class="ai-hub-line h-left"></div>
+<div class="ai-hub-line h-right"></div>
+
+<div class="ai-center">AI</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- HOME AND SMALL OFFICE NETWORKING -->
+
+<section id="home-networking">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>Enterprise-Grade Home & Small Office Networking</h2>
+
+<p>
+Professional networking and cybersecurity practices for home offices, remote workers, executives, smart homes, and small business environments.
+</p>
+
+</div>
+
+<div class="feature-split">
+
+<div class="glass feature-visual">
+
+<div class="home-network-map">
+
+<div class="home-ring r1"></div>
+<div class="home-ring r2"></div>
+<div class="home-ring r3"></div>
+
+<div class="home-glow-line top"></div>
+<div class="home-glow-line bottom"></div>
+<div class="home-glow-line left"></div>
+<div class="home-glow-line right"></div>
+
+<div class="home-node firewall">Firewall</div>
+<div class="home-node wifi">WiFi</div>
+<div class="home-node iot">IoT</div>
+<div class="home-node vpn">VPN</div>
+
+<div class="home-center">🏠</div>
+
+</div>
+
+</div>
+
+<div class="glass feature-panel">
+
+<h3>Secure Home Infrastructure</h3>
+
+<p>
+Bring enterprise-inspired security, reliability, and performance to your home network, home office, or small office environment.
+</p>
+
+<ul class="logo-blue-bullets">
+<li>Advanced WiFi design and optimization</li>
+<li>Enterprise firewall deployment</li>
+<li>VPN and secure remote access</li>
+<li>Smart home and IoT device isolation</li>
+<li>Guest WiFi and network segmentation</li>
+<li>Security camera and PoE network integration</li>
+<li>NAS, home server, and home lab setup</li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
 
 <!-- TECHNICAL VISUALS -->
 
