@@ -1,1 +1,2378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+
+<title>Services | DAMALZ Tech</title>
+
+<meta name="description" content="DAMALZ Tech provides managed IT services, infrastructure deployment, cybersecurity, wireless engineering, monitoring, secure home networking, and private AI infrastructure services.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:#08111f;
+color:white;
+overflow-x:hidden;
+line-height:1.7;
+}
+
+body::before{
+content:'';
+position:fixed;
+width:700px;
+height:700px;
+background:radial-gradient(circle,rgba(59,130,246,.18),transparent 70%);
+top:-300px;
+right:-250px;
+z-index:-1;
+filter:blur(50px);
+}
+
+body::after{
+content:'';
+position:fixed;
+width:600px;
+height:600px;
+background:radial-gradient(circle,rgba(6,182,212,.14),transparent 70%);
+bottom:-250px;
+left:-250px;
+z-index:-1;
+filter:blur(50px);
+}
+
+.container{
+width:min(90%,1280px);
+margin:auto;
+}
+
+/* HEADER */
+
+header{
+position:fixed;
+top:0;
+width:100%;
+z-index:9999;
+background:rgba(8,17,31,.88);
+backdrop-filter:blur(16px);
+border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 0;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:12px;
+font-size:1.5rem;
+font-weight:900;
+color:#38bdf8;
+text-decoration:none;
+letter-spacing:.2px;
+position:relative;
+}
+
+.logo::after{
+content:'';
+position:absolute;
+left:50px;
+right:-8px;
+bottom:-7px;
+height:2px;
+border-radius:999px;
+background:linear-gradient(90deg,rgba(56,189,248,.8),transparent);
+opacity:.55;
+}
+
+.logo span{
+color:white;
+}
+
+.logo svg{
+filter:drop-shadow(0 0 16px rgba(56,189,248,.55));
+animation:pulse 3s infinite ease-in-out;
+}
+
+@keyframes pulse{
+0%,100%{transform:scale(1);}
+50%{transform:scale(1.05);}
+}
+
+.nav-links{
+display:flex;
+align-items:center;
+gap:24px;
+}
+
+.nav-links a{
+color:#d8e3f0;
+text-decoration:none;
+font-size:15px;
+font-weight:600;
+transition:.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active{
+color:#38bdf8;
+}
+
+.mobile-toggle{
+display:none;
+font-size:28px;
+cursor:pointer;
+color:white;
+width:44px;
+height:44px;
+align-items:center;
+justify-content:center;
+border-radius:14px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+}
+
+.mobile-menu{
+position:fixed;
+top:0;
+right:-100%;
+width:min(86vw,340px);
+height:100vh;
+background:#08111f;
+z-index:10000;
+padding:92px 26px 32px;
+transition:.4s;
+border-left:1px solid rgba(255,255,255,.08);
+overflow-y:auto;
+box-shadow:-25px 0 70px rgba(0,0,0,.45);
+}
+
+.mobile-menu.active{
+right:0;
+}
+
+.mobile-menu a{
+display:block;
+color:white;
+text-decoration:none;
+padding:15px 0;
+border-bottom:1px solid rgba(255,255,255,.05);
+font-size:16px;
+font-weight:650;
+}
+
+.mobile-close{
+position:absolute;
+top:25px;
+right:25px;
+font-size:26px;
+cursor:pointer;
+width:44px;
+height:44px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:14px;
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.08);
+}
+
+/* COMMON */
+
+section{
+padding:105px 0;
+scroll-margin-top:95px;
+}
+
+.section-title{
+text-align:center;
+margin-bottom:60px;
+}
+
+.section-title h2{
+font-size:clamp(2.2rem,5vw,3rem);
+margin-bottom:14px;
+line-height:1.12;
+}
+
+.section-title p{
+max-width:820px;
+margin:auto;
+color:#94a3b8;
+font-size:1.05rem;
+}
+
+.glass{
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.07);
+border-radius:26px;
+backdrop-filter:blur(14px);
+}
+
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:16px 30px;
+border-radius:16px;
+text-decoration:none;
+font-weight:800;
+transition:.3s;
+border:none;
+font-family:'Inter',sans-serif;
+cursor:pointer;
+font-size:15px;
+}
+
+.btn-primary{
+background:linear-gradient(135deg,#2563eb,#0891b2);
+color:white;
+box-shadow:
+0 10px 30px rgba(37,99,235,.35),
+0 0 20px rgba(56,189,248,.15);
+}
+
+.btn-primary:hover{
+transform:translateY(-4px);
+box-shadow:
+0 18px 45px rgba(37,99,235,.45),
+0 0 30px rgba(56,189,248,.25);
+}
+
+.btn-secondary{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+color:white;
+}
+
+.btn-secondary:hover{
+background:rgba(255,255,255,.08);
+transform:translateY(-4px);
+}
+
+/* INTRO */
+
+.page-intro{
+padding-top:165px;
+padding-bottom:70px;
+text-align:center;
+}
+
+.page-intro h1{
+font-size:clamp(2.8rem,6vw,5.25rem);
+line-height:1.03;
+font-weight:900;
+margin-bottom:24px;
+letter-spacing:-2px;
+}
+
+.page-intro h1 span{
+background:linear-gradient(135deg,#38bdf8,#06b6d4);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.page-intro p{
+font-size:1.1rem;
+color:#b5c3d4;
+max-width:860px;
+margin:0 auto 34px;
+}
+
+.page-actions{
+display:flex;
+gap:14px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+/* SERVICE CARDS */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:28px;
+}
+
+.card{
+position:relative;
+overflow:hidden;
+padding:36px;
+transition:.35s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+border-color:rgba(56,189,248,.25);
+box-shadow:
+0 20px 60px rgba(0,0,0,.35),
+0 0 25px rgba(56,189,248,.12);
+}
+
+.card::before{
+content:'';
+position:absolute;
+top:0;
+left:-120%;
+width:100%;
+height:100%;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);
+transition:.8s;
+pointer-events:none;
+}
+
+.card:hover::before{
+left:120%;
+}
+
+.icon-wrap{
+width:70px;
+height:70px;
+border-radius:18px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:2rem;
+margin-bottom:22px;
+background:linear-gradient(135deg,rgba(37,99,235,.25),rgba(6,182,212,.15));
+border:1px solid rgba(255,255,255,.08);
+box-shadow:0 0 25px rgba(56,189,248,.12);
+}
+
+.card h3{
+font-size:1.35rem;
+margin-bottom:14px;
+}
+
+.card p{
+color:#b6c2d1;
+}
+
+.service-list{
+margin-top:18px;
+padding-left:20px;
+color:#9fb0c6;
+font-size:.95rem;
+}
+
+.service-list li{
+margin-bottom:8px;
+color:#9fb0c6;
+}
+
+ul li::marker{
+color:#38bdf8;
+}
+
+/* TECHNICAL VISUALS - CLEAN VERSION */
+
+.tech-visual-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:24px;
+align-items:stretch;
+}
+
+.tech-visual-card{
+position:relative;
+overflow:hidden;
+padding:34px;
+min-height:500px;
+display:flex;
+flex-direction:column;
+transition:.35s;
+}
+
+.tech-visual-card:hover{
+transform:translateY(-10px);
+border-color:rgba(56,189,248,.25);
+box-shadow:
+0 20px 60px rgba(0,0,0,.35),
+0 0 25px rgba(56,189,248,.12);
+}
+
+.tech-visual-card::before{
+content:'';
+position:absolute;
+inset:0;
+background:
+linear-gradient(rgba(56,189,248,.04) 1px,transparent 1px),
+linear-gradient(90deg,rgba(56,189,248,.04) 1px,transparent 1px);
+background-size:46px 46px;
+opacity:.62;
+z-index:0;
+}
+
+.tech-visual-card::after{
+content:'';
+position:absolute;
+top:0;
+left:-120%;
+width:100%;
+height:100%;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);
+transition:.8s;
+z-index:4;
+pointer-events:none;
+}
+
+.tech-visual-card:hover::after{
+left:120%;
+}
+
+.tech-visual-card h3,
+.tech-visual-card p,
+.clean-visual{
+position:relative;
+z-index:2;
+}
+
+.tech-visual-card h3{
+font-size:1.45rem;
+line-height:1.16;
+margin-bottom:16px;
+min-height:54px;
+}
+
+.tech-visual-card p{
+color:#b6c2d1;
+font-size:.94rem;
+line-height:1.65;
+margin-bottom:26px;
+min-height:120px;
+}
+
+.clean-visual{
+margin-top:auto;
+height:255px;
+border-radius:24px;
+background:rgba(2,8,23,.48);
+border:1px solid rgba(255,255,255,.07);
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+}
+
+/* Network Architecture */
+.arch-stack{
+width:82%;
+max-width:280px;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:18px;
+}
+
+.arch-row{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:30px;
+width:100%;
+}
+
+.arch-node{
+min-width:94px;
+height:44px;
+padding:0 13px;
+border-radius:15px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:.72rem;
+font-weight:900;
+color:#e6f7ff;
+background:rgba(255,255,255,.075);
+border:1px solid rgba(56,189,248,.24);
+box-shadow:0 0 22px rgba(56,189,248,.12);
+white-space:nowrap;
+}
+
+.arch-line{
+width:2px;
+height:24px;
+background:linear-gradient(180deg,transparent,#38bdf8,transparent);
+box-shadow:0 0 16px rgba(56,189,248,.65);
+}
+
+.arch-line-wide{
+height:2px;
+width:78%;
+background:linear-gradient(90deg,transparent,#38bdf8,transparent);
+box-shadow:0 0 16px rgba(56,189,248,.65);
+}
+
+/* Private AI */
+.ai-clean-flow{
+width:92%;
+display:grid;
+grid-template-columns:1fr 40px 1fr 40px 1fr;
+align-items:center;
+gap:8px;
+}
+
+.ai-clean-box{
+height:95px;
+border-radius:20px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+font-size:.78rem;
+font-weight:900;
+line-height:1.25;
+padding:10px;
+color:#e6f7ff;
+background:rgba(255,255,255,.075);
+border:1px solid rgba(56,189,248,.24);
+box-shadow:0 0 22px rgba(56,189,248,.12);
+}
+
+.ai-clean-arrow{
+height:2px;
+background:linear-gradient(90deg,#38bdf8,transparent);
+box-shadow:0 0 16px rgba(56,189,248,.7);
+position:relative;
+}
+
+.ai-clean-arrow::after{
+content:'';
+position:absolute;
+right:0;
+top:-4px;
+border-left:8px solid #38bdf8;
+border-top:5px solid transparent;
+border-bottom:5px solid transparent;
+}
+
+/* Monitoring */
+.monitor-clean{
+width:90%;
+max-width:280px;
+border-radius:22px;
+background:rgba(8,17,31,.62);
+border:1px solid rgba(56,189,248,.12);
+padding:24px;
+}
+
+.monitor-clean-dots{
+display:flex;
+gap:7px;
+margin-bottom:22px;
+}
+
+.monitor-clean-dots span{
+width:11px;
+height:11px;
+border-radius:50%;
+background:rgba(56,189,248,.65);
+box-shadow:0 0 12px rgba(56,189,248,.35);
+}
+
+.monitor-clean-row{
+margin-bottom:20px;
+}
+
+.monitor-clean-row:last-child{
+margin-bottom:0;
+}
+
+.monitor-clean-row label{
+display:flex;
+justify-content:space-between;
+gap:14px;
+color:#cbd5e1;
+font-size:.72rem;
+font-weight:900;
+margin-bottom:7px;
+}
+
+.monitor-clean-bar{
+height:10px;
+border-radius:999px;
+background:rgba(255,255,255,.07);
+overflow:hidden;
+}
+
+.monitor-clean-bar span{
+display:block;
+height:100%;
+border-radius:999px;
+background:linear-gradient(90deg,#2563eb,#38bdf8);
+box-shadow:0 0 18px rgba(56,189,248,.4);
+}
+
+.monitor-clean-bar.a span{width:88%;}
+.monitor-clean-bar.b span{width:74%;}
+.monitor-clean-bar.c span{width:96%;}
+
+/* Wireless */
+.wifi-clean{
+position:relative;
+width:230px;
+height:230px;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.wifi-clean-core{
+width:82px;
+height:82px;
+border-radius:24px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:2rem;
+background:rgba(56,189,248,.10);
+border:1px solid rgba(56,189,248,.34);
+box-shadow:
+0 0 30px rgba(56,189,248,.30),
+0 0 60px rgba(56,189,248,.15);
+z-index:3;
+}
+
+.wifi-clean-ring{
+position:absolute;
+border-radius:50%;
+border:2px solid rgba(56,189,248,.25);
+animation:cleanWifiPulse 3.4s ease-out infinite;
+}
+
+.wifi-clean-ring.r1{width:120px;height:120px;}
+.wifi-clean-ring.r2{width:172px;height:172px;animation-delay:.8s;}
+.wifi-clean-ring.r3{width:224px;height:224px;animation-delay:1.6s;}
+
+@keyframes cleanWifiPulse{
+0%{opacity:.16;transform:scale(.82);}
+45%{opacity:.62;}
+100%{opacity:.07;transform:scale(1.08);}
+}
+
+/* PROCESS PREVIEW */
+
+.process-strip{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px;
+}
+
+.process-step{
+padding:24px;
+position:relative;
+overflow:hidden;
+}
+
+.process-step span{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+width:44px;
+height:44px;
+border-radius:14px;
+color:#38bdf8;
+font-weight:900;
+background:linear-gradient(135deg,rgba(37,99,235,.25),rgba(6,182,212,.15));
+border:1px solid rgba(255,255,255,.08);
+margin-bottom:16px;
+}
+
+.process-step h3{
+font-size:1.08rem;
+margin-bottom:8px;
+}
+
+.process-step p{
+color:#b6c2d1;
+font-size:.94rem;
+}
+
+/* CTA / FOOTER */
+
+.cta-box{
+padding:55px;
+text-align:center;
+position:relative;
+overflow:hidden;
+}
+
+.cta-box h2{
+font-size:clamp(2rem,5vw,3rem);
+line-height:1.12;
+margin-bottom:16px;
+}
+
+.cta-box p{
+color:#b8c5d3;
+max-width:760px;
+margin:0 auto 28px;
+}
+
+footer{
+padding:60px 0;
+border-top:1px solid rgba(255,255,255,.06);
+background:#070d18;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:40px;
+margin-bottom:40px;
+}
+
+.footer-title{
+font-size:1.2rem;
+margin-bottom:18px;
+}
+
+.footer-links a{
+display:block;
+margin-bottom:12px;
+color:#9db0c5;
+text-decoration:none;
+}
+
+.footer-links a:hover{
+color:#38bdf8;
+}
+
+.footer-bottom{
+padding-top:30px;
+border-top:1px solid rgba(255,255,255,.06);
+text-align:center;
+color:#7d8da1;
+}
+
+/* POPUP */
+
+.popup-overlay{
+position:fixed;
+inset:0;
+background:
+radial-gradient(circle at 50% 18%,rgba(56,189,248,.14),transparent 32%),
+rgba(2,8,23,.78);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:999999;
+padding:20px;
+backdrop-filter:blur(12px);
+}
+
+.popup-overlay.active{
+display:flex;
+}
+
+.popup-box{
+width:100%;
+max-width:640px;
+position:relative;
+overflow:hidden;
+border-radius:32px;
+padding:42px;
+background:
+linear-gradient(145deg,rgba(15,23,42,.92),rgba(8,17,31,.98));
+border:1px solid rgba(56,189,248,.22);
+box-shadow:
+0 35px 95px rgba(0,0,0,.62),
+0 0 55px rgba(56,189,248,.16),
+inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+.popup-close{
+position:absolute;
+top:18px;
+right:18px;
+width:44px;
+height:44px;
+border-radius:16px;
+border:1px solid rgba(255,255,255,.10);
+background:rgba(255,255,255,.07);
+color:white;
+font-size:20px;
+cursor:pointer;
+z-index:5;
+}
+
+.popup-box h2{
+font-size:2.2rem;
+line-height:1.12;
+margin-bottom:12px;
+letter-spacing:-.5px;
+}
+
+.popup-box p{
+color:#aebbd0;
+margin-bottom:26px;
+line-height:1.7;
+}
+
+.popup-form{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:16px;
+}
+
+.popup-form input,
+.popup-form textarea,
+.popup-form select{
+width:100%;
+padding:16px;
+border-radius:16px;
+background:rgba(255,255,255,.055);
+color:white;
+font-family:'Inter',sans-serif;
+font-size:15px;
+border:1px solid rgba(255,255,255,.08);
+outline:none;
+}
+
+.popup-form textarea,
+.popup-form select,
+.popup-form button,
+.form-note{
+grid-column:1 / -1;
+}
+
+.popup-form textarea{
+min-height:130px;
+resize:vertical;
+}
+
+.popup-form select option{
+background:#0f172a;
+color:white;
+}
+
+.form-note{
+color:#8fa1b8;
+font-size:.82rem;
+line-height:1.5;
+}
+
+/* MOBILE */
+
+@media(max-width:1250px){
+.tech-visual-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.process-strip{
+grid-template-columns:repeat(2,1fr);
+}
+}
+
+@media(max-width:950px){
+
+.container{
+width:92%;
+}
+
+.nav-links{
+display:none;
+}
+
+.mobile-toggle{
+display:flex;
+}
+
+.navbar{
+padding:14px 0;
+}
+
+.logo{
+font-size:1.08rem;
+}
+
+.logo svg{
+width:32px;
+height:32px;
+}
+
+.page-intro{
+padding-top:135px;
+}
+
+.page-intro h1{
+font-size:clamp(2.55rem,13vw,3.45rem);
+letter-spacing:-1px;
+}
+
+.page-actions .btn{
+width:100%;
+}
+
+section{
+padding:80px 0;
+}
+
+.grid,
+.tech-visual-grid,
+.process-strip{
+grid-template-columns:1fr;
+}
+
+.card:hover,
+.tech-visual-card:hover{
+transform:none;
+}
+
+.tech-visual-card{
+min-height:auto;
+padding:28px;
+}
+
+.tech-visual-card h3,
+.tech-visual-card p{
+min-height:auto;
+}
+
+.clean-visual{
+height:280px;
+}
+
+.arch-stack{
+gap:16px;
+}
+
+.ai-clean-flow{
+max-width:360px;
+}
+
+.footer-grid{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+footer .logo{
+justify-content:center;
+}
+
+.popup-overlay{
+align-items:flex-start;
+overflow-y:auto;
+padding:14px;
+}
+
+.popup-box{
+margin-top:80px;
+padding:28px;
+border-radius:26px;
+}
+
+.popup-box h2{
+font-size:1.75rem;
+padding-right:42px;
+}
+
+.popup-form{
+grid-template-columns:1fr;
+}
+
+.popup-form input,
+.popup-form textarea,
+.popup-form select{
+font-size:16px;
+padding:14px;
+}
+}
+
+@media(max-width:420px){
+.clean-visual{
+height:255px;
+}
+
+.arch-node{
+min-width:76px;
+height:40px;
+font-size:.62rem;
+padding:0 9px;
+}
+
+.arch-row{
+gap:14px;
+}
+
+.ai-clean-flow{
+grid-template-columns:1fr 18px 1fr 18px 1fr;
+gap:6px;
+}
+
+.ai-clean-box{
+height:76px;
+font-size:.58rem;
+border-radius:16px;
+}
+
+.cta-box{
+padding:32px 22px;
+}
+}
+
+
+/* =========================
+NETWORK DATA FLOW ANIMATION
+========================= */
+
+.arch-stack{
+position:relative;
+}
+
+.arch-line,
+.arch-line-wide{
+position:relative;
+overflow:visible;
+}
+
+.data-packet{
+position:absolute;
+width:10px;
+height:10px;
+border-radius:50%;
+background:#38bdf8;
+box-shadow:
+0 0 10px #38bdf8,
+0 0 22px rgba(56,189,248,.9);
+z-index:4;
+pointer-events:none;
+}
+
+.arch-line .data-packet{
+left:50%;
+top:-12px;
+transform:translateX(-50%);
+animation:packetVertical 2.3s linear infinite;
+}
+
+.arch-line.delay-one .data-packet{
+animation-delay:.55s;
+}
+
+.arch-line-wide .data-packet.left{
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+animation:packetLeft 2.5s linear infinite;
+animation-delay:1.15s;
+}
+
+.arch-line-wide .data-packet.right{
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+animation:packetRight 2.5s linear infinite;
+animation-delay:1.15s;
+}
+
+@keyframes packetVertical{
+0%{
+top:-10px;
+opacity:0;
+}
+18%{
+opacity:1;
+}
+82%{
+opacity:1;
+}
+100%{
+top:calc(100% + 4px);
+opacity:0;
+}
+}
+
+@keyframes packetLeft{
+0%{
+left:50%;
+opacity:0;
+}
+18%{
+opacity:1;
+}
+82%{
+opacity:1;
+}
+100%{
+left:0%;
+opacity:0;
+}
+}
+
+@keyframes packetRight{
+0%{
+left:50%;
+opacity:0;
+}
+18%{
+opacity:1;
+}
+82%{
+opacity:1;
+}
+100%{
+left:100%;
+opacity:0;
+}
+}
+
+
+/* =========================
+FINAL TECHNICAL VISUALS - EXPANDED NON-CROPPED
+========================= */
+
+.tech-visual-grid{
+grid-template-columns:repeat(4,1fr);
+gap:24px;
+align-items:stretch;
+}
+
+.tech-visual-card{
+min-height:650px !important;
+padding:34px !important;
+display:flex !important;
+flex-direction:column !important;
+}
+
+.tech-visual-card h3{
+min-height:58px !important;
+font-size:1.45rem !important;
+line-height:1.16 !important;
+}
+
+.tech-visual-card p{
+min-height:120px !important;
+font-size:.94rem !important;
+line-height:1.65 !important;
+margin-bottom:24px !important;
+}
+
+.clean-visual{
+height:350px !important;
+min-height:350px !important;
+margin-top:auto !important;
+padding:22px !important;
+overflow:visible !important;
+}
+
+/* Network diagram fully visible */
+.network-flow{
+position:relative;
+width:100%;
+height:100%;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.network-map{
+position:relative;
+width:100%;
+max-width:300px;
+height:300px;
+}
+
+.net-node{
+position:absolute;
+height:44px;
+min-width:98px;
+padding:0 14px;
+border-radius:16px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:.72rem;
+font-weight:900;
+color:#e6f7ff;
+background:rgba(255,255,255,.075);
+border:1px solid rgba(56,189,248,.28);
+box-shadow:0 0 24px rgba(56,189,248,.14);
+z-index:4;
+white-space:nowrap;
+}
+
+.net-internet{
+top:0;
+left:50%;
+transform:translateX(-50%);
+}
+
+.net-firewall{
+top:78px;
+left:50%;
+transform:translateX(-50%);
+}
+
+.net-core{
+top:156px;
+left:50%;
+transform:translateX(-50%);
+}
+
+.net-wifi{
+bottom:0;
+left:0;
+}
+
+.net-servers{
+bottom:0;
+right:0;
+}
+
+.net-line{
+position:absolute;
+background:rgba(56,189,248,.45);
+box-shadow:0 0 16px rgba(56,189,248,.55);
+z-index:2;
+overflow:visible;
+}
+
+.net-line-v1{
+width:2px;
+height:34px;
+top:44px;
+left:50%;
+transform:translateX(-50%);
+}
+
+.net-line-v2{
+width:2px;
+height:34px;
+top:122px;
+left:50%;
+transform:translateX(-50%);
+}
+
+.net-line-l{
+width:112px;
+height:2px;
+left:55px;
+top:232px;
+transform:rotate(-20deg);
+transform-origin:right center;
+}
+
+.net-line-r{
+width:112px;
+height:2px;
+right:55px;
+top:232px;
+transform:rotate(20deg);
+transform-origin:left center;
+}
+
+.flow-dot{
+position:absolute;
+width:10px;
+height:10px;
+border-radius:50%;
+background:#38bdf8;
+box-shadow:
+0 0 12px #38bdf8,
+0 0 26px rgba(56,189,248,.9);
+z-index:5;
+pointer-events:none;
+}
+
+.net-line-v1 .flow-dot,
+.net-line-v2 .flow-dot{
+left:50%;
+top:-10px;
+transform:translateX(-50%);
+animation:dotDown 2.4s linear infinite;
+}
+
+.net-line-v2 .flow-dot{
+animation-delay:.65s;
+}
+
+.net-line-l .flow-dot{
+right:-5px;
+top:50%;
+transform:translateY(-50%);
+animation:dotLeft 2.5s linear infinite;
+animation-delay:1.25s;
+}
+
+.net-line-r .flow-dot{
+left:-5px;
+top:50%;
+transform:translateY(-50%);
+animation:dotRight 2.5s linear infinite;
+animation-delay:1.25s;
+}
+
+@keyframes dotDown{
+0%{top:-8px;opacity:0;}
+15%{opacity:1;}
+85%{opacity:1;}
+100%{top:calc(100% + 2px);opacity:0;}
+}
+
+@keyframes dotLeft{
+0%{right:-5px;opacity:0;}
+15%{opacity:1;}
+85%{opacity:1;}
+100%{right:calc(100% - 5px);opacity:0;}
+}
+
+@keyframes dotRight{
+0%{left:-5px;opacity:0;}
+15%{opacity:1;}
+85%{opacity:1;}
+100%{left:calc(100% - 5px);opacity:0;}
+}
+
+/* Private AI full workflow */
+.ai-flow-full{
+position:relative;
+width:100%;
+height:100%;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.ai-flow-row{
+width:100%;
+max-width:320px;
+display:grid;
+grid-template-columns:1fr 24px 1fr 24px 1fr 24px 1fr;
+gap:6px;
+align-items:center;
+}
+
+.ai-step{
+height:86px;
+border-radius:20px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+font-size:.62rem;
+font-weight:900;
+line-height:1.25;
+color:#e6f7ff;
+background:rgba(255,255,255,.075);
+border:1px solid rgba(56,189,248,.28);
+box-shadow:0 0 22px rgba(56,189,248,.12);
+padding:8px;
+}
+
+.ai-arrow{
+height:2px;
+background:linear-gradient(90deg,#38bdf8,transparent);
+box-shadow:0 0 16px rgba(56,189,248,.7);
+position:relative;
+}
+
+.ai-arrow::after{
+content:'';
+position:absolute;
+right:0;
+top:-4px;
+border-left:8px solid #38bdf8;
+border-top:5px solid transparent;
+border-bottom:5px solid transparent;
+}
+
+/* Monitoring dashboard expanded */
+.monitor-clean{
+width:96% !important;
+max-width:300px !important;
+padding:24px !important;
+}
+
+.monitor-clean-row{
+margin-bottom:18px !important;
+}
+
+.monitor-clean-row label{
+font-size:.72rem !important;
+line-height:1.25 !important;
+align-items:center;
+}
+
+/* Wireless has labels and radar */
+.wireless-full{
+width:100%;
+height:100%;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+gap:18px;
+}
+
+.wireless-tags{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+width:100%;
+max-width:260px;
+}
+
+.wireless-tags span{
+padding:8px 10px;
+border-radius:999px;
+font-size:.7rem;
+font-weight:900;
+color:#dbeafe;
+background:rgba(56,189,248,.08);
+border:1px solid rgba(56,189,248,.18);
+text-align:center;
+white-space:nowrap;
+}
+
+.wifi-clean{
+width:210px !important;
+height:210px !important;
+}
+
+.wifi-clean-core{
+width:76px !important;
+height:76px !important;
+}
+
+.wifi-clean-ring.r1{width:112px !important;height:112px !important;}
+.wifi-clean-ring.r2{width:160px !important;height:160px !important;}
+.wifi-clean-ring.r3{width:204px !important;height:204px !important;}
+
+@media(max-width:1250px){
+.tech-visual-grid{
+grid-template-columns:repeat(2,1fr) !important;
+}
+
+.tech-visual-card{
+min-height:610px !important;
+}
+}
+
+@media(max-width:950px){
+.tech-visual-grid{
+grid-template-columns:1fr !important;
+}
+
+.tech-visual-card{
+min-height:auto !important;
+}
+
+.tech-visual-card h3,
+.tech-visual-card p{
+min-height:auto !important;
+}
+
+.clean-visual{
+height:370px !important;
+min-height:370px !important;
+}
+
+.network-map{
+max-width:310px;
+height:310px;
+}
+
+.net-line-l{
+left:55px;
+top:238px;
+}
+
+.net-line-r{
+right:55px;
+top:238px;
+}
+
+.ai-flow-row{
+max-width:360px;
+grid-template-columns:1fr 28px 1fr 28px 1fr 28px 1fr;
+gap:8px;
+}
+
+.ai-step{
+font-size:.68rem;
+}
+}
+
+@media(max-width:430px){
+.clean-visual{
+height:340px !important;
+min-height:340px !important;
+padding:16px !important;
+}
+
+.network-map{
+height:295px;
+max-width:285px;
+}
+
+.net-node{
+min-width:82px;
+height:40px;
+font-size:.62rem;
+padding:0 10px;
+}
+
+.net-firewall{top:74px;}
+.net-core{top:148px;}
+
+.net-line-v1{
+top:40px;
+height:34px;
+}
+
+.net-line-v2{
+top:114px;
+height:34px;
+}
+
+.net-line-l{
+width:95px;
+left:49px;
+top:224px;
+}
+
+.net-line-r{
+width:95px;
+right:49px;
+top:224px;
+}
+
+.ai-flow-row{
+grid-template-columns:1fr 16px 1fr 16px 1fr 16px 1fr;
+gap:4px;
+}
+
+.ai-step{
+height:74px;
+font-size:.5rem;
+border-radius:16px;
+padding:5px;
+}
+
+.ai-arrow::after{
+border-left-width:6px;
+border-top-width:4px;
+border-bottom-width:4px;
+top:-3px;
+}
+
+.wireless-tags{
+grid-template-columns:1fr 1fr;
+gap:8px;
+}
+
+.wireless-tags span{
+font-size:.62rem;
+padding:7px 8px;
+}
+
+.wifi-clean{
+width:190px !important;
+height:190px !important;
+}
+
+.wifi-clean-ring.r3{
+width:188px !important;
+height:188px !important;
+}
+}
+
+
+/* =========================
+HOW WE WORK SHINY CARDS FIX
+========================= */
+
+.process-strip{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:22px;
+}
+
+.process-step{
+position:relative;
+overflow:hidden;
+padding:30px;
+transition:.35s;
+}
+
+.process-step:hover{
+transform:translateY(-10px);
+border-color:rgba(56,189,248,.25);
+box-shadow:
+0 20px 60px rgba(0,0,0,.35),
+0 0 25px rgba(56,189,248,.12);
+}
+
+.process-step::before{
+content:'';
+position:absolute;
+inset:0;
+background:
+linear-gradient(rgba(56,189,248,.035) 1px,transparent 1px),
+linear-gradient(90deg,rgba(56,189,248,.035) 1px,transparent 1px);
+background-size:42px 42px;
+opacity:.55;
+z-index:0;
+}
+
+.process-step::after{
+content:'';
+position:absolute;
+top:0;
+left:-120%;
+width:100%;
+height:100%;
+background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);
+transition:.8s;
+pointer-events:none;
+z-index:4;
+}
+
+.process-step:hover::after{
+left:120%;
+}
+
+.process-step > *{
+position:relative;
+z-index:2;
+}
+
+.process-step span{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+width:50px;
+height:50px;
+border-radius:16px;
+color:#38bdf8;
+font-weight:900;
+background:linear-gradient(135deg,rgba(37,99,235,.25),rgba(6,182,212,.15));
+border:1px solid rgba(255,255,255,.08);
+box-shadow:0 0 25px rgba(56,189,248,.12);
+margin-bottom:18px;
+}
+
+.process-step h3{
+font-size:1.16rem;
+margin-bottom:10px;
+}
+
+.process-step p{
+color:#b6c2d1;
+font-size:.94rem;
+}
+
+.process-link-wrap{
+display:flex;
+justify-content:center;
+gap:14px;
+flex-wrap:wrap;
+margin-top:36px;
+}
+
+@media(max-width:1250px){
+.process-strip{
+grid-template-columns:repeat(2,1fr);
+}
+}
+
+@media(max-width:950px){
+.process-strip{
+grid-template-columns:1fr;
+}
+
+.process-step:hover{
+transform:none;
+}
+
+.process-link-wrap .btn{
+width:100%;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+
+<div class="container navbar">
+
+<a href="/" class="logo">
+<svg width="38" height="38" viewBox="0 0 24 24" fill="none">
+<path d="M12 2L3 6V12C3 16.5 6.2 20.7 12 22C17.8 20.7 21 16.5 21 12V6L12 2Z"
+stroke="#38bdf8"
+stroke-width="1.8"
+fill="rgba(56,189,248,.08)"/>
+<circle cx="12" cy="12" r="2.3" fill="#38bdf8"/>
+</svg>
+DAMALZ <span>Tech</span>
+</a>
+
+<nav class="nav-links">
+<a href="/">Home</a>
+<a href="/services/" class="active">Services</a>
+<a href="/private-ai/">Private AI</a>
+<a href="/vendors/">Technology</a>
+<a href="/how-we-work/">How We Work</a>
+<a href="/about/">About</a>
+<a href="/contact/">Contact</a>
+</nav>
+
+<div class="mobile-toggle" id="mobileToggle" role="button" aria-label="Open mobile menu" tabindex="0">☰</div>
+
+</div>
+
+</header>
+
+<!-- MOBILE MENU -->
+
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+
+<div class="mobile-close" id="mobileClose" role="button" aria-label="Close mobile menu" tabindex="0">✕</div>
+
+<a href="/">Home</a>
+<a href="/services/">Services</a>
+<a href="/private-ai/">Private AI</a>
+<a href="/vendors/">Technology</a>
+<a href="/how-we-work/">How We Work</a>
+<a href="/about/">About</a>
+<a href="/contact/">Contact</a>
+
+</div>
+
+<!-- INTRO -->
+
+<section class="page-intro">
+
+<div class="container">
+
+<h1>Managed Technology <span>Services</span></h1>
+
+<p>
+DAMALZ Tech provides practical managed IT, infrastructure deployment, cybersecurity, wireless engineering, monitoring, secure home networking, and private AI infrastructure services.
+</p>
+
+<div class="page-actions">
+<button type="button" class="btn btn-primary open-popup">Request Consultation</button>
+<a href="/contact/" class="btn btn-secondary">Contact DAMALZ Tech</a>
+</div>
+
+</div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section id="services">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>Core Service Areas</h2>
+
+<p>
+Services are designed for small businesses, startups, remote workers, home offices, technology-focused homes, and growing organizations.
+</p>
+
+</div>
+
+<div class="grid">
+
+<div class="glass card">
+<div class="icon-wrap">🖥️</div>
+<h3>Managed IT Services</h3>
+<p>
+Operational IT support and infrastructure management for business stability, uptime, and continuity.
+</p>
+<ul class="service-list">
+<li>Remote support and troubleshooting</li>
+<li>Endpoint administration</li>
+<li>System maintenance</li>
+<li>Patch management</li>
+<li>Infrastructure monitoring</li>
+</ul>
+</div>
+
+<div class="glass card">
+<div class="icon-wrap">🗄️</div>
+<h3>Infrastructure Deployment</h3>
+<p>
+Deployment and organization of network, server, cabling, rack, firewall, and wireless environments.
+</p>
+<ul class="service-list">
+<li>Server and rack installation</li>
+<li>Switch and firewall setup</li>
+<li>Structured cabling support</li>
+<li>Network labeling and documentation</li>
+<li>Small office infrastructure builds</li>
+</ul>
+</div>
+
+<div class="glass card">
+<div class="icon-wrap">🔐</div>
+<h3>Cybersecurity Solutions</h3>
+<p>
+Security-first infrastructure planning to help reduce risk and improve access control.
+</p>
+<ul class="service-list">
+<li>Firewall planning and deployment</li>
+<li>VPN and secure remote access</li>
+<li>Network segmentation</li>
+<li>Endpoint protection planning</li>
+<li>Security hardening guidance</li>
+</ul>
+</div>
+
+<div class="glass card">
+<div class="icon-wrap">📶</div>
+<h3>Wireless Engineering</h3>
+<p>
+WiFi planning and optimization for reliable business, home office, and small office connectivity.
+</p>
+<ul class="service-list">
+<li>Wireless design planning</li>
+<li>Access point placement</li>
+<li>Coverage improvement</li>
+<li>RF optimization concepts</li>
+<li>Guest and secure WiFi design</li>
+</ul>
+</div>
+
+<div class="glass card">
+<div class="icon-wrap">📊</div>
+<h3>Monitoring & Visibility</h3>
+<p>
+Operational visibility for networks, systems, devices, performance, uptime, and alerting.
+</p>
+<ul class="service-list">
+<li>Infrastructure dashboards</li>
+<li>Uptime and health monitoring</li>
+<li>Alerting concepts</li>
+<li>Performance tracking</li>
+<li>Reporting and documentation</li>
+</ul>
+</div>
+
+<div class="glass card">
+<div class="icon-wrap">🏠</div>
+<h3>Secure Home Infrastructure</h3>
+<p>
+Enterprise-style home and small office networking for remote workers, labs, and smart environments.
+</p>
+<ul class="service-list">
+<li>Advanced WiFi design</li>
+<li>Firewall and VLAN planning</li>
+<li>Smart device isolation</li>
+<li>Home lab support</li>
+<li>Secure remote access planning</li>
+</ul>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- TECHNICAL VISUALS -->
+
+<section id="technical-visuals">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>Infrastructure Designs & Technical Visuals</h2>
+
+<p>
+High-level visual examples showing how DAMALZ Tech thinks about network architecture, private AI workflows, monitoring concepts, and wireless planning.
+</p>
+
+</div>
+
+<div class="tech-visual-grid">
+
+<div class="glass tech-visual-card">
+
+<h3>Network Architecture</h3>
+
+<p>
+A clean high-level view of internet, firewall, core switching, WiFi, and server resources in one managed environment.
+</p>
+
+<div class="clean-visual">
+
+<div class="network-flow">
+
+<div class="network-map">
+
+<div class="net-node net-internet">Internet</div>
+
+<div class="net-line net-line-v1">
+<span class="flow-dot"></span>
+</div>
+
+<div class="net-node net-firewall">Firewall</div>
+
+<div class="net-line net-line-v2">
+<span class="flow-dot"></span>
+</div>
+
+<div class="net-node net-core">Core Switch</div>
+
+<div class="net-line net-line-l">
+<span class="flow-dot"></span>
+</div>
+
+<div class="net-line net-line-r">
+<span class="flow-dot"></span>
+</div>
+
+<div class="net-node net-wifi">WiFi</div>
+<div class="net-node net-servers">Servers</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="glass tech-visual-card">
+
+<h3>Private AI Workflow</h3>
+
+<p>
+A practical private AI flow for business documents, private search, local models, and controlled assistant workflows.
+</p>
+
+<div class="clean-visual">
+
+<div class="ai-flow-full">
+
+<div class="ai-flow-row">
+
+<div class="ai-step">Business<br>Docs</div>
+<div class="ai-arrow"></div>
+<div class="ai-step">Private<br>Search</div>
+<div class="ai-arrow"></div>
+<div class="ai-step">Local<br>LLM</div>
+<div class="ai-arrow"></div>
+<div class="ai-step">AI<br>Assistant</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="glass tech-visual-card">
+
+<h3>Monitoring Concepts</h3>
+
+<p>
+A high-level visibility model for infrastructure health, server health, security status, availability, and operational review.
+</p>
+
+<div class="clean-visual">
+
+<div class="monitor-clean">
+
+<div class="monitor-clean-dots">
+<span></span><span></span><span></span>
+</div>
+
+<div class="monitor-clean-row">
+<label><span>Network Health</span><span>Online</span></label>
+<div class="monitor-clean-bar a"><span></span></div>
+</div>
+
+<div class="monitor-clean-row">
+<label><span>Server Health</span><span>Stable</span></label>
+<div class="monitor-clean-bar b"><span></span></div>
+</div>
+
+<div class="monitor-clean-row">
+<label><span>Security Status</span><span>Reviewed</span></label>
+<div class="monitor-clean-bar c"><span></span></div>
+</div>
+
+<div class="monitor-clean-row">
+<label><span>Availability</span><span>Ready</span></label>
+<div class="monitor-clean-bar a"><span></span></div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="glass tech-visual-card">
+
+<h3>Wireless Planning</h3>
+
+<p>
+A simplified visual for site survey concepts, heat mapping, access point placement, RF coverage, and validation.
+</p>
+
+<div class="clean-visual">
+
+<div class="wireless-full">
+
+<div class="wireless-tags">
+<span>Site Survey</span>
+<span>Heat Map</span>
+<span>RF Coverage</span>
+<span>Validation</span>
+</div>
+
+<div class="wifi-clean">
+<div class="wifi-clean-ring r1"></div>
+<div class="wifi-clean-ring r2"></div>
+<div class="wifi-clean-ring r3"></div>
+<div class="wifi-clean-core">📶</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- PROCESS PREVIEW -->
+
+<section id="process-preview">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>How We Work</h2>
+
+<p>
+A clear process for understanding your environment, designing the right solution, deploying cleanly, and supporting long-term technology operations.
+</p>
+
+</div>
+
+<div class="process-strip">
+
+<div class="glass process-step">
+<span>01</span>
+<h3>Discover</h3>
+<p>Understand your environment, needs, problems, business goals, and technical requirements.</p>
+</div>
+
+<div class="glass process-step">
+<span>02</span>
+<h3>Design</h3>
+<p>Build a practical plan around security, reliability, scalability, and operational value.</p>
+</div>
+
+<div class="glass process-step">
+<span>03</span>
+<h3>Deploy</h3>
+<p>Implement infrastructure, networking, security, monitoring, wireless, or AI solutions.</p>
+</div>
+
+<div class="glass process-step">
+<span>04</span>
+<h3>Support</h3>
+<p>Provide documentation, guidance, follow-up, improvement options, and ongoing support planning.</p>
+</div>
+
+</div>
+
+<div class="process-link-wrap">
+<a href="/how-we-work/" class="btn btn-primary">View Full How We Work Page</a>
+<button type="button" class="btn btn-secondary open-popup">Request Consultation</button>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section id="service-cta">
+
+<div class="container">
+
+<div class="glass cta-box">
+
+<h2>Need Help Planning Your Technology Environment?</h2>
+
+<p>
+DAMALZ Tech can help review your current setup, identify gaps, and plan practical next steps for infrastructure, networking, security, monitoring, wireless, or private AI.
+</p>
+
+<div class="page-actions">
+<button type="button" class="btn btn-primary open-popup">Request Consultation</button>
+<a href="/contact/" class="btn btn-secondary">Contact DAMALZ Tech</a>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div>
+<a href="/" class="logo" style="margin-bottom:18px;">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+<path d="M12 2L3 6V12C3 16.5 6.2 20.7 12 22C17.8 20.7 21 16.5 21 12V6L12 2Z"
+stroke="#38bdf8"
+stroke-width="1.8"
+fill="rgba(56,189,248,.08)"/>
+<circle cx="12" cy="12" r="2.3" fill="#38bdf8"/>
+</svg>
+DAMALZ <span>Tech</span>
+</a>
+
+<p style="color:#9db0c5;">
+Managed IT, infrastructure, networking, cybersecurity, wireless engineering, private AI, and business technology solutions.
+</p>
+</div>
+
+<div>
+<h3 class="footer-title">Pages</h3>
+<div class="footer-links">
+<a href="/">Home</a>
+<a href="/services/">Services</a>
+<a href="/private-ai/">Private AI</a>
+<a href="/vendors/">Technology</a>
+<a href="/how-we-work/">How We Work</a>
+<a href="/about/">About</a>
+<a href="/contact/">Contact</a>
+</div>
+</div>
+
+<div>
+<h3 class="footer-title">Core Services</h3>
+<div class="footer-links">
+<a href="/services/">Managed IT Services</a>
+<a href="/services/">Infrastructure Deployment</a>
+<a href="/services/">Cybersecurity</a>
+<a href="/private-ai/">Private AI Solutions</a>
+</div>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 DAMALZ Technologies LLC • Managed IT • Infrastructure • Cybersecurity • Private AI
+</div>
+
+</div>
+
+</footer>
+
+<!-- POPUP FORM -->
+
+<div class="popup-overlay" id="popup" aria-hidden="true">
+
+<div class="popup-box">
+
+<button class="popup-close" id="closePopup" type="button" aria-label="Close consultation form">✕</button>
+
+<h2>Request Consultation</h2>
+
+<p>
+Tell us what you need help with. DAMALZ Tech can review your request and follow up by email.
+</p>
+
+<form class="popup-form" id="consultationForm" action="https://formsubmit.co/info@damalztech.com" method="POST">
+
+<input type="hidden" name="_subject" value="New DAMALZ Tech Consultation Request">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_next" value="https://damalztech.com/?submitted=true">
+
+<input type="text" name="name" placeholder="Full Name" required>
+
+<input type="email" name="email" placeholder="Business Email" required>
+
+<input type="text" name="company" placeholder="Company Name">
+
+<input type="text" name="location" placeholder="City / State">
+
+<select name="service" required>
+<option value="" disabled selected>Select Service Area</option>
+<option>Managed IT Services</option>
+<option>Infrastructure Deployment</option>
+<option>Cybersecurity</option>
+<option>Wireless Engineering</option>
+<option>Private AI Solutions</option>
+<option>Secure Home Infrastructure</option>
+<option>Monitoring Solutions</option>
+<option>Security Cameras</option>
+<option>Other / Not Sure Yet</option>
+</select>
+
+<textarea name="message" placeholder="Tell us about your project, environment, issue, or goal..." required></textarea>
+
+<div class="form-note">
+By submitting this form, your request will be sent to DAMALZ Technologies LLC by email.
+</div>
+
+<button type="submit" class="btn btn-primary">
+Submit Consultation Request
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function(){
+
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileToggle = document.getElementById('mobileToggle');
+const mobileClose = document.getElementById('mobileClose');
+
+function openMobileMenu(){
+if(!mobileMenu) return;
+mobileMenu.classList.add('active');
+mobileMenu.setAttribute('aria-hidden','false');
+document.body.style.overflow = 'hidden';
+}
+
+function closeMobileMenu(){
+if(!mobileMenu) return;
+mobileMenu.classList.remove('active');
+mobileMenu.setAttribute('aria-hidden','true');
+document.body.style.overflow = '';
+}
+
+if(mobileToggle){
+mobileToggle.addEventListener('click', openMobileMenu);
+mobileToggle.addEventListener('keydown', function(e){
+if(e.key === 'Enter' || e.key === ' '){
+e.preventDefault();
+openMobileMenu();
+}
+});
+}
+
+if(mobileClose){
+mobileClose.addEventListener('click', closeMobileMenu);
+mobileClose.addEventListener('keydown', function(e){
+if(e.key === 'Enter' || e.key === ' '){
+e.preventDefault();
+closeMobileMenu();
+}
+});
+}
+
+document.querySelectorAll('.mobile-menu a').forEach(function(link){
+link.addEventListener('click', closeMobileMenu);
+});
+
+const popup = document.getElementById('popup');
+const closePopup = document.getElementById('closePopup');
+const consultationForm = document.getElementById('consultationForm');
+
+function openPopup(e){
+if(e) e.preventDefault();
+if(!popup) return;
+popup.classList.add('active');
+popup.setAttribute('aria-hidden','false');
+document.body.style.overflow = 'hidden';
+}
+
+function closePopupFn(){
+if(!popup) return;
+popup.classList.remove('active');
+popup.setAttribute('aria-hidden','true');
+document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.open-popup').forEach(function(btn){
+btn.addEventListener('click', openPopup);
+});
+
+if(closePopup){
+closePopup.addEventListener('click', closePopupFn);
+}
+
+if(popup){
+popup.addEventListener('click', function(e){
+if(e.target === popup){
+closePopupFn();
+}
+});
+}
+
+if(consultationForm){
+consultationForm.addEventListener('submit', function(){
+setTimeout(function(){
+consultationForm.reset();
+}, 250);
+});
+}
+
+document.addEventListener('keydown', function(e){
+if(e.key === 'Escape'){
+closeMobileMenu();
+closePopupFn();
+}
+});
+
+});
+
+</script>
+
+</body>
+</html>
