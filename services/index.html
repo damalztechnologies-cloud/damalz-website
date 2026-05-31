@@ -271,7 +271,7 @@ background:rgba(255,255,255,.08);
 transform:translateY(-4px);
 }
 
-/* PAGE INTRO */
+/* INTRO */
 
 .page-intro{
 padding-top:165px;
@@ -307,7 +307,7 @@ justify-content:center;
 flex-wrap:wrap;
 }
 
-/* CARDS */
+/* SERVICE CARDS */
 
 .grid{
 display:grid;
@@ -385,7 +385,7 @@ ul li::marker{
 color:#38bdf8;
 }
 
-/* TECHNICAL VISUALS */
+/* TECHNICAL VISUALS - CLEAN VERSION */
 
 .tech-visual-grid{
 display:grid;
@@ -397,7 +397,7 @@ align-items:stretch;
 .tech-visual-card{
 position:relative;
 overflow:hidden;
-padding:32px;
+padding:34px;
 min-height:500px;
 display:flex;
 flex-direction:column;
@@ -443,7 +443,6 @@ left:120%;
 
 .tech-visual-card h3,
 .tech-visual-card p,
-.visual-chip-row,
 .clean-visual{
 position:relative;
 z-index:2;
@@ -458,33 +457,15 @@ min-height:54px;
 
 .tech-visual-card p{
 color:#b6c2d1;
-font-size:.92rem;
+font-size:.94rem;
 line-height:1.65;
-margin-bottom:22px;
-min-height:96px;
-}
-
-.visual-chip-row{
-display:flex;
-flex-wrap:wrap;
-gap:8px;
-margin-bottom:22px;
-min-height:64px;
-}
-
-.visual-chip-row span{
-padding:7px 10px;
-border-radius:999px;
-font-size:.72rem;
-font-weight:800;
-color:#dbeafe;
-background:rgba(56,189,248,.08);
-border:1px solid rgba(56,189,248,.16);
+margin-bottom:26px;
+min-height:120px;
 }
 
 .clean-visual{
 margin-top:auto;
-height:230px;
+height:255px;
 border-radius:24px;
 background:rgba(2,8,23,.48);
 border:1px solid rgba(255,255,255,.07);
@@ -494,27 +475,28 @@ justify-content:center;
 overflow:hidden;
 }
 
+/* Network Architecture */
 .arch-stack{
-width:78%;
-max-width:260px;
+width:82%;
+max-width:280px;
 display:flex;
 flex-direction:column;
 align-items:center;
-gap:12px;
+gap:18px;
 }
 
 .arch-row{
 display:flex;
 justify-content:center;
 align-items:center;
-gap:14px;
+gap:30px;
 width:100%;
 }
 
 .arch-node{
-min-width:86px;
-height:42px;
-padding:0 12px;
+min-width:94px;
+height:44px;
+padding:0 13px;
 border-radius:15px;
 display:flex;
 align-items:center;
@@ -525,6 +507,7 @@ color:#e6f7ff;
 background:rgba(255,255,255,.075);
 border:1px solid rgba(56,189,248,.24);
 box-shadow:0 0 22px rgba(56,189,248,.12);
+white-space:nowrap;
 }
 
 .arch-line{
@@ -536,29 +519,31 @@ box-shadow:0 0 16px rgba(56,189,248,.65);
 
 .arch-line-wide{
 height:2px;
-width:72%;
+width:78%;
 background:linear-gradient(90deg,transparent,#38bdf8,transparent);
 box-shadow:0 0 16px rgba(56,189,248,.65);
 }
 
+/* Private AI */
 .ai-clean-flow{
-width:88%;
+width:92%;
 display:grid;
-grid-template-columns:1fr 28px 1fr 28px 1fr;
+grid-template-columns:1fr 40px 1fr 40px 1fr;
 align-items:center;
 gap:8px;
 }
 
 .ai-clean-box{
-height:88px;
+height:95px;
 border-radius:20px;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
-font-size:.7rem;
+font-size:.78rem;
 font-weight:900;
 line-height:1.25;
+padding:10px;
 color:#e6f7ff;
 background:rgba(255,255,255,.075);
 border:1px solid rgba(56,189,248,.24);
@@ -582,13 +567,14 @@ border-top:5px solid transparent;
 border-bottom:5px solid transparent;
 }
 
+/* Monitoring */
 .monitor-clean{
-width:82%;
-max-width:260px;
+width:90%;
+max-width:280px;
 border-radius:22px;
 background:rgba(8,17,31,.62);
 border:1px solid rgba(56,189,248,.12);
-padding:22px;
+padding:24px;
 }
 
 .monitor-clean-dots{
@@ -606,12 +592,17 @@ box-shadow:0 0 12px rgba(56,189,248,.35);
 }
 
 .monitor-clean-row{
-margin-bottom:16px;
+margin-bottom:20px;
+}
+
+.monitor-clean-row:last-child{
+margin-bottom:0;
 }
 
 .monitor-clean-row label{
 display:flex;
 justify-content:space-between;
+gap:14px;
 color:#cbd5e1;
 font-size:.72rem;
 font-weight:900;
@@ -637,18 +628,19 @@ box-shadow:0 0 18px rgba(56,189,248,.4);
 .monitor-clean-bar.b span{width:74%;}
 .monitor-clean-bar.c span{width:96%;}
 
+/* Wireless */
 .wifi-clean{
 position:relative;
-width:220px;
-height:220px;
+width:230px;
+height:230px;
 display:flex;
 align-items:center;
 justify-content:center;
 }
 
 .wifi-clean-core{
-width:78px;
-height:78px;
+width:82px;
+height:82px;
 border-radius:24px;
 display:flex;
 align-items:center;
@@ -656,25 +648,27 @@ justify-content:center;
 font-size:2rem;
 background:rgba(56,189,248,.10);
 border:1px solid rgba(56,189,248,.34);
-box-shadow:0 0 40px rgba(56,189,248,.20);
+box-shadow:
+0 0 30px rgba(56,189,248,.30),
+0 0 60px rgba(56,189,248,.15);
 z-index:3;
 }
 
 .wifi-clean-ring{
 position:absolute;
 border-radius:50%;
-border:2px solid rgba(56,189,248,.17);
+border:2px solid rgba(56,189,248,.25);
 animation:cleanWifiPulse 3.4s ease-out infinite;
 }
 
-.wifi-clean-ring.r1{width:116px;height:116px;}
-.wifi-clean-ring.r2{width:166px;height:166px;animation-delay:.8s;}
-.wifi-clean-ring.r3{width:216px;height:216px;animation-delay:1.6s;}
+.wifi-clean-ring.r1{width:120px;height:120px;}
+.wifi-clean-ring.r2{width:172px;height:172px;animation-delay:.8s;}
+.wifi-clean-ring.r3{width:224px;height:224px;animation-delay:1.6s;}
 
 @keyframes cleanWifiPulse{
-0%{opacity:.1;transform:scale(.82);}
-45%{opacity:.52;}
-100%{opacity:.04;transform:scale(1.08);}
+0%{opacity:.16;transform:scale(.82);}
+45%{opacity:.62;}
+100%{opacity:.07;transform:scale(1.08);}
 }
 
 /* PROCESS PREVIEW */
@@ -948,17 +942,24 @@ transform:none;
 
 .tech-visual-card{
 min-height:auto;
-padding:26px;
+padding:28px;
 }
 
 .tech-visual-card h3,
-.tech-visual-card p,
-.visual-chip-row{
+.tech-visual-card p{
 min-height:auto;
 }
 
 .clean-visual{
-height:250px;
+height:280px;
+}
+
+.arch-stack{
+gap:16px;
+}
+
+.ai-clean-flow{
+max-width:360px;
 }
 
 .footer-grid{
@@ -1000,21 +1001,30 @@ padding:14px;
 }
 
 @media(max-width:420px){
+.clean-visual{
+height:255px;
+}
+
+.arch-node{
+min-width:76px;
+height:40px;
+font-size:.62rem;
+padding:0 9px;
+}
+
+.arch-row{
+gap:14px;
+}
+
 .ai-clean-flow{
 grid-template-columns:1fr 18px 1fr 18px 1fr;
 gap:6px;
 }
 
 .ai-clean-box{
-height:72px;
+height:76px;
 font-size:.58rem;
 border-radius:16px;
-}
-
-.arch-node{
-min-width:74px;
-height:40px;
-font-size:.64rem;
 }
 
 .cta-box{
@@ -1232,14 +1242,8 @@ High-level visual examples showing how DAMALZ Tech thinks about network architec
 <h3>Network Architecture</h3>
 
 <p>
-A clean overview of how internet, firewall, core switching, WiFi, and server resources connect together.
+A clean high-level view of internet, firewall, core switching, WiFi, and server resources in one managed environment.
 </p>
-
-<div class="visual-chip-row">
-<span>Firewall Security</span>
-<span>Core Switching</span>
-<span>Wireless</span>
-</div>
 
 <div class="clean-visual">
 <div class="arch-stack">
@@ -1263,22 +1267,16 @@ A clean overview of how internet, firewall, core switching, WiFi, and server res
 <h3>Private AI Workflow</h3>
 
 <p>
-A professional AI flow for documents, vector search, local models, and private business assistant workflows.
+A practical private AI flow for business documents, private search, local models, and controlled assistant workflows.
 </p>
-
-<div class="visual-chip-row">
-<span>Documents</span>
-<span>Vector Search</span>
-<span>Local AI</span>
-</div>
 
 <div class="clean-visual">
 <div class="ai-clean-flow">
 <div class="ai-clean-box">Business<br>Docs</div>
 <div class="ai-clean-arrow"></div>
-<div class="ai-clean-box">Vector<br>Search</div>
+<div class="ai-clean-box">Private<br>Search</div>
 <div class="ai-clean-arrow"></div>
-<div class="ai-clean-box">Private<br>AI</div>
+<div class="ai-clean-box">Local<br>AI</div>
 </div>
 </div>
 
@@ -1289,14 +1287,8 @@ A professional AI flow for documents, vector search, local models, and private b
 <h3>Monitoring Concepts</h3>
 
 <p>
-A high-level view of infrastructure health, server health, security status, uptime, and operations visibility.
+A high-level visibility model for network health, server health, security status, uptime, and operational review.
 </p>
-
-<div class="visual-chip-row">
-<span>Network Health</span>
-<span>Server Health</span>
-<span>Security Status</span>
-</div>
 
 <div class="clean-visual">
 <div class="monitor-clean">
@@ -1330,14 +1322,8 @@ A high-level view of infrastructure health, server health, security status, upti
 <h3>Wireless Planning</h3>
 
 <p>
-A simplified view of wireless planning, RF coverage, site survey concepts, access point placement, and validation.
+A simplified visual for site survey concepts, heat mapping, access point placement, RF coverage, and validation.
 </p>
-
-<div class="visual-chip-row">
-<span>Site Survey</span>
-<span>Heat Mapping</span>
-<span>Coverage Validation</span>
-</div>
 
 <div class="clean-visual">
 <div class="wifi-clean">
@@ -1367,7 +1353,7 @@ A simplified view of wireless planning, RF coverage, site survey concepts, acces
 <h2>How We Work</h2>
 
 <p>
-The full process is available on the dedicated process page. This is the simple overview of how DAMALZ Tech approaches service delivery.
+The full process can be added to a dedicated page later. This is the simple overview of how DAMALZ Tech approaches service delivery.
 </p>
 
 </div>
@@ -1398,10 +1384,6 @@ The full process is available on the dedicated process page. This is the simple 
 <p>Provide documentation, guidance, follow-up, and ongoing improvement options.</p>
 </div>
 
-</div>
-
-<div style="text-align:center;margin-top:34px;">
-<a href="/how-we-work/" class="btn btn-secondary">View Full Process</a>
 </div>
 
 </div>
