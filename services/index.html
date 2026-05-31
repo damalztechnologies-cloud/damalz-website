@@ -1712,6 +1712,277 @@ width:100%;
 }
 }
 
+
+/* =========================
+FINAL SERVICES LAYOUT FIX
+2x2 TECH VISUALS + CLICKABLE PROCESS CARDS
+========================= */
+
+/* Technical visuals should not stay 4 side-by-side on desktop */
+.tech-visual-grid{
+display:grid !important;
+grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+gap:30px !important;
+align-items:stretch !important;
+}
+
+.tech-visual-card{
+min-height:680px !important;
+padding:42px !important;
+}
+
+.tech-visual-card h3{
+font-size:1.75rem !important;
+min-height:auto !important;
+}
+
+.tech-visual-card p{
+font-size:1rem !important;
+min-height:92px !important;
+max-width:560px !important;
+}
+
+.clean-visual{
+height:390px !important;
+min-height:390px !important;
+padding:28px !important;
+overflow:hidden !important;
+}
+
+.network-map{
+max-width:360px !important;
+height:330px !important;
+}
+
+.net-node{
+min-width:108px !important;
+height:46px !important;
+font-size:.76rem !important;
+}
+
+.net-firewall{
+top:86px !important;
+}
+
+.net-core{
+top:172px !important;
+}
+
+.net-line-v1{
+top:46px !important;
+height:40px !important;
+}
+
+.net-line-v2{
+top:132px !important;
+height:40px !important;
+}
+
+.net-line-l{
+width:132px !important;
+left:58px !important;
+top:253px !important;
+transform:rotate(-20deg) !important;
+}
+
+.net-line-r{
+width:132px !important;
+right:58px !important;
+top:253px !important;
+transform:rotate(20deg) !important;
+}
+
+.ai-flow-row{
+max-width:460px !important;
+grid-template-columns:1fr 44px 1fr 44px 1fr 44px 1fr !important;
+gap:10px !important;
+}
+
+.ai-step{
+height:104px !important;
+font-size:.75rem !important;
+}
+
+.monitor-clean{
+max-width:380px !important;
+width:92% !important;
+padding:30px !important;
+}
+
+.monitor-clean-row label{
+font-size:.82rem !important;
+}
+
+.wireless-tags{
+max-width:360px !important;
+grid-template-columns:repeat(4,1fr) !important;
+}
+
+.wifi-clean{
+width:250px !important;
+height:250px !important;
+}
+
+.wifi-clean-core{
+width:88px !important;
+height:88px !important;
+}
+
+.wifi-clean-ring.r1{width:130px !important;height:130px !important;}
+.wifi-clean-ring.r2{width:190px !important;height:190px !important;}
+.wifi-clean-ring.r3{width:246px !important;height:246px !important;}
+
+/* How We Work cards should be links and shiny */
+.process-strip{
+display:grid !important;
+grid-template-columns:repeat(4,1fr) !important;
+gap:22px !important;
+}
+
+a.process-step{
+display:block;
+color:inherit;
+text-decoration:none;
+}
+
+.process-step{
+cursor:pointer;
+}
+
+.process-step:hover h3{
+color:#38bdf8;
+}
+
+/* Remove any button wrapper under process */
+.process-link-wrap{
+display:none !important;
+}
+
+/* Desktop/tablet behavior */
+@media(max-width:1250px){
+.tech-visual-grid{
+grid-template-columns:1fr !important;
+}
+
+.tech-visual-card{
+min-height:auto !important;
+}
+
+.process-strip{
+grid-template-columns:repeat(2,1fr) !important;
+}
+}
+
+/* Mobile */
+@media(max-width:950px){
+.tech-visual-grid,
+.process-strip{
+grid-template-columns:1fr !important;
+}
+
+.tech-visual-card{
+padding:28px !important;
+}
+
+.clean-visual{
+height:360px !important;
+min-height:360px !important;
+padding:22px !important;
+}
+
+.tech-visual-card p{
+min-height:auto !important;
+}
+
+.network-map{
+max-width:320px !important;
+height:315px !important;
+}
+
+.ai-flow-row{
+max-width:360px !important;
+grid-template-columns:1fr 28px 1fr 28px 1fr 28px 1fr !important;
+gap:8px !important;
+}
+
+.ai-step{
+height:86px !important;
+font-size:.64rem !important;
+}
+
+.wireless-tags{
+grid-template-columns:repeat(2,1fr) !important;
+max-width:280px !important;
+}
+}
+
+@media(max-width:430px){
+.clean-visual{
+height:330px !important;
+min-height:330px !important;
+padding:16px !important;
+}
+
+.network-map{
+height:295px !important;
+max-width:285px !important;
+}
+
+.net-node{
+min-width:82px !important;
+height:40px !important;
+font-size:.62rem !important;
+padding:0 10px !important;
+}
+
+.net-firewall{top:74px !important;}
+.net-core{top:148px !important;}
+
+.net-line-v1{
+top:40px !important;
+height:34px !important;
+}
+
+.net-line-v2{
+top:114px !important;
+height:34px !important;
+}
+
+.net-line-l{
+width:95px !important;
+left:49px !important;
+top:224px !important;
+}
+
+.net-line-r{
+width:95px !important;
+right:49px !important;
+top:224px !important;
+}
+
+.ai-flow-row{
+grid-template-columns:1fr 16px 1fr 16px 1fr 16px 1fr !important;
+gap:4px !important;
+}
+
+.ai-step{
+height:74px !important;
+font-size:.5rem !important;
+border-radius:16px !important;
+padding:5px !important;
+}
+
+.wifi-clean{
+width:190px !important;
+height:190px !important;
+}
+
+.wifi-clean-ring.r3{
+width:188px !important;
+height:188px !important;
+}
+}
+
 </style>
 </head>
 
@@ -2079,6 +2350,7 @@ A simplified visual for site survey concepts, heat mapping, access point placeme
 
 
 
+
 <!-- PROCESS PREVIEW -->
 
 <section id="process-preview">
@@ -2097,40 +2369,36 @@ A clear process for understanding your environment, designing the right solution
 
 <div class="process-strip">
 
-<div class="glass process-step">
+<a href="/how-we-work/" class="glass process-step">
 <span>01</span>
 <h3>Discover</h3>
 <p>Understand your environment, needs, problems, business goals, and technical requirements.</p>
-</div>
+</a>
 
-<div class="glass process-step">
+<a href="/how-we-work/" class="glass process-step">
 <span>02</span>
 <h3>Design</h3>
 <p>Build a practical plan around security, reliability, scalability, and operational value.</p>
-</div>
+</a>
 
-<div class="glass process-step">
+<a href="/how-we-work/" class="glass process-step">
 <span>03</span>
 <h3>Deploy</h3>
 <p>Implement infrastructure, networking, security, monitoring, wireless, or AI solutions.</p>
-</div>
+</a>
 
-<div class="glass process-step">
+<a href="/how-we-work/" class="glass process-step">
 <span>04</span>
 <h3>Support</h3>
 <p>Provide documentation, guidance, follow-up, improvement options, and ongoing support planning.</p>
-</div>
+</a>
 
-</div>
-
-<div class="process-link-wrap">
-<a href="/how-we-work/" class="btn btn-primary">View Full How We Work Page</a>
-<button type="button" class="btn btn-secondary open-popup">Request Consultation</button>
 </div>
 
 </div>
 
 </section>
+
 
 
 <!-- CTA -->
