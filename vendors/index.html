@@ -76,6 +76,7 @@ footer{padding:60px 0;border-top:1px solid rgba(255,255,255,.06);background:#070
 
 
 
+
 /* DAMALZ professional technology cards - no fake logos, no broken images */
 .technology-clean-grid{
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr)) !important;
@@ -83,7 +84,7 @@ footer{padding:60px 0;border-top:1px solid rgba(255,255,255,.06);background:#070
 }
 
 .technology-card{
-  min-height:235px;
+  min-height:250px;
   display:flex;
   flex-direction:column;
   align-items:flex-start;
@@ -128,13 +129,96 @@ footer{padding:60px 0;border-top:1px solid rgba(255,255,255,.06);background:#070
   box-shadow:0 0 34px rgba(56,189,248,.22),inset 0 1px 0 rgba(255,255,255,.08);
 }
 
+.vendor-disclaimer{
+  max-width:900px;
+  margin:36px auto 0;
+  color:#8fa1b8;
+  text-align:center;
+  font-size:.94rem;
+  line-height:1.7;
+}
+
+.technology-categories{
+  padding-top:50px;
+}
+
+.category-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:24px;
+}
+
+.category-card{
+  padding:30px;
+  position:relative;
+  overflow:hidden;
+  transition:.35s;
+}
+
+.category-card:hover{
+  transform:translateY(-8px);
+  border-color:rgba(56,189,248,.25);
+  box-shadow:0 20px 55px rgba(0,0,0,.34),0 0 25px rgba(56,189,248,.11);
+}
+
+.category-card:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(rgba(56,189,248,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(56,189,248,.035) 1px,transparent 1px);
+  background-size:42px 42px;
+  opacity:.45;
+  z-index:0;
+}
+
+.category-card:after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-120%;
+  width:100%;
+  height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);
+  transition:.8s;
+  pointer-events:none;
+  z-index:4;
+}
+
+.category-card:hover:after{
+  left:120%;
+}
+
+.category-card>*{
+  position:relative;
+  z-index:2;
+}
+
+.category-card h3{
+  font-size:1.22rem;
+  margin-bottom:12px;
+  color:#f8fafc;
+}
+
+.category-card p{
+  color:#9fb0c6;
+  font-size:.95rem;
+  line-height:1.65;
+  margin:0;
+}
+
 @media(max-width:950px){
-  .technology-clean-grid{
+  .technology-clean-grid,
+  .category-grid{
     grid-template-columns:1fr !important;
   }
 
-  .technology-card{
+  .technology-card,
+  .category-card{
     min-height:auto;
+  }
+
+  .vendor-disclaimer{
+    text-align:left;
   }
 }
 
@@ -152,7 +236,8 @@ footer{padding:60px 0;border-top:1px solid rgba(255,255,255,.06);background:#070
 <a href="/about/">About</a>
 <a href="/contact/">Contact</a></div>
 <section class="page-intro"><div class="container"><h1>Technology <span>Ecosystem</span></h1><p>Technologies, platforms, and vendor ecosystems DAMALZ Tech works with, evaluates, or supports across infrastructure, networking, security, cloud, and AI environments.</p></div></section>
-<section><div class="container"><div class="section-title"><h2>Technology Ecosystems We Support</h2><p>A practical view of the platforms and technology ecosystems DAMALZ Tech can support, configure, evaluate, or integrate for business environments.</p></div>
+<section><div class="container"><div class="section-title"><h2>Technology Ecosystems We Support</h2><p>A practical view of platforms DAMALZ Tech can support, configure, evaluate, integrate, or help maintain across real business environments.</p></div>
+
 
 
 
@@ -162,78 +247,131 @@ footer{padding:60px 0;border-top:1px solid rgba(255,255,255,.06);background:#070
   <div class="glass vendor-box technology-card">
     <div class="vendor-mark">01</div>
     <div class="vendor-name">Cisco</div>
-    <p>Routing, switching, enterprise network infrastructure</p>
+    <p>Switching, routing, VLANs, VPNs, wireless, and enterprise network infrastructure.</p>
   </div>
 
   <div class="glass vendor-box technology-card">
     <div class="vendor-mark">02</div>
     <div class="vendor-name">Ubiquiti</div>
-    <p>UniFi switching, wireless, cameras, and small-business networks</p>
+    <p>UniFi switching, wireless, cameras, gateways, and small-business network environments.</p>
   </div>
 
   <div class="glass vendor-box technology-card">
     <div class="vendor-mark">03</div>
     <div class="vendor-name">Fortinet</div>
-    <p>Firewall security, VPN, edge protection, and secure access</p>
+    <p>Firewall security, VPN, edge protection, secure access, and network segmentation.</p>
   </div>
 
   <div class="glass vendor-box technology-card">
     <div class="vendor-mark">04</div>
     <div class="vendor-name">Dell</div>
-    <p>Servers, workstations, storage, endpoints, and rack hardware</p>
+    <p>Servers, workstations, storage, endpoints, rack hardware, and business infrastructure.</p>
   </div>
 
   <div class="glass vendor-box technology-card">
     <div class="vendor-mark">05</div>
     <div class="vendor-name">HPE</div>
-    <p>Server, storage, switching, and enterprise infrastructure platforms</p>
+    <p>Server, storage, switching, and enterprise infrastructure platforms.</p>
   </div>
 
   <div class="glass vendor-box technology-card">
     <div class="vendor-mark">06</div>
     <div class="vendor-name">Microsoft</div>
-    <p>Microsoft 365, Azure, identity, endpoint, and cloud services</p>
+    <p>Microsoft 365, Azure, identity, endpoint, email, and cloud productivity services.</p>
   </div>
 
   <div class="glass vendor-box technology-card">
     <div class="vendor-mark">07</div>
     <div class="vendor-name">VMware</div>
-    <p>Virtualization, server platforms, and workload infrastructure</p>
+    <p>Virtualization, server platforms, workload hosting, and infrastructure modernization.</p>
   </div>
 
   <div class="glass vendor-box technology-card">
     <div class="vendor-mark">08</div>
     <div class="vendor-name">Proxmox</div>
-    <p>Open-source virtualization, labs, clusters, and self-hosting</p>
+    <p>Open-source virtualization, clusters, self-hosted systems, and lab environments.</p>
   </div>
 
   <div class="glass vendor-box technology-card">
     <div class="vendor-mark">09</div>
     <div class="vendor-name">Linux</div>
-    <p>Ubuntu, Debian, Red Hat-style systems, servers, and automation</p>
+    <p>Ubuntu, Debian, Red Hat-style systems, servers, scripting, and automation.</p>
   </div>
 
   <div class="glass vendor-box technology-card">
     <div class="vendor-mark">10</div>
     <div class="vendor-name">Docker</div>
-    <p>Containers, self-hosted services, application deployment</p>
+    <p>Containers, self-hosted services, application deployment, and lightweight platforms.</p>
   </div>
 
   <div class="glass vendor-box technology-card">
     <div class="vendor-mark">11</div>
     <div class="vendor-name">AWS</div>
-    <p>Cloud infrastructure, hosting, backup, and application platforms</p>
+    <p>Cloud infrastructure, hosting, backup, storage, and application platforms.</p>
   </div>
 
   <div class="glass vendor-box technology-card">
     <div class="vendor-mark">12</div>
     <div class="vendor-name">Red Hat</div>
-    <p>Enterprise Linux ecosystem, automation, and server platforms</p>
+    <p>Enterprise Linux ecosystem, automation concepts, and server platform support.</p>
+  </div>
+
+  <div class="glass vendor-box technology-card">
+    <div class="vendor-mark">13</div>
+    <div class="vendor-name">Ekahau</div>
+    <p>WiFi site surveys, heatmaps, RF analysis, wireless validation, and optimization.</p>
   </div>
 
 </div>
 
+<p class="vendor-disclaimer">
+Vendor and platform names are listed to describe technology experience and supported ecosystems. DAMALZ Tech does not claim official partnership, reseller status, or vendor authorization unless specifically stated.
+</p>
 </section>
+
+<section class="technology-categories">
+  <div class="container">
+    <div class="section-title">
+      <h2>Technology Support Areas</h2>
+      <p>These categories show how the listed ecosystems connect to real business services, infrastructure work, and ongoing operations.</p>
+    </div>
+
+    <div class="category-grid">
+
+      <div class="glass category-card">
+        <h3>Networking & Wireless</h3>
+        <p>Switching, routing, VLANs, VPNs, WiFi design, RF troubleshooting, and wireless optimization.</p>
+      </div>
+
+      <div class="glass category-card">
+        <h3>Firewalls & Security</h3>
+        <p>Firewall deployment, secure remote access, segmentation, endpoint protection, and hardening.</p>
+      </div>
+
+      <div class="glass category-card">
+        <h3>Servers & Virtualization</h3>
+        <p>Rack servers, virtualization hosts, storage, backup systems, and platform lifecycle support.</p>
+      </div>
+
+      <div class="glass category-card">
+        <h3>Cloud & Microsoft 365</h3>
+        <p>Microsoft 365, Azure, email, identity, backup, migration, and hybrid cloud operations.</p>
+      </div>
+
+      <div class="glass category-card">
+        <h3>Monitoring & Automation</h3>
+        <p>Dashboards, alerting, logging, operational visibility, scripting, and repeatable workflows.</p>
+      </div>
+
+      <div class="glass category-card">
+        <h3>Private AI & Self-Hosted Systems</h3>
+        <p>Local AI, secure internal tools, containerized apps, and controlled data environments.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <footer><div class="container"><div class="footer-grid"><div><a href="/" class="logo" style="margin-bottom:18px;"><svg width="32" height="32" viewBox="0 0 24 24" fill="none"><path d="M12 2L3 6V12C3 16.5 6.2 20.7 12 22C17.8 20.7 21 16.5 21 12V6L12 2Z" stroke="#38bdf8" stroke-width="1.8" fill="rgba(56,189,248,.08)"/><circle cx="12" cy="12" r="2.3" fill="#38bdf8"/></svg>DAMALZ <span>Tech</span></a><p style="color:#9db0c5;">Managed IT, infrastructure, networking, cybersecurity, wireless engineering, private AI, and business technology solutions.</p></div><div><h3 class="footer-title">Pages</h3><div class="footer-links"><a href="/">Home</a><a href="/services/">Services</a><a href="/private-ai/">Private AI</a><a href="/vendors/">Technology</a><a href="/how-we-work/">How We Work</a><a href="/about/">About</a><a href="/contact/">Contact</a></div></div><div><h3 class="footer-title">Core Services</h3><div class="footer-links"><a href="/services/">Managed IT Services</a><a href="/services/">Infrastructure Deployment</a><a href="/services/">Cybersecurity</a><a href="/private-ai/">Private AI Solutions</a></div></div></div><div class="footer-bottom">© 2026 DAMALZ Technologies LLC • Managed IT • Infrastructure • Cybersecurity • Private AI</div></div></footer><div class="popup-overlay" id="popup" aria-hidden="true"><div class="popup-box"><button class="popup-close" id="closePopup" type="button" aria-label="Close consultation form">✕</button><h2>Request Consultation</h2><p>Tell us what you need help with. DAMALZ Tech can review your request and follow up by email.</p><form class="popup-form" id="consultationForm" action="https://api.web3forms.com/submit" method="POST"><input type="hidden" name="access_key" value="4d1ed1ac-fb5e-4c40-9b01-5725d4e2900d"><input type="hidden" name="subject" value="New DAMALZ Technologies Consultation Request"><input type="hidden" name="from_name" value="DAMALZ Tech Website"><input type="checkbox" name="botcheck" style="display:none" aria-hidden="true" tabindex="-1"><input type="text" name="name" placeholder="Full Name" required><input type="email" name="email" placeholder="Business Email" required><input type="text" name="company" placeholder="Company Name"><input type="text" name="location" placeholder="City / State"><select name="service" required><option value="" disabled selected>Select Service Area</option><option>Managed IT Services</option><option>Infrastructure Deployment</option><option>Cybersecurity</option><option>Wireless Engineering</option><option>Private AI Solutions</option><option>Secure Home Infrastructure</option><option>Monitoring Solutions</option><option>Security Cameras</option><option>Other / Not Sure Yet</option></select><textarea name="message" placeholder="Tell us about your project, environment, issue, or goal..." required></textarea><div class="form-note">Your request will be sent to DAMALZ Technologies LLC by email.</div><div class="form-status" id="formStatus" role="status" aria-live="polite"></div><button type="submit" class="btn btn-primary">Submit Consultation Request</button></form></div></div><script>
 document.addEventListener('DOMContentLoaded', function(){
 
