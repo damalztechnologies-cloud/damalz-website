@@ -46,7 +46,32 @@ footer{padding:60px 0;border-top:1px solid rgba(255,255,255,.06);background:#070
 @media(max-width:1250px){.nav-links{gap:16px}.nav-links a{font-size:14px}.tech-visual-grid{grid-template-columns:1fr}.process-strip{grid-template-columns:repeat(2,1fr)}.feature-split{grid-template-columns:1fr}.feature-panel,.feature-visual{min-height:auto}}
 @media(max-width:950px){.container{width:92%}.nav-links{display:none}.mobile-toggle{display:flex}.navbar{padding:14px 0}.logo{font-size:1.08rem}.logo svg{width:32px;height:32px}.page-intro{padding-top:135px}.hero{padding-top:135px;text-align:center}.hero-grid{grid-template-columns:1fr;gap:34px}.hero p{margin:auto auto 30px}.hero-actions,.hero-badges{justify-content:center}.hero-actions .btn,.page-actions .btn{width:100%}.hero-card{animation:none;padding:24px}.hero-card-grid,.grid,.process-strip,.contact-grid{grid-template-columns:1fr}.card:hover,.process-step:hover,.vendor-box:hover,.feature-panel:hover,.hero-mini-card:hover{transform:none}section{padding:80px 0}.tech-visual-card{min-height:auto;padding:28px}.clean-visual{height:360px;min-height:360px;padding:22px}.tech-visual-card p{min-height:auto}.network-map{max-width:320px;height:315px}.ai-flow-row{max-width:360px;grid-template-columns:1fr 28px 1fr 28px 1fr 28px 1fr;gap:8px}.ai-step{height:86px;font-size:.64rem}.wireless-tags{grid-template-columns:repeat(2,1fr);max-width:280px}.footer-grid{text-align:center}footer .logo{justify-content:center}.popup-overlay{align-items:flex-start;overflow-y:auto;padding:14px}.popup-box{margin-top:80px;padding:28px;border-radius:26px}.popup-form{grid-template-columns:1fr}}
 @media(max-width:430px){.page-intro h1,.hero h1{font-size:clamp(2.45rem,13vw,3.35rem);letter-spacing:-1px}.clean-visual{height:330px;min-height:330px;padding:16px}.network-map{height:295px;max-width:285px}.net-node{min-width:82px;height:40px;font-size:.62rem;padding:0 10px}.net-firewall{top:74px}.net-core{top:148px}.net-line-v1{top:40px;height:34px}.net-line-v2{top:114px;height:34px}.net-line-l{width:95px;left:49px;top:224px}.net-line-r{width:95px;right:49px;top:224px}.ai-flow-row{grid-template-columns:1fr 16px 1fr 16px 1fr 16px 1fr;gap:4px}.ai-step{height:74px;font-size:.5rem;border-radius:16px;padding:5px}.feature-panel{padding:28px}.feature-visual{padding:24px}.ai-hub{height:330px}.ai-center{width:112px;height:112px;font-size:2rem}.ai-hub-node{min-width:96px;height:46px;font-size:.72rem}.ai-hub-line.v-top,.ai-hub-line.v-bottom{height:70px}.ai-hub-line.h-left{left:96px;width:82px}.ai-hub-line.h-right{right:96px;width:82px}.home-network-map{height:340px}.home-center{width:88px;height:88px;font-size:1.8rem}.home-ring.r1{width:140px;height:140px}.home-ring.r2{width:210px;height:210px}.home-ring.r3{width:280px;height:280px}.home-node{min-width:76px;height:42px;font-size:.66rem}.home-glow-line.top,.home-glow-line.bottom{height:82px}.home-glow-line.left{width:88px;left:76px}.home-glow-line.right{width:88px;right:76px}.cta-box{padding:32px 22px}}
-.form-status{grid-column:1/-1;display:none;padding:14px 16px;border-radius:16px;font-size:.9rem;font-weight:800;line-height:1.5;margin-top:2px}.form-status.active{display:block;color:#d8f8ff;background:linear-gradient(135deg,rgba(56,189,248,.12),rgba(37,99,235,.10));border:1px solid rgba(56,189,248,.28);box-shadow:0 0 24px rgba(56,189,248,.14),inset 0 1px 0 rgba(255,255,255,.06)}.form-status.error{display:block;color:#fecaca;background:rgba(239,68,68,.10);border:1px solid rgba(239,68,68,.28);box-shadow:0 0 18px rgba(239,68,68,.08)}</style></head><body><header><div class="container navbar"><a href="/" class="logo"><svg width="38" height="38" viewBox="0 0 24 24" fill="none"><path d="M12 2L3 6V12C3 16.5 6.2 20.7 12 22C17.8 20.7 21 16.5 21 12V6L12 2Z" stroke="#38bdf8" stroke-width="1.8" fill="rgba(56,189,248,.08)"/><circle cx="12" cy="12" r="2.3" fill="#38bdf8"/></svg>DAMALZ <span>Tech</span></a><nav class="nav-links"><a href="/" class="active">Home</a>
+.form-status{grid-column:1/-1;display:none;padding:14px 16px;border-radius:16px;font-size:.9rem;font-weight:800;line-height:1.5;margin-top:2px}.form-status.active{display:block;color:#d8f8ff;background:linear-gradient(135deg,rgba(56,189,248,.12),rgba(37,99,235,.10));border:1px solid rgba(56,189,248,.28);box-shadow:0 0 24px rgba(56,189,248,.14),inset 0 1px 0 rgba(255,255,255,.06)}.form-status.error{display:block;color:#fecaca;background:rgba(239,68,68,.10);border:1px solid rgba(239,68,68,.28);box-shadow:0 0 18px rgba(239,68,68,.08)}
+/* DAMALZ mobile safety patch */
+@media(max-width:950px){
+  body{overflow-x:hidden !important;}
+  .container{width:92% !important;}
+  img,svg{max-width:100%;}
+  .popup-box{max-height:92vh !important;overflow-y:auto !important;}
+  .popup-form{grid-template-columns:1fr !important;}
+  .popup-form input,
+  .popup-form select,
+  .popup-form textarea,
+  .popup-form button{width:100% !important;}
+  .hero,
+  .page-hero{text-align:center !important;}
+  .hero h1,
+  .page-hero h1{font-size:clamp(2.45rem,11vw,3.35rem) !important;line-height:1.08 !important;}
+  .hero p,
+  .page-hero p,
+  .section-title p{font-size:1rem !important;max-width:100% !important;}
+  .grid,
+  .cards-grid,
+  .content-grid,
+  .process-grid{grid-template-columns:1fr !important;}
+}
+
+</style></head><body><header><div class="container navbar"><a href="/" class="logo"><svg width="38" height="38" viewBox="0 0 24 24" fill="none"><path d="M12 2L3 6V12C3 16.5 6.2 20.7 12 22C17.8 20.7 21 16.5 21 12V6L12 2Z" stroke="#38bdf8" stroke-width="1.8" fill="rgba(56,189,248,.08)"/><circle cx="12" cy="12" r="2.3" fill="#38bdf8"/></svg>DAMALZ <span>Tech</span></a><nav class="nav-links"><a href="/" class="active">Home</a>
 <a href="/services/" class="">Services</a>
 <a href="/private-ai/" class="">Private AI</a>
 <a href="/vendors/" class="">Technology</a>
@@ -179,7 +204,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
         if(status){
           status.className = 'form-status active';
-          status.textContent = '✓ Thank you. Your consultation request has been submitted successfully. DAMALZ Tech will review your message and follow up by email.';
+          status.textContent = '✓ Thank you. Your request has been received. DAMALZ Tech will contact you soon.';
         }
 
         consultationForm.reset();
