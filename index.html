@@ -252,7 +252,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
 });
 </script>
-<!-- ================= DAMALZ AI ASSISTANT WIDGET ================= -->
+<!-- ================= DAMALZ ASSIST — LOCAL AI WIDGET ================= -->
 
 <script>
 const DAMALZ_AI_API = "https://ai.damalztech.com/chat";
@@ -261,166 +261,251 @@ const DAMALZ_AI_API = "https://ai.damalztech.com/chat";
 <script>
 (function(){
 
-  if (window.__DAMALZ_AI_WIDGET_LOADED__) return;
-  window.__DAMALZ_AI_WIDGET_LOADED__ = true;
+  if (window.__DAMALZ_ASSIST_LOADED__) return;
+  window.__DAMALZ_ASSIST_LOADED__ = true;
 
   const style = document.createElement("style");
 
   style.innerHTML = `
-    .damalz-ai-launcher{
+    :root{
+      --dmz-bg:#08111f;
+      --dmz-card:#0d1728;
+      --dmz-line:rgba(255,255,255,.08);
+      --dmz-blue:#38bdf8;
+      --dmz-blue2:#2563eb;
+      --dmz-cyan:#06b6d4;
+      --dmz-text:#e5edf7;
+      --dmz-muted:#9fb0c6;
+    }
+
+    .dmz-assist-launcher{
       position:fixed;
       right:22px;
       bottom:22px;
       z-index:99999;
       border:none;
       border-radius:999px;
-      padding:15px 20px;
-      background:linear-gradient(135deg,#2563eb,#0891b2);
+      padding:12px 16px 12px 12px;
+      background:linear-gradient(135deg,rgba(37,99,235,.96),rgba(8,145,178,.96));
       color:#fff;
-      font-weight:900;
-      font-size:14px;
-      letter-spacing:.2px;
-      box-shadow:0 18px 45px rgba(37,99,235,.45),0 0 25px rgba(56,189,248,.20);
-      cursor:pointer;
       font-family:Inter,Arial,sans-serif;
+      font-weight:900;
+      font-size:13px;
+      letter-spacing:.15px;
+      box-shadow:0 18px 45px rgba(37,99,235,.42),0 0 24px rgba(56,189,248,.18);
+      cursor:pointer;
       display:flex;
       align-items:center;
       gap:10px;
-      transition:.3s ease;
+      transition:transform .25s ease, box-shadow .25s ease, opacity .25s ease;
+      isolation:isolate;
     }
 
-    .damalz-ai-launcher:hover{
+    .dmz-assist-launcher:hover{
       transform:translateY(-4px);
-      box-shadow:0 24px 60px rgba(37,99,235,.55),0 0 35px rgba(56,189,248,.28);
+      box-shadow:0 24px 62px rgba(37,99,235,.52),0 0 34px rgba(56,189,248,.24);
     }
 
-    .damalz-ai-dot{
-      width:10px;
-      height:10px;
+    .dmz-assist-icon{
+      width:36px;
+      height:36px;
       border-radius:50%;
-      background:#22c55e;
-      box-shadow:0 0 16px rgba(34,197,94,.8);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.12);
+      color:#fff;
+      font-weight:950;
+      font-size:13px;
+      line-height:1;
     }
 
-    .damalz-ai-panel{
+    .dmz-assist-launch-text{
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      line-height:1.08;
+    }
+
+    .dmz-assist-launch-text strong{
+      font-size:13px;
+      color:#fff;
+    }
+
+    .dmz-assist-launch-text span{
+      color:#d8f8ff;
+      opacity:.88;
+      font-size:10px;
+      font-weight:800;
+      margin-top:3px;
+    }
+
+    .dmz-assist-backdrop{
+      position:fixed;
+      inset:0;
+      z-index:99998;
+      background:rgba(2,8,23,.42);
+      backdrop-filter:blur(4px);
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .28s ease;
+    }
+
+    .dmz-assist-backdrop.active{
+      opacity:1;
+      pointer-events:auto;
+    }
+
+    .dmz-assist-panel{
       position:fixed;
       top:0;
-      right:-460px;
-      width:min(94vw,460px);
-      height:100vh;
+      right:-480px;
+      width:min(94vw,480px);
+      height:100dvh;
       z-index:100000;
-      background:#08111f;
+      background:
+        radial-gradient(circle at top right,rgba(56,189,248,.16),transparent 38%),
+        radial-gradient(circle at bottom left,rgba(37,99,235,.10),transparent 42%),
+        #08111f;
       color:#fff;
-      border-left:1px solid rgba(56,189,248,.22);
-      box-shadow:-30px 0 90px rgba(0,0,0,.62);
-      transition:.35s ease;
+      border-left:1px solid rgba(56,189,248,.20);
+      box-shadow:-32px 0 90px rgba(0,0,0,.66);
+      transition:right .34s cubic-bezier(.2,.7,.2,1);
       display:flex;
       flex-direction:column;
       font-family:Inter,Arial,sans-serif;
       overflow:hidden;
     }
 
-    .damalz-ai-panel.active{
+    .dmz-assist-panel.active{
       right:0;
     }
 
-    .damalz-ai-header{
-      padding:20px;
+    .dmz-assist-header{
+      padding:18px 18px 16px;
       border-bottom:1px solid rgba(255,255,255,.08);
-      background:
-        radial-gradient(circle at top right,rgba(56,189,248,.13),transparent 45%),
-        rgba(255,255,255,.02);
+      background:rgba(255,255,255,.025);
       display:flex;
       justify-content:space-between;
       align-items:center;
       gap:14px;
     }
 
-    .damalz-ai-brand{
+    .dmz-assist-brand{
       display:flex;
       align-items:center;
       gap:12px;
+      min-width:0;
     }
 
-    .damalz-ai-logo{
-      width:42px;
-      height:42px;
-      border-radius:15px;
+    .dmz-assist-mark{
+      width:44px;
+      height:44px;
+      border-radius:16px;
       display:flex;
       align-items:center;
       justify-content:center;
-      background:linear-gradient(135deg,rgba(37,99,235,.28),rgba(6,182,212,.16));
-      border:1px solid rgba(56,189,248,.25);
-      box-shadow:0 0 24px rgba(56,189,248,.18);
+      background:linear-gradient(135deg,rgba(56,189,248,.15),rgba(37,99,235,.13));
+      border:1px solid rgba(56,189,248,.28);
+      box-shadow:0 0 24px rgba(56,189,248,.14),inset 0 1px 0 rgba(255,255,255,.08);
       color:#38bdf8;
-      font-weight:900;
-    }
-
-    .damalz-ai-title h3{
-      margin:0;
-      color:#fff;
-      font-size:1.05rem;
-      line-height:1.2;
-    }
-
-    .damalz-ai-title span{
-      color:#38bdf8;
-      font-size:.78rem;
-      font-weight:800;
-    }
-
-    .damalz-ai-close{
-      background:rgba(255,255,255,.08);
-      border:1px solid rgba(255,255,255,.08);
-      color:#fff;
-      width:40px;
-      height:40px;
-      border-radius:13px;
-      cursor:pointer;
-      font-size:20px;
+      font-weight:950;
       flex:0 0 auto;
     }
 
-    .damalz-ai-notice{
-      padding:13px 20px;
-      color:#aebdd0;
-      font-size:.86rem;
-      line-height:1.45;
-      border-bottom:1px solid rgba(255,255,255,.06);
-      background:rgba(255,255,255,.025);
+    .dmz-assist-title{
+      min-width:0;
     }
 
-    .damalz-ai-notice strong{
+    .dmz-assist-title h3{
+      margin:0;
+      color:#fff;
+      font-size:1.03rem;
+      line-height:1.2;
+      letter-spacing:-.2px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .dmz-assist-title span{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      color:#9fe8ff;
+      font-size:.76rem;
+      font-weight:850;
+      margin-top:5px;
+    }
+
+    .dmz-assist-live-dot{
+      width:8px;
+      height:8px;
+      border-radius:999px;
+      background:#22c55e;
+      box-shadow:0 0 14px rgba(34,197,94,.8);
+      display:inline-block;
+    }
+
+    .dmz-assist-close{
+      width:42px;
+      height:42px;
+      border-radius:14px;
+      background:rgba(255,255,255,.07);
+      border:1px solid rgba(255,255,255,.09);
+      color:#fff;
+      cursor:pointer;
+      font-size:21px;
+      flex:0 0 auto;
+      transition:.2s ease;
+    }
+
+    .dmz-assist-close:hover{
+      background:rgba(255,255,255,.12);
+    }
+
+    .dmz-assist-context{
+      padding:13px 18px;
+      color:#aebdd0;
+      font-size:.84rem;
+      line-height:1.45;
+      border-bottom:1px solid rgba(255,255,255,.06);
+      background:rgba(255,255,255,.022);
+    }
+
+    .dmz-assist-context strong{
       color:#38bdf8;
     }
 
-    .damalz-ai-suggestions{
-      padding:14px 20px;
+    .dmz-assist-chips{
+      padding:13px 18px;
       display:flex;
       gap:8px;
       flex-wrap:wrap;
       border-bottom:1px solid rgba(255,255,255,.06);
     }
 
-    .damalz-ai-suggestions button{
-      border:1px solid rgba(56,189,248,.25);
-      background:rgba(56,189,248,.08);
+    .dmz-assist-chips button{
+      border:1px solid rgba(56,189,248,.24);
+      background:rgba(56,189,248,.075);
       color:#d8f8ff;
       border-radius:999px;
-      padding:8px 11px;
-      font-size:.78rem;
-      font-weight:800;
+      padding:8px 10px;
+      font-size:.75rem;
+      font-weight:850;
       cursor:pointer;
-      transition:.25s;
+      transition:.22s ease;
       font-family:Inter,Arial,sans-serif;
     }
 
-    .damalz-ai-suggestions button:hover{
-      background:rgba(56,189,248,.15);
+    .dmz-assist-chips button:hover{
+      background:rgba(56,189,248,.14);
       transform:translateY(-2px);
     }
 
-    .damalz-ai-messages{
+    .dmz-assist-messages{
       flex:1;
       overflow-y:auto;
       padding:18px;
@@ -428,165 +513,291 @@ const DAMALZ_AI_API = "https://ai.damalztech.com/chat";
       flex-direction:column;
       gap:12px;
       background:
-        linear-gradient(rgba(56,189,248,.025) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(56,189,248,.025) 1px,transparent 1px);
+        linear-gradient(rgba(56,189,248,.022) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(56,189,248,.022) 1px,transparent 1px);
       background-size:38px 38px;
+      scroll-behavior:smooth;
     }
 
-    .damalz-ai-msg{
+    .dmz-assist-msg{
       padding:13px 15px;
-      border-radius:17px;
-      font-size:.92rem;
+      border-radius:18px;
+      font-size:.91rem;
       line-height:1.55;
       max-width:92%;
       white-space:pre-wrap;
-      word-wrap:break-word;
+      overflow-wrap:anywhere;
+      box-shadow:0 10px 22px rgba(0,0,0,.12);
     }
 
-    .damalz-ai-user{
+    .dmz-assist-user{
       align-self:flex-end;
       background:linear-gradient(135deg,#2563eb,#0891b2);
       color:#fff;
-      box-shadow:0 10px 24px rgba(37,99,235,.25);
+      border-bottom-right-radius:8px;
     }
 
-    .damalz-ai-bot{
+    .dmz-assist-bot{
       align-self:flex-start;
-      background:rgba(255,255,255,.065);
-      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.062);
+      border:1px solid rgba(255,255,255,.082);
       color:#dbeafe;
+      border-bottom-left-radius:8px;
     }
 
-    .damalz-ai-error{
+    .dmz-assist-error{
       align-self:flex-start;
       background:rgba(239,68,68,.10);
-      border:1px solid rgba(239,68,68,.25);
+      border:1px solid rgba(239,68,68,.26);
       color:#fecaca;
+      border-bottom-left-radius:8px;
     }
 
-    .damalz-ai-form{
+    .dmz-assist-typing{
+      display:inline-flex;
+      gap:4px;
+      align-items:center;
+      padding:3px 0;
+    }
+
+    .dmz-assist-typing i{
+      width:6px;
+      height:6px;
+      border-radius:50%;
+      background:#38bdf8;
+      display:block;
+      opacity:.45;
+      animation:dmzTyping 1.05s infinite ease-in-out;
+    }
+
+    .dmz-assist-typing i:nth-child(2){animation-delay:.15s;}
+    .dmz-assist-typing i:nth-child(3){animation-delay:.3s;}
+
+    @keyframes dmzTyping{
+      0%,80%,100%{transform:translateY(0);opacity:.35;}
+      40%{transform:translateY(-4px);opacity:1;}
+    }
+
+    .dmz-assist-footer{
+      padding:12px 16px 16px;
+      border-top:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.026);
+    }
+
+    .dmz-assist-form{
       display:flex;
       gap:10px;
-      padding:16px;
-      border-top:1px solid rgba(255,255,255,.08);
-      background:rgba(255,255,255,.025);
+      align-items:center;
     }
 
-    .damalz-ai-form input{
+    .dmz-assist-form input{
       flex:1;
-      border-radius:15px;
-      border:1px solid rgba(255,255,255,.08);
-      background:rgba(255,255,255,.06);
+      min-width:0;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.09);
+      background:rgba(255,255,255,.065);
       color:#fff;
       padding:13px 14px;
       outline:none;
       font-family:Inter,Arial,sans-serif;
       font-size:.92rem;
-      min-width:0;
+      transition:.2s ease;
     }
 
-    .damalz-ai-form input::placeholder{
+    .dmz-assist-form input:focus{
+      border-color:rgba(56,189,248,.38);
+      box-shadow:0 0 0 3px rgba(56,189,248,.10);
+    }
+
+    .dmz-assist-form input::placeholder{
       color:#94a3b8;
     }
 
-    .damalz-ai-form button{
+    .dmz-assist-form button{
+      width:46px;
+      height:46px;
       border:none;
-      border-radius:15px;
-      padding:0 17px;
+      border-radius:16px;
       background:#38bdf8;
       color:#06101f;
-      font-weight:900;
+      font-weight:950;
       cursor:pointer;
       font-family:Inter,Arial,sans-serif;
+      transition:.2s ease;
+      flex:0 0 auto;
     }
 
-    .damalz-ai-form button:disabled{
+    .dmz-assist-form button:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 24px rgba(56,189,248,.22);
+    }
+
+    .dmz-assist-form button:disabled{
       opacity:.55;
       cursor:not-allowed;
+      transform:none;
+      box-shadow:none;
     }
 
-    @media(max-width:600px){
-      .damalz-ai-launcher{
-        right:16px;
-        bottom:16px;
-        padding:13px 16px;
-        font-size:13px;
+    .dmz-assist-small-note{
+      margin-top:10px;
+      color:#7f91aa;
+      font-size:.72rem;
+      line-height:1.35;
+    }
+
+    @media(max-width:700px){
+      .dmz-assist-launcher{
+        right:14px;
+        bottom:14px;
+        padding:10px 13px 10px 10px;
+        gap:8px;
       }
 
-      .damalz-ai-panel{
+      .dmz-assist-icon{
+        width:34px;
+        height:34px;
+        font-size:12px;
+      }
+
+      .dmz-assist-launch-text strong{
+        font-size:12px;
+      }
+
+      .dmz-assist-launch-text span{
+        font-size:9px;
+      }
+
+      .dmz-assist-panel{
         width:100vw;
         right:-100vw;
+        border-left:none;
       }
 
-      .damalz-ai-panel.active{
-        right:0;
+      .dmz-assist-header{
+        padding:16px;
+      }
+
+      .dmz-assist-context,
+      .dmz-assist-chips{
+        padding-left:16px;
+        padding-right:16px;
+      }
+
+      .dmz-assist-messages{
+        padding:16px;
+      }
+
+      .dmz-assist-msg{
+        max-width:95%;
+        font-size:.9rem;
+      }
+    }
+
+    @media(max-width:420px){
+      .dmz-assist-launch-text span{
+        display:none;
+      }
+
+      .dmz-assist-chips button{
+        font-size:.72rem;
+        padding:8px 9px;
       }
     }
   `;
 
   document.head.appendChild(style);
 
-  const launcher = document.createElement("button");
-  launcher.className = "damalz-ai-launcher";
-  launcher.innerHTML = `<span class="damalz-ai-dot"></span> Ask DAMALZ AI`;
+  const backdrop = document.createElement("div");
+  backdrop.className = "dmz-assist-backdrop";
 
-  const panel = document.createElement("div");
-  panel.className = "damalz-ai-panel";
+  const launcher = document.createElement("button");
+  launcher.className = "dmz-assist-launcher";
+  launcher.type = "button";
+  launcher.setAttribute("aria-label","Open DAMALZ Assist");
+  launcher.innerHTML = `
+    <span class="dmz-assist-icon">AI</span>
+    <span class="dmz-assist-launch-text">
+      <strong>DAMALZ Assist</strong>
+      <span>Local AI demo</span>
+    </span>
+  `;
+
+  const panel = document.createElement("aside");
+  panel.className = "dmz-assist-panel";
+  panel.setAttribute("aria-hidden","true");
 
   panel.innerHTML = `
-    <div class="damalz-ai-header">
-      <div class="damalz-ai-brand">
-        <div class="damalz-ai-logo">AI</div>
-        <div class="damalz-ai-title">
-          <h3>DAMALZ AI Assistant</h3>
-          <span>Local AI Demo</span>
+    <div class="dmz-assist-header">
+      <div class="dmz-assist-brand">
+        <div class="dmz-assist-mark">AI</div>
+        <div class="dmz-assist-title">
+          <h3>DAMALZ Assist</h3>
+          <span><i class="dmz-assist-live-dot"></i> Local AI demo</span>
         </div>
       </div>
-      <button class="damalz-ai-close" type="button" aria-label="Close DAMALZ AI Assistant">×</button>
+      <button class="dmz-assist-close" type="button" aria-label="Close DAMALZ Assist">×</button>
     </div>
 
-    <div class="damalz-ai-notice">
-      <strong>Demo notice:</strong> This assistant is powered by DAMALZ local AI infrastructure. Do not enter passwords, private keys, or sensitive business data.
+    <div class="dmz-assist-context">
+      <strong>Local AI preview:</strong> Ask about DAMALZ Tech services, private AI, agent workflows, managed IT, networking, cybersecurity, monitoring, or self-hosted systems. Do not enter passwords or sensitive data.
     </div>
 
-    <div class="damalz-ai-suggestions">
+    <div class="dmz-assist-chips">
       <button type="button" data-q="What services does DAMALZ Technologies provide?">Services</button>
       <button type="button" data-q="What local AI system can DAMALZ Tech build for a small business?">Local AI</button>
       <button type="button" data-q="How can AI help IT support and helpdesk work?">Helpdesk AI</button>
       <button type="button" data-q="What can an AI network assistant do?">Network AI</button>
     </div>
 
-    <div class="damalz-ai-messages">
-      <div class="damalz-ai-msg damalz-ai-bot">
-Hello, I am DAMALZ AI Assistant. Ask me about managed IT, networking, cybersecurity, private local AI, agent AI workflows, monitoring, or self-hosted technology systems.
+    <div class="dmz-assist-messages">
+      <div class="dmz-assist-msg dmz-assist-bot">
+Hello, I am DAMALZ Assist — a local AI demo connected to DAMALZ Tech infrastructure. Ask me about managed IT, networking, cybersecurity, private local AI, agent AI workflows, monitoring, or self-hosted technology systems.
       </div>
     </div>
 
-    <form class="damalz-ai-form">
-      <input type="text" placeholder="Ask DAMALZ AI..." maxlength="700" required />
-      <button type="submit">Send</button>
-    </form>
+    <div class="dmz-assist-footer">
+      <form class="dmz-assist-form">
+        <input type="text" placeholder="Ask about local AI or IT services..." maxlength="700" required />
+        <button type="submit" aria-label="Send message">➜</button>
+      </form>
+      <div class="dmz-assist-small-note">Demo assistant only. For service requests, use the consultation form or email info@damalztech.com.</div>
+    </div>
   `;
 
+  document.body.appendChild(backdrop);
   document.body.appendChild(launcher);
   document.body.appendChild(panel);
 
-  const closeBtn = panel.querySelector(".damalz-ai-close");
-  const messages = panel.querySelector(".damalz-ai-messages");
-  const form = panel.querySelector(".damalz-ai-form");
+  const closeBtn = panel.querySelector(".dmz-assist-close");
+  const messages = panel.querySelector(".dmz-assist-messages");
+  const form = panel.querySelector(".dmz-assist-form");
   const input = form.querySelector("input");
   const sendBtn = form.querySelector("button");
 
+  function openPanel(){
+    panel.classList.add("active");
+    backdrop.classList.add("active");
+    panel.setAttribute("aria-hidden","false");
+    setTimeout(function(){ input.focus(); }, 330);
+  }
+
+  function closePanel(){
+    panel.classList.remove("active");
+    backdrop.classList.remove("active");
+    panel.setAttribute("aria-hidden","true");
+  }
+
   function addMessage(text, type){
     const div = document.createElement("div");
-    div.className = "damalz-ai-msg ";
+    div.className = "dmz-assist-msg ";
 
     if(type === "user"){
-      div.className += "damalz-ai-user";
+      div.className += "dmz-assist-user";
     }else if(type === "error"){
-      div.className += "damalz-ai-error";
+      div.className += "dmz-assist-error";
     }else{
-      div.className += "damalz-ai-bot";
+      div.className += "dmz-assist-bot";
     }
 
     div.textContent = text;
@@ -595,12 +806,21 @@ Hello, I am DAMALZ AI Assistant. Ask me about managed IT, networking, cybersecur
     return div;
   }
 
+  function addTyping(){
+    const div = document.createElement("div");
+    div.className = "dmz-assist-msg dmz-assist-bot";
+    div.innerHTML = '<span class="dmz-assist-typing"><i></i><i></i><i></i></span>';
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+    return div;
+  }
+
   async function sendMessage(text){
-    const cleanText = text.trim();
+    const cleanText = String(text || "").trim();
     if(!cleanText) return;
 
     addMessage(cleanText, "user");
-    const loading = addMessage("Thinking...", "bot");
+    const loading = addTyping();
 
     input.disabled = true;
     sendBtn.disabled = true;
@@ -631,9 +851,9 @@ Hello, I am DAMALZ AI Assistant. Ask me about managed IT, networking, cybersecur
         "I received your question, but no response was returned.";
 
     }catch(error){
-      console.error("DAMALZ AI widget error:", error);
+      console.error("DAMALZ Assist error:", error);
       loading.remove();
-      addMessage("DAMALZ AI is not reachable right now. Please try again later or email info@damalztech.com.", "error");
+      addMessage("DAMALZ Assist is not reachable right now. Please try again later or email info@damalztech.com.", "error");
     }finally{
       input.disabled = false;
       sendBtn.disabled = false;
@@ -641,15 +861,14 @@ Hello, I am DAMALZ AI Assistant. Ask me about managed IT, networking, cybersecur
     }
   }
 
-  launcher.addEventListener("click", function(){
-    panel.classList.add("active");
-    setTimeout(function(){
-      input.focus();
-    }, 350);
-  });
+  launcher.addEventListener("click", openPanel);
+  closeBtn.addEventListener("click", closePanel);
+  backdrop.addEventListener("click", closePanel);
 
-  closeBtn.addEventListener("click", function(){
-    panel.classList.remove("active");
+  document.addEventListener("keydown", function(e){
+    if(e.key === "Escape"){
+      closePanel();
+    }
   });
 
   form.addEventListener("submit", function(e){
@@ -668,6 +887,6 @@ Hello, I am DAMALZ AI Assistant. Ask me about managed IT, networking, cybersecur
 })();
 </script>
 
-<!-- ================= END DAMALZ AI ASSISTANT WIDGET ================= -->
+<!-- ================= END DAMALZ ASSIST — LOCAL AI WIDGET ================= -->
 
 </body></html>
