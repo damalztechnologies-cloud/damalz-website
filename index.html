@@ -252,7 +252,10 @@ document.addEventListener('DOMContentLoaded', function(){
 
 });
 </script>
-<!-- ================= DAMALZ ASSIST — LOCAL AI WIDGET ================= -->
+
+
+
+<!-- ================= DAMALZ ASSIST — TOP RIGHT LOCAL AI WIDGET ================= -->
 
 <script>
 const DAMALZ_AI_API = "https://ai.damalztech.com/chat";
@@ -269,8 +272,6 @@ const DAMALZ_AI_API = "https://ai.damalztech.com/chat";
   style.innerHTML = `
     :root{
       --dmz-bg:#08111f;
-      --dmz-card:#0d1728;
-      --dmz-line:rgba(255,255,255,.08);
       --dmz-blue:#38bdf8;
       --dmz-blue2:#2563eb;
       --dmz-cyan:#06b6d4;
@@ -278,68 +279,98 @@ const DAMALZ_AI_API = "https://ai.damalztech.com/chat";
       --dmz-muted:#9fb0c6;
     }
 
-    .dmz-assist-launcher{
+    .dmz-assist-top-button{
       position:fixed;
+      top:92px;
       right:22px;
-      bottom:22px;
       z-index:99999;
-      border:none;
-      border-radius:999px;
-      padding:12px 16px 12px 12px;
-      background:linear-gradient(135deg,rgba(37,99,235,.96),rgba(8,145,178,.96));
-      color:#fff;
-      font-family:Inter,Arial,sans-serif;
-      font-weight:900;
-      font-size:13px;
-      letter-spacing:.15px;
-      box-shadow:0 18px 45px rgba(37,99,235,.42),0 0 24px rgba(56,189,248,.18);
-      cursor:pointer;
-      display:flex;
-      align-items:center;
-      gap:10px;
-      transition:transform .25s ease, box-shadow .25s ease, opacity .25s ease;
-      isolation:isolate;
-    }
-
-    .dmz-assist-launcher:hover{
-      transform:translateY(-4px);
-      box-shadow:0 24px 62px rgba(37,99,235,.52),0 0 34px rgba(56,189,248,.24);
-    }
-
-    .dmz-assist-icon{
-      width:36px;
-      height:36px;
+      width:48px;
+      height:48px;
       border-radius:50%;
+      border:1px solid rgba(56,189,248,.35);
+      background:
+        radial-gradient(circle at 65% 25%,rgba(125,211,252,.95),transparent 18%),
+        radial-gradient(circle at 35% 70%,rgba(37,99,235,.95),transparent 34%),
+        linear-gradient(135deg,#2563eb,#0891b2);
+      color:#fff;
+      cursor:pointer;
+      box-shadow:
+        0 16px 40px rgba(37,99,235,.36),
+        0 0 28px rgba(56,189,248,.22),
+        inset 0 1px 0 rgba(255,255,255,.22);
       display:flex;
       align-items:center;
       justify-content:center;
-      background:rgba(255,255,255,.12);
-      border:1px solid rgba(255,255,255,.18);
-      box-shadow:inset 0 1px 0 rgba(255,255,255,.12);
-      color:#fff;
+      transition:transform .24s ease, box-shadow .24s ease, border-color .24s ease;
+      isolation:isolate;
+    }
+
+    .dmz-assist-top-button:hover{
+      transform:translateY(-3px) scale(1.04);
+      border-color:rgba(56,189,248,.75);
+      box-shadow:
+        0 22px 58px rgba(37,99,235,.50),
+        0 0 40px rgba(56,189,248,.35),
+        inset 0 1px 0 rgba(255,255,255,.28);
+    }
+
+    .dmz-assist-top-button::before{
+      content:"";
+      position:absolute;
+      inset:-7px;
+      border-radius:50%;
+      border:1px solid rgba(56,189,248,.16);
+      opacity:.85;
+      pointer-events:none;
+    }
+
+    .dmz-assist-top-button::after{
+      content:"";
+      position:absolute;
+      width:9px;
+      height:9px;
+      right:4px;
+      top:4px;
+      border-radius:50%;
+      background:#22c55e;
+      border:2px solid #08111f;
+      box-shadow:0 0 14px rgba(34,197,94,.85);
+    }
+
+    .dmz-assist-top-button span{
+      font-family:Inter,Arial,sans-serif;
       font-weight:950;
       font-size:13px;
-      line-height:1;
+      letter-spacing:-.2px;
+      position:relative;
+      z-index:2;
     }
 
-    .dmz-assist-launch-text{
-      display:flex;
-      flex-direction:column;
-      align-items:flex-start;
-      line-height:1.08;
-    }
-
-    .dmz-assist-launch-text strong{
-      font-size:13px;
-      color:#fff;
-    }
-
-    .dmz-assist-launch-text span{
-      color:#d8f8ff;
-      opacity:.88;
-      font-size:10px;
+    .dmz-assist-tooltip{
+      position:fixed;
+      top:104px;
+      right:82px;
+      z-index:99998;
+      background:rgba(8,17,31,.92);
+      color:#dbeafe;
+      border:1px solid rgba(56,189,248,.20);
+      border-radius:14px;
+      padding:9px 11px;
+      font-family:Inter,Arial,sans-serif;
+      font-size:12px;
       font-weight:800;
-      margin-top:3px;
+      box-shadow:0 16px 38px rgba(0,0,0,.35);
+      opacity:0;
+      transform:translateX(8px);
+      pointer-events:none;
+      transition:.22s ease;
+      white-space:nowrap;
+      backdrop-filter:blur(12px);
+    }
+
+    .dmz-assist-top-button:hover + .dmz-assist-tooltip{
+      opacity:1;
+      transform:translateX(0);
     }
 
     .dmz-assist-backdrop{
@@ -407,7 +438,9 @@ const DAMALZ_AI_API = "https://ai.damalztech.com/chat";
       display:flex;
       align-items:center;
       justify-content:center;
-      background:linear-gradient(135deg,rgba(56,189,248,.15),rgba(37,99,235,.13));
+      background:
+        radial-gradient(circle at 65% 25%,rgba(125,211,252,.70),transparent 18%),
+        linear-gradient(135deg,rgba(56,189,248,.15),rgba(37,99,235,.13));
       border:1px solid rgba(56,189,248,.28);
       box-shadow:0 0 24px rgba(56,189,248,.14),inset 0 1px 0 rgba(255,255,255,.08);
       color:#38bdf8;
@@ -646,28 +679,20 @@ const DAMALZ_AI_API = "https://ai.damalztech.com/chat";
       line-height:1.35;
     }
 
+    @media(max-width:950px){
+      .dmz-assist-top-button{
+        top:84px;
+        right:16px;
+        width:46px;
+        height:46px;
+      }
+
+      .dmz-assist-tooltip{
+        display:none;
+      }
+    }
+
     @media(max-width:700px){
-      .dmz-assist-launcher{
-        right:14px;
-        bottom:14px;
-        padding:10px 13px 10px 10px;
-        gap:8px;
-      }
-
-      .dmz-assist-icon{
-        width:34px;
-        height:34px;
-        font-size:12px;
-      }
-
-      .dmz-assist-launch-text strong{
-        font-size:12px;
-      }
-
-      .dmz-assist-launch-text span{
-        font-size:9px;
-      }
-
       .dmz-assist-panel{
         width:100vw;
         right:-100vw;
@@ -695,10 +720,6 @@ const DAMALZ_AI_API = "https://ai.damalztech.com/chat";
     }
 
     @media(max-width:420px){
-      .dmz-assist-launch-text span{
-        display:none;
-      }
-
       .dmz-assist-chips button{
         font-size:.72rem;
         padding:8px 9px;
@@ -712,16 +733,14 @@ const DAMALZ_AI_API = "https://ai.damalztech.com/chat";
   backdrop.className = "dmz-assist-backdrop";
 
   const launcher = document.createElement("button");
-  launcher.className = "dmz-assist-launcher";
+  launcher.className = "dmz-assist-top-button";
   launcher.type = "button";
   launcher.setAttribute("aria-label","Open DAMALZ Assist");
-  launcher.innerHTML = `
-    <span class="dmz-assist-icon">AI</span>
-    <span class="dmz-assist-launch-text">
-      <strong>DAMALZ Assist</strong>
-      <span>Local AI demo</span>
-    </span>
-  `;
+  launcher.innerHTML = `<span>AI</span>`;
+
+  const tooltip = document.createElement("div");
+  tooltip.className = "dmz-assist-tooltip";
+  tooltip.textContent = "DAMALZ Assist";
 
   const panel = document.createElement("aside");
   panel.className = "dmz-assist-panel";
@@ -758,7 +777,7 @@ Hello, I am DAMALZ Assist — a local AI demo connected to DAMALZ Tech infrastru
 
     <div class="dmz-assist-footer">
       <form class="dmz-assist-form">
-        <input type="text" placeholder="Ask about local AI or IT services..." maxlength="700" required />
+        <input type="text" placeholder="Ask DAMALZ Assist..." maxlength="700" required />
         <button type="submit" aria-label="Send message">➜</button>
       </form>
       <div class="dmz-assist-small-note">Demo assistant only. For service requests, use the consultation form or email info@damalztech.com.</div>
@@ -767,6 +786,7 @@ Hello, I am DAMALZ Assist — a local AI demo connected to DAMALZ Tech infrastru
 
   document.body.appendChild(backdrop);
   document.body.appendChild(launcher);
+  document.body.appendChild(tooltip);
   document.body.appendChild(panel);
 
   const closeBtn = panel.querySelector(".dmz-assist-close");
@@ -887,6 +907,6 @@ Hello, I am DAMALZ Assist — a local AI demo connected to DAMALZ Tech infrastru
 })();
 </script>
 
-<!-- ================= END DAMALZ ASSIST — LOCAL AI WIDGET ================= -->
+<!-- ================= END DAMALZ ASSIST — TOP RIGHT LOCAL AI WIDGET ================= -->
 
 </body></html>
